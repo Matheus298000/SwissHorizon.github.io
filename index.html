@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swiss Horizon | Roteiros Exclusivos pela Suíça 2027</title>
+  <meta name="description" content="Viagens exclusivas para a Suíça com a precisão dos trens alpinos. Roteiros Essencial, Premium e Exclusivo em duas janelas de embarque. Atendimento via WhatsApp.">
+
+  <!-- Favicon / Swiss Cross -->
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <!-- Google Fonts: DM Sans, Playfair Display, Space Grotesk, IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Playfair+Display:ital,wght@0,500..900;1,500..900&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       TOPBAR & NAVEGAÇÃO PRINCIPAL
+       ============================================================ -->
+  <header class="topbar">
+    <div class="wrap nav-container">
+      <div class="brand-group">
+        <a href="#hero" class="brand-link" aria-label="Swiss Horizon">
+          <img src="logo.png" alt="Logo Swiss Horizon" class="brand-logo-img">
+          <span>Swiss Horizon<span class="brand-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="nav-links" id="mainNav">
+        <a href="#hero" data-i18n="nav_home">Início</a>
+        <a href="#roteiros" data-i18n="nav_itineraries">Roteiros</a>
+        <a href="#embarque" data-i18n="nav_dates">Datas &amp; Preços</a>
+        <a href="#itinerario" data-i18n="nav_timeline">Itinerário</a>
+        <a href="#experiencias" data-i18n="nav_experiences">Experiências</a>
+        <a href="#como-funciona" data-i18n="nav_how">Como Funciona</a>
+        <a href="#contato" data-i18n="nav_contact">Contato</a>
+        <a href="trabalhe-conosco.html" style="color:var(--red); font-weight:700;" data-i18n="nav_partner">Trabalhe Conosco</a>
+      </nav>
+
+      <div class="nav-cta-group">
+        <!-- Bandeirinha / Seletor de Idiomas (Português, Inglês, Alemão) -->
+        <div class="lang-selector-dropdown" id="langSelector">
+          <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Selecionar Idioma / Change Language / Sprache wählen">
+            <span class="lang-flag-current" id="currentLangFlag">
+              <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                <rect width="640" height="480" fill="#009c3b" rx="40"/>
+                <polygon points="320,40 590,240 320,440 50,240" fill="#ffdf00"/>
+                <circle cx="320" cy="240" r="120" fill="#002776"/>
+                <path d="M 200,240 A 120,120 0 0,0 440,240 A 130,130 0 0,1 200,240" fill="#ffffff"/>
+              </svg>
+            </span>
+            <span class="lang-code-current" id="currentLangCode">PT</span>
+            <svg class="lang-chevron" viewBox="0 0 12 12" width="10" height="10" fill="currentColor">
+              <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </button>
+
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button type="button" class="lang-option is-active" data-lang="pt" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <rect width="640" height="480" fill="#009c3b" rx="40"/>
+                  <polygon points="320,40 590,240 320,440 50,240" fill="#ffdf00"/>
+                  <circle cx="320" cy="240" r="120" fill="#002776"/>
+                  <path d="M 200,240 A 120,120 0 0,0 440,240 A 130,130 0 0,1 200,240" fill="#ffffff"/>
+                </svg>
+              </span>
+              <span class="lang-option-name">Português</span>
+              <span class="lang-option-badge">BR</span>
+            </button>
+
+            <button type="button" class="lang-option" data-lang="en" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <clipPath id="uk-flag-clip-opt"><rect width="640" height="480" rx="40"/></clipPath>
+                  <g clip-path="url(#uk-flag-clip-opt)">
+                    <rect width="640" height="480" fill="#012169"/>
+                    <path d="M0,0 L640,480 M640,0 L0,480" stroke="#ffffff" stroke-width="64"/>
+                    <path d="M0,0 L640,480 M640,0 L0,480" stroke="#c8102e" stroke-width="24"/>
+                    <path d="M320,0 V480 M0,240 H640" stroke="#ffffff" stroke-width="106"/>
+                    <path d="M320,0 V480 M0,240 H640" stroke="#c8102e" stroke-width="64"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-option-name">English</span>
+              <span class="lang-option-badge">EN</span>
+            </button>
+
+            <button type="button" class="lang-option" data-lang="de" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <clipPath id="de-flag-clip-opt"><rect width="640" height="480" rx="40"/></clipPath>
+                  <g clip-path="url(#de-flag-clip-opt)">
+                    <rect width="640" height="160" y="0" fill="#000000"/>
+                    <rect width="640" height="160" y="160" fill="#dd0000"/>
+                    <rect width="640" height="160" y="320" fill="#ffce00"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-option-name">Deutsch</span>
+              <span class="lang-option-badge">DE</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="#embarque" class="btn btn-primary" id="navCtaBtn" style="padding:10px 22px; font-size:0.88rem;" data-i18n="nav_cta">
+          Planejar Viagem
+        </a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Abrir Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       KINETIC TICKER (Estilo Lando Norris)
+       ============================================================ -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_brand">Swiss Horizon</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_sbb">SBB CFF FFS PRECISÃO SUÍÇA</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_trains">TRENS PANORÂMICOS &amp; GLACIER EXPRESS</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_zermatt">ZERMATT &amp; MATTERHORN</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_jungfrau">JUNGFRAUJOCH TOPO DA EUROPA</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_windows">DUAS JANELAS DE EMBARQUE 2027</span></span>
+      <span class="ticker-item"><span class="gold">✦</span> <span data-i18n="ticker_whatsapp">WHATSAPP: +55 (11) 93905-6979</span></span>
+      <!-- Repetição para scroll contínuo -->
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_brand">Swiss Horizon</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_sbb">SBB CFF FFS PRECISÃO SUÍÇA</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_trains">TRENS PANORÂMICOS &amp; GLACIER EXPRESS</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_zermatt">ZERMATT &amp; MATTERHORN</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_jungfrau">JUNGFRAUJOCH TOPO DA EUROPA</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_windows">DUAS JANELAS DE EMBARQUE 2027</span></span>
+      <span class="ticker-item"><span class="gold">✦</span> <span data-i18n="ticker_whatsapp">WHATSAPP: +55 (11) 93905-6979</span></span>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ==========================================================
+         HERO SECTION (Editorial, Dinâmica & 3D Depth)
+         ========================================================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      <!-- Recorte geométrico dos Alpes na base do hero -->
+      <div class="hero-ridge" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <polygon points="0,120 0,65 180,20 340,75 520,15 690,80 880,10 1060,70 1240,25 1440,65 1440,120" />
+        </svg>
+      </div>
+
+      <div class="wrap hero-content">
+        <div class="hero-tagline-badge">
+          <span class="swiss-cross"></span>
+          <span data-i18n="hero_tagline">Duas Janelas de Embarque · Temporada 2027</span>
+        </div>
+
+        <h1 data-i18n-html="hero_h1">
+          A Suíça tem horário certo<br>
+          para <span class="accent-red">acontecer</span> com você.
+        </h1>
+
+        <p class="hero-lede" data-i18n="hero_lede">
+          Roteiros desenhados por trens panorâmicos de primeira classe, lagos turquesa de cartão-postal,
+          vilarejos alpinos e cidades como Zurique, Lucerna, Interlaken e Zermatt. Escolha sua janela
+          e deixe a precisão suíça transformar sua viagem em arte.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#embarque" class="btn btn-primary" data-i18n="hero_cta1">
+            Ver Janelas &amp; Preços →
+          </a>
+          <a href="https://wa.me/5511939056979" target="_blank" rel="noopener" class="btn btn-outline-light" data-i18n-html="hero_cta2">
+            <span>💬</span> Falar com Especialista
+          </a>
+        </div>
+
+        <dl class="hero-stats">
+          <div class="hero-stat-item">
+            <dt>23<span>d</span></dt>
+            <dd data-i18n="hero_stat1">dias totais de roteiros desenhados</dd>
+          </div>
+          <div class="hero-stat-item">
+            <dt>02<span>x</span></dt>
+            <dd data-i18n="hero_stat2">janelas exclusivas de embarque ao ano</dd>
+          </div>
+          <div class="hero-stat-item">
+            <dt>06<span>+</span></dt>
+            <dd data-i18n="hero_stat3">vilarejos e picos alpinos no itinerário</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         HIGHLIGHT STRIP (Diferenciais Rápidos)
+         ========================================================== -->
+    <section class="highlight-bar" aria-label="Diferenciais da Swiss Horizon">
+      <div class="wrap highlight-grid">
+        <div class="highlight-col">
+          <div class="highlight-icon">🚆</div>
+          <div>
+            <strong data-i18n="hl1_title">Trens Panorâmicos Inclusos</strong>
+            <span data-i18n="hl1_desc">Swiss Travel Pass 1ª Classe &amp; Vistas Swiss Horizons</span>
+          </div>
+        </div>
+        <div class="highlight-col">
+          <div class="highlight-icon">🏨</div>
+          <div>
+            <strong data-i18n="hl2_title">Hospedagens Selecionadas</strong>
+            <span data-i18n="hl2_desc">Hotéis boutique 4 e 5 estrelas no centro</span>
+          </div>
+        </div>
+        <div class="highlight-col">
+          <div class="highlight-icon">💳</div>
+          <div>
+            <strong data-i18n="hl3_title">Parcelamento em até 12x</strong>
+            <span data-i18n="hl3_desc">Sem surpresas cambiais no fechamento</span>
+          </div>
+        </div>
+        <div class="highlight-col">
+          <div class="highlight-icon">📱</div>
+          <div>
+            <strong data-i18n="hl4_title">Consultor Pessoal 24/7</strong>
+            <span data-i18n="hl4_desc">Suporte do planejamento ao retorno</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         ROTEIROS & PACOTES (3D Interactive Tilt Cards)
+         ========================================================== -->
+    <section class="section" id="roteiros">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="pkg_eyebrow">Roteiros sob Medida</p>
+          <h2 class="section-title" data-i18n="pkg_section_title">Três formas de viver a Suíça</h2>
+          <p class="section-lede" data-i18n="pkg_section_lede">
+            Cada roteiro segue um mesmo eixo consagrado — Zurique, Lucerna e Interlaken —
+            e se aprofunda conforme sua disponibilidade. Escolha a extensão ideal e veja a mágica acontecer.
+          </p>
+        </div>
+
+        <div class="packages-grid">
+
+          <!-- 1. Linha Essencial -->
+          <article class="package-card" data-tilt>
+            <p class="package-kicker" data-i18n="pkg1_kicker">Linha Essencial</p>
+            <h3 class="package-title" data-i18n="pkg1_title">8 dias · 7 noites</h3>
+            <p class="package-route-text" data-i18n="pkg1_route">Zurique → Lucerna → Interlaken → Zurique</p>
+
+            <ul class="package-features-list">
+              <li data-i18n="pkg1_feat1">City tour clássico em Zurique e cruzeiro panorâmico no Rio Limmat</li>
+              <li data-i18n="pkg1_feat2">Trem panorâmico cênico até Lucerna com visita à Ponte da Capela (Kapellbrücke)</li>
+              <li data-i18n="pkg1_feat3">Subida de teleférico ao Monte Rigi ou Pilatus com vista 360° dos Alpes</li>
+              <li data-i18n="pkg1_feat4">Funicular histórico até o mirante Harder Kulm sobre os lagos de Interlaken</li>
+              <li data-i18n="pkg1_feat5">Café da manhã continental incluso em todos os dias</li>
+            </ul>
+
+            <div class="package-price-wrap">
+              <span class="package-price-lead" data-i18n="price_from">A partir de</span>
+              <div class="package-price-val">
+                <span data-card-price="essencial">R$ 12.900</span>
+                <small data-i18n="price_suffix">/pessoa</small>
+              </div>
+              <p class="package-installments" data-card-installments="essencial">12x de R$ 1.075 sem juros</p>
+            </div>
+
+            <button class="btn btn-outline-dark" data-choose-line="Essencial" data-pkg-key="essencial" data-i18n="pkg1_btn">
+              Escolher Roteiro Essencial
+            </button>
+          </article>
+
+          <!-- 2. Linha Premium (Destaque) -->
+          <article class="package-card featured" data-tilt>
+            <span class="package-badge-popular" data-i18n="badge_popular">★ Mais Escolhido</span>
+            <p class="package-kicker" data-i18n="pkg2_kicker">Linha Premium</p>
+            <h3 class="package-title" data-i18n="pkg2_title">10 dias · 9 noites</h3>
+            <p class="package-route-text" data-i18n="pkg2_route">Zurique → Lucerna → Interlaken → Lauterbrunnen → Grindelwald → Zurique</p>
+
+            <ul class="package-features-list">
+              <li data-i18n-html="pkg2_feat1"><strong>Tudo da Linha Essencial incluso</strong></li>
+              <li data-i18n="pkg2_feat2">Passeio de dia inteiro ao Vale de Lauterbrunnen e suas 72 cachoeiras glaciais</li>
+              <li data-i18n-html="pkg2_feat3">Expedição ao <strong>Jungfraujoch (Topo da Europa)</strong> a 3.454m com neve o ano todo</li>
+              <li data-i18n="pkg2_feat4">Vilarejo alpino de Grindelwald aos pés da imponente montanha Eiger</li>
+              <li data-i18n="pkg2_feat5">Parada fotográfica no Lago Blausee e fim de tarde relaxante no Lago de Brienz</li>
+            </ul>
+
+            <div class="package-price-wrap">
+              <span class="package-price-lead" data-i18n="price_from">A partir de</span>
+              <div class="package-price-val" style="color:var(--red);">
+                <span data-card-price="premium">R$ 17.400</span>
+                <small data-i18n="price_suffix">/pessoa</small>
+              </div>
+              <p class="package-installments" data-card-installments="premium">12x de R$ 1.450 sem juros</p>
+            </div>
+
+            <button class="btn btn-primary" data-choose-line="Premium" data-pkg-key="premium" data-i18n="pkg2_btn">
+              Escolher Roteiro Premium
+            </button>
+          </article>
+
+          <!-- 3. Linha Exclusiva -->
+          <article class="package-card" data-tilt>
+            <p class="package-kicker" data-i18n="pkg3_kicker">Linha Exclusiva</p>
+            <h3 class="package-title" data-i18n="pkg3_title">12 dias · 11 noites</h3>
+            <p class="package-route-text" data-i18n="pkg3_route">Zurique → Lucerna → Interlaken → Zermatt (Matterhorn) → Genebra → St. Moritz</p>
+
+            <ul class="package-features-list">
+              <li data-i18n-html="pkg3_feat1"><strong>Tudo da Linha Premium incluso</strong></li>
+              <li data-i18n="pkg3_feat2">Duas noites exclusivas em Zermatt, vila livre de carros aos pés do Matterhorn</li>
+              <li data-i18n="pkg3_feat3">Trem de cremalheira até o Gornergrat com vista panorâmica para o Cervino</li>
+              <li data-i18n-html="pkg3_feat4">Trecho panorâmico a bordo do lendário trem <strong>Glacier Express</strong></li>
+              <li data-i18n="pkg3_feat5">Duas noites em St. Moritz e jantar de encerramento em restaurante com estrela Michelin</li>
+            </ul>
+
+            <div class="package-price-wrap">
+              <span class="package-price-lead" data-i18n="price_from">A partir de</span>
+              <div class="package-price-val">
+                <span data-card-price="exclusivo">R$ 23.900</span>
+                <small data-i18n="price_suffix">/pessoa</small>
+              </div>
+              <p class="package-installments" data-card-installments="exclusivo">12x de R$ 1.991 sem juros</p>
+            </div>
+
+            <button class="btn btn-outline-dark" data-choose-line="Exclusivo" data-pkg-key="exclusivo" data-i18n="pkg3_btn">
+              Escolher Roteiro Exclusivo
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         QUADRO DE HORÁRIOS & PREÇOS (Solari Board Estilo SBB)
+         ========================================================== -->
+    <section class="section section-board" id="embarque">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow eyebrow-light" data-i18n="board_eyebrow">Painel de Partidas SBB</p>
+          <h2 class="section-title section-title-light" data-i18n="board_title">Escolha sua janela de embarque</h2>
+          <p class="section-lede section-lede-light" data-i18n="board_lede">
+            As partidas acontecem em blocos fechados para garantir reservas exclusivas de trens e hotéis.
+            Alterne entre as janelas no seletor abaixo e veja o painel mecânico atualizar os valores em tempo real.
+          </p>
+        </div>
+
+        <div class="window-switch-wrap">
+          <div class="window-switch" role="tablist" aria-label="Janelas de Embarque">
+            <button class="window-btn is-active" role="tab" aria-selected="true" data-window="jan-mar">
+              <span class="window-btn-label" data-i18n="tab_jan_mar_label">Janeiro → Março</span>
+              <span class="window-btn-sub" data-i18n="tab_jan_mar_sub">Temporada de Neve &amp; Esqui</span>
+            </button>
+            <button class="window-btn" role="tab" aria-selected="false" data-window="abr-jun">
+              <span class="window-btn-label" data-i18n="tab_abr_jun_label">Abril → Junho</span>
+              <span class="window-btn-sub" data-i18n="tab_abr_jun_sub">Primavera &amp; Lagos Alpinos</span>
+            </button>
+          </div>
+
+          <button class="sound-toggle-btn" id="soundToggleBtn" title="Ativar ou desativar som mecânico do painel">
+            🔊 Som Ativado
+          </button>
+        </div>
+
+        <!-- SBB Solari Board -->
+        <div class="sbb-board">
+          <div class="board-top-status">
+            <span data-i18n-html="board_top_left"><span class="swiss-cross" style="width:14px;height:14px;"></span> SISTEMA SBB CFF FFS · PAINEL OFICIAL Swiss Horizon 2027</span>
+            <span data-i18n="board_top_status">STATUS: VAGAS DISPONÍVEIS</span>
+          </div>
+
+          <div class="board-row board-head" aria-hidden="true">
+            <span data-i18n="board_th_line">Linha / Roteiro</span>
+            <span data-i18n="board_th_duration">Duração</span>
+            <span data-i18n="board_th_window">Janela de Partida</span>
+            <span data-i18n="board_th_price">Preço por Pessoa</span>
+            <span data-i18n="board_th_action">Ação</span>
+          </div>
+
+          <!-- Linha Essencial -->
+          <div class="board-row">
+            <div class="col-line-title">
+              <span class="col-line-badge" data-i18n="board_badge_base">Base</span>
+              <span class="solari-flap" data-i18n="board_flap_essencial">Essencial</span>
+            </div>
+            <div>
+              <span class="solari-flap" data-i18n="board_dur_essencial">8d / 7n</span>
+            </div>
+            <div>
+              <span class="solari-flap" data-flap-window>01 JAN — 31 MAR</span>
+            </div>
+            <div>
+              <span class="solari-flap gold" data-flap-price="essencial">R$ 12.900</span>
+            </div>
+            <div>
+              <button class="btn btn-outline-light" style="padding:8px 20px; font-size:0.85rem;" data-choose-line="Essencial" data-pkg-key="essencial" data-i18n="board_btn_book">
+                Reservar ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- Linha Premium -->
+          <div class="board-row board-row-featured">
+            <div class="col-line-title">
+              <span class="col-line-badge featured" data-i18n="board_badge_popular">Popular</span>
+              <span class="solari-flap" data-i18n="board_flap_premium">Premium</span>
+            </div>
+            <div>
+              <span class="solari-flap" data-i18n="board_dur_premium">10d / 9n</span>
+            </div>
+            <div>
+              <span class="solari-flap" data-flap-window>01 JAN — 31 MAR</span>
+            </div>
+            <div>
+              <span class="solari-flap gold" data-flap-price="premium">R$ 17.400</span>
+            </div>
+            <div>
+              <button class="btn btn-primary" style="padding:8px 20px; font-size:0.85rem;" data-choose-line="Premium" data-pkg-key="premium" data-i18n="board_btn_book">
+                Reservar ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- Linha Exclusiva -->
+          <div class="board-row">
+            <div class="col-line-title">
+              <span class="col-line-badge" style="background:#1e40af;" data-i18n="board_badge_vip">VIP</span>
+              <span class="solari-flap" data-i18n="board_flap_exclusivo">Exclusiva</span>
+            </div>
+            <div>
+              <span class="solari-flap" data-i18n="board_dur_exclusivo">12d / 11n</span>
+            </div>
+            <div>
+              <span class="solari-flap" data-flap-window>01 JAN — 31 MAR</span>
+            </div>
+            <div>
+              <span class="solari-flap gold" data-flap-price="exclusivo">R$ 23.900</span>
+            </div>
+            <div>
+              <button class="btn btn-outline-light" style="padding:8px 20px; font-size:0.85rem;" data-choose-line="Exclusivo" data-pkg-key="exclusivo" data-i18n="board_btn_book">
+                Reservar ➔
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="board-note" data-i18n-html="board_note">
+          <span>ℹ</span> Valores em ocupação dupla por pessoa, com taxas de embarque, traslados de trem e passeios especificados.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         ITINERÁRIO DIA A DIA (Timeline Interativa com Fotos)
+         ========================================================== -->
+    <section class="section" id="itinerario">
+      <div class="wrap">
+        <div class="section-head-center">
+          <p class="eyebrow" data-i18n="itin_eyebrow">Itinerário Detalhado</p>
+          <h2 class="section-title" data-i18n="itin_title">A jornada suíça, dia após dia</h2>
+          <p class="section-lede" style="margin-inline:auto;" data-i18n="itin_lede">
+            Conheça os pontos altos do roteiro com fotos reais dos destinos visitados pela Swiss Horizon.
+            Use os filtros abaixo para ver os destaques de cada linha.
+          </p>
+        </div>
+
+        <div class="itinerary-filter-nav">
+          <button class="itinerary-filter-btn is-active" data-filter="all" data-i18n="itin_filter_all">Todos os Dias</button>
+          <button class="itinerary-filter-btn" data-filter="essencial" data-i18n="itin_filter_essencial">Linha Essencial (Dias 1-3, 7)</button>
+          <button class="itinerary-filter-btn" data-filter="premium" data-i18n="itin_filter_premium">Linha Premium (Dias 1-6, 7)</button>
+          <button class="itinerary-filter-btn" data-filter="exclusivo" data-i18n="itin_filter_exclusivo">Linha Exclusiva (Extensão Zermatt)</button>
+        </div>
+
+        <div class="itinerary-timeline">
+
+          <!-- Dia 1 -->
+          <article class="timeline-card" data-lines="essencial premium exclusivo">
+            <div class="timeline-img-box">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Zurich-Bahnhofstrasse-01-01.jpg?width=400" alt="Zurique Bahnhofstrasse" loading="lazy">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-day-pill" data-i18n="itin_d1_pill">Dia 01 · Chegada</span>
+              <h3 data-i18n="itin_d1_title">Zurique e o Centro Histórico (Altstadt)</h3>
+              <p data-i18n="itin_d1_desc">Chegada à Suíça e recepção privativa. Caminhada elegante pela famosa Bahnhofstrasse, visita às ruelas medievais do centro histórico e relaxante passeio às margens do Lago de Zurique.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag" data-i18n="itin_d1_t1">Lago de Zurique</span>
+                <span class="timeline-tag" data-i18n="itin_d1_t2">Bahnhofstrasse</span>
+                <span class="timeline-tag" data-i18n="itin_d1_t3">Welcome Drink</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dia 2 -->
+          <article class="timeline-card" data-lines="essencial premium exclusivo">
+            <div class="timeline-img-box">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kapellbr%C3%BCcke_in_Lucerne.jpg?width=400" alt="Lucerna Kapellbrücke" loading="lazy">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-day-pill" data-i18n="itin_d2_pill">Dia 02 · História &amp; Montanhas</span>
+              <h3 data-i18n="itin_d2_title">Lucerna e a Ponte da Capela</h3>
+              <p data-i18n="itin_d2_desc">Viagem panorâmica de trem até a charmosa cidade de Lucerna. Visita à icônica ponte de madeira coberta Kapellbrücke e subida de teleférico ao Monte Pilatus ou Monte Rigi com vistas panorâmicas de tirar o fôlego.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag" data-i18n="itin_d2_t1">Kapellbrücke</span>
+                <span class="timeline-tag" data-i18n="itin_d2_t2">Monte Pilatus</span>
+                <span class="timeline-tag" data-i18n="itin_d2_t3">Barco a Vapor</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dia 3 -->
+          <article class="timeline-card" data-lines="essencial premium exclusivo">
+            <div class="timeline-img-box">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Harder_Kulm_at_sunrise.jpg?width=400" alt="Harder Kulm Interlaken" loading="lazy">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-day-pill" data-i18n="itin_d3_pill">Dia 03 · Entre Lagos</span>
+              <h3 data-i18n="itin_d3_title">Interlaken e o Mirante Harder Kulm</h3>
+              <p data-i18n="itin_d3_desc">Deslocamento pelos vales alpinos até Interlaken, situada entre os lagos cristalinos de Thun e Brienz. Subida pelo funicular com mais de 100 anos até a plataforma suspensa de Harder Kulm.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag" data-i18n="itin_d3_t1">Funicular Centenário</span>
+                <span class="timeline-tag" data-i18n="itin_d3_t2">Lago de Brienz</span>
+                <span class="timeline-tag" data-i18n="itin_d3_t3">Mirante Suspenso</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dia 4 -->
+          <article class="timeline-card" data-lines="premium exclusivo">
+            <div class="timeline-img-box">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/00_3442_Grindelwald_-_Eiger_(Schweiz).jpg?width=400" alt="Grindelwald e Eiger" loading="lazy">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-day-pill" data-i18n="itin_d4_pill">Dia 04 · Cachoeiras Swiss Horizons</span>
+              <h3 data-i18n="itin_d4_title">Vale de Lauterbrunnen e Grindelwald</h3>
+              <p data-i18n="itin_d4_desc">Exploração do deslumbrante vale glacial de Lauterbrunnen, que inspirou Valfenda de Tolkien com suas 72 cachoeiras e penhascos verticais. Em seguida, subida ao vilarejo alpino de Grindelwald.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag" data-i18n="itin_d4_t1">Cachoeiras de Staubbach</span>
+                <span class="timeline-tag" data-i18n="itin_d4_t2">Grindelwald</span>
+                <span class="timeline-tag" data-i18n="itin_d4_t3">Paredão do Eiger</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dia 5 -->
+          <article class="timeline-card" data-lines="premium exclusivo">
+            <div class="timeline-img-box">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aletsch_Glacier_from_Jungfraujoch_(2).jpg?width=400" alt="Jungfraujoch Aletsch" loading="lazy">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-day-pill" data-i18n="itin_d5_pill">Dia 05 · Topo da Europa</span>
+              <h3 data-i18n="itin_d5_title">Jungfraujoch e Geleira de Aletsch</h3>
+              <p data-i18n="itin_d5_desc">O ápice da jornada: subida pelo trem de alta montanha até a estação ferroviária mais alta da Europa (3.454 metros). Visita ao Palácio de Gelo e contemplação da colossal Geleira de Aletsch.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag" data-i18n="itin_d5_t1">3.454 metros</span>
+                <span class="timeline-tag" data-i18n="itin_d5_t2">Palácio de Gelo</span>
+                <span class="timeline-tag" data-i18n="itin_d5_t3">Neve o Ano Todo</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dia 6 -->
+          <article class="timeline-card" data-lines="premium exclusivo">
+            <div class="timeline-img-box">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kandergrund_Blausee_lac.jpg?width=400" alt="Lago Blausee" loading="lazy">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-day-pill" data-i18n="itin_d6_pill">Dia 06 · Natureza Cristalina</span>
+              <h3 data-i18n="itin_d6_title">Lago Blausee e Brienz</h3>
+              <p data-i18n="itin_d6_desc">Visita ao cinematográfico Parque Natural de Blausee, com suas águas transparentes de cor azul-turquesa cercadas por densa floresta Swiss Horizon. Final de tarde com pôr do sol nas margens do lago.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag" data-i18n="itin_d6_t1">Parque Natural Blausee</span>
+                <span class="timeline-tag" data-i18n="itin_d6_t2">Barco com Fundo de Vidro</span>
+                <span class="timeline-tag" data-i18n="itin_d6_t3">Trilhas Leves</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dia 7 -->
+          <article class="timeline-card" data-lines="exclusivo">
+            <div class="timeline-img-box">
+              <img src="image.png" alt="Zermatt e Matterhorn" loading="lazy">
+            </div>
+            <div class="timeline-info">
+              <span class="timeline-day-pill" data-i18n="itin_d7_pill">Dias 07-09 · Destaque Exclusivo</span>
+              <h3 data-i18n="itin_d7_title">Zermatt e o Imponente Matterhorn</h3>
+              <p data-i18n="itin_d7_desc">Dedicado exclusivamente aos viajantes da Linha Exclusiva: chegada a Zermatt, vila pacífica e livre de combustão fóssil. Trem panorâmico ao mirante de Gornergrat com a vista definitiva do pico Matterhorn.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag" data-i18n="itin_d7_t1">Gornergrat 3.089m</span>
+                <span class="timeline-tag" data-i18n="itin_d7_t2">Matterhorn</span>
+                <span class="timeline-tag" data-i18n="itin_d7_t3">Vila Car-Free</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         EXPERIÊNCIA Swiss Horizon (Editorial Dark Mode)
+         ========================================================== -->
+    <section class="section section-experience" id="experiencias">
+      <div class="wrap experience-grid">
+        <div>
+          <p class="eyebrow eyebrow-light" data-i18n="exp_eyebrow">A Experiência Swiss Horizon</p>
+          <h2 class="section-title section-title-light" data-i18n-html="exp_title">Você escolhe o destino.<br>A Swiss Horizon cuida do caminho.</h2>
+          <p class="section-lede section-lede-light" data-i18n="exp_lede">
+            Nosso papel é traduzir o sonho de viajar em um roteiro pontual, elegante e sem preocupações logísticas,
+            com o rigor e a hospitalidade que a Suíça tem de melhor.
+          </p>
+
+          <div class="experience-features-grid">
+            <div class="experience-feature-box">
+              <div class="experience-feature-icon">🏔️</div>
+              <div class="experience-feature-text">
+                <strong data-i18n="exp_feat1_title">Destinos Selecionados</strong>
+                <span data-i18n="exp_feat1_desc">Cidades e vilarejos autênticos</span>
+              </div>
+            </div>
+            <div class="experience-feature-box">
+              <div class="experience-feature-icon">🗺️</div>
+              <div class="experience-feature-text">
+                <strong data-i18n="exp_feat2_title">Roteiros Personalizados</strong>
+                <span data-i18n="exp_feat2_desc">Ajustados ao seu perfil e ritmo</span>
+              </div>
+            </div>
+            <div class="experience-feature-box">
+              <div class="experience-feature-icon">🚆</div>
+              <div class="experience-feature-text">
+                <strong data-i18n="exp_feat3_title">Trens 1ª Classe</strong>
+                <span data-i18n="exp_feat3_desc">Swiss Travel Pass de alto padrão</span>
+              </div>
+            </div>
+            <div class="experience-feature-box">
+              <div class="experience-feature-icon">📱</div>
+              <div class="experience-feature-text">
+                <strong data-i18n="exp_feat4_title">Assistência 24 Horas</strong>
+                <span data-i18n="exp_feat4_desc">Suporte direto em português</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="experience-quote-card" data-tilt>
+          <div class="quote-mark">“</div>
+          <p class="quote-body" data-i18n="exp_quote_body">
+            Organizamos a viagem pelo relógio suíço: cada trecho tem hora certa para sair, para conectar e para maravilhar.
+          </p>
+          <div class="quote-author">
+            <img src="logo.png" alt="Equipe Swiss Horizon" class="quote-author-img">
+            <div class="quote-author-info">
+              <strong data-i18n="exp_quote_author">Equipe Swiss Horizon</strong>
+              <span data-i18n="exp_quote_role">Especialistas em Turismo Suíço</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         COMO FUNCIONA (Processo em 4 Passos)
+         ========================================================== -->
+    <section class="section" id="como-funciona">
+      <div class="wrap">
+        <div class="section-head-center">
+          <p class="eyebrow" data-i18n="how_eyebrow">Simplicidade &amp; Cuidado</p>
+          <h2 class="section-title" data-i18n="how_title">Como funciona sua reserva</h2>
+          <p class="section-lede" style="margin-inline:auto;" data-i18n="how_lede">
+            Planejar sua ida aos Alpes é simples, transparente e sem atritos burocráticos.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-num-badge">
+              <span>01</span>
+              <span class="step-icon">🎯</span>
+            </div>
+            <h3 data-i18n="how_step1_title">Escolha a Linha e a Janela</h3>
+            <p data-i18n="how_step1_desc">Selecione a quantidade de dias (Essencial, Premium ou Exclusivo) e a época do ano que mais combina com seus planos.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num-badge">
+              <span>02</span>
+              <span class="step-icon">💬</span>
+            </div>
+            <h3 data-i18n="how_step2_title">Converse no WhatsApp</h3>
+            <p data-i18n="how_step2_desc">Fale diretamente com um consultor dedicado, que ajustará datas de voos, hotéis e passeios adicionais sob medida.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num-badge">
+              <span>03</span>
+              <span class="step-icon">💳</span>
+            </div>
+            <h3 data-i18n="how_step3_title">Confirmação &amp; Parcelamento</h3>
+            <p data-i18n="how_step3_desc">Garanta suas vagas com um sinal e parcele em até 12x, com documentação e vouchers organizados para você.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num-badge">
+              <span>04</span>
+              <span class="step-icon">✈️</span>
+            </div>
+            <h3 data-i18n="how_step4_title">Embarque Tranquilo</h3>
+            <p data-i18n="how_step4_desc">Viaje com roteiro no celular, passagens impressas e assistência remota em português durante todos os dias na Suíça.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         CONTATO & AGENDAMENTO
+         ========================================================== -->
+    <section class="section section-contact" id="contato">
+      <div class="wrap contact-layout">
+        <div class="contact-info-col">
+          <p class="eyebrow eyebrow-light" data-i18n="contact_eyebrow">Atendimento Direto</p>
+          <h2 class="section-title" data-i18n="contact_title">Seu próximo destino começa com uma conversa.</h2>
+          <p class="section-lede section-lede-light" data-i18n="contact_lede">
+            Preencha os campos ao lado para receber um orçamento detalhado no WhatsApp.
+            Nossa equipe especializada retornará com a melhor proposta para seu embarque em 2027.
+          </p>
+
+          <div class="contact-cards-stack">
+            <div class="contact-detail-card">
+              <div class="contact-icon-circle">📞</div>
+              <div>
+                <strong data-i18n="contact_card1_title">Central WhatsApp</strong>
+                <a href="https://wa.me/5511939056979" target="_blank" rel="noopener">+55 (11) 93905-6979</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-card">
+              <div class="contact-icon-circle">⏱️</div>
+              <div>
+                <strong data-i18n="contact_card2_title">Horário de Atendimento</strong>
+                <span data-i18n="contact_card2_desc">Segunda a Sexta · 08h às 20h (Brasília)</span>
+              </div>
+            </div>
+
+            <div class="contact-detail-card">
+              <div class="contact-icon-circle">🇨🇭</div>
+              <div>
+                <strong data-i18n="contact_card3_title">Consultoria Especializada</strong>
+                <span data-i18n="contact_card3_desc">Planejamento exclusivo para a Suíça</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulário Interativo -->
+        <div class="contact-form-card">
+          <div class="form-header-note">
+            <h3 data-i18n="form_title">Planejar Minha Viagem</h3>
+            <p data-i18n="form_desc">Preencha os dados e receba sua cotação personalizada.</p>
+          </div>
+
+          <form id="travelBookingForm">
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="nomeInput" data-i18n="form_name_label">Seu Nome Completo</label>
+                <input type="text" id="nomeInput" required placeholder="Como podemos chamar você?" data-i18n-placeholder="form_name_ph">
+              </div>
+
+              <div class="form-field">
+                <label for="whatsInput" data-i18n="form_wpp_label">Seu WhatsApp</label>
+                <input type="tel" id="whatsInput" required placeholder="(11) 99999-9999" data-i18n-placeholder="form_wpp_ph">
+              </div>
+
+              <div class="form-field">
+                <label for="viajantesInput" data-i18n="form_pax_label">Número de Viajantes</label>
+                <select id="viajantesInput">
+                  <option value="1">1 viajante</option>
+                  <option value="2" selected>2 viajantes</option>
+                  <option value="3">3 viajantes</option>
+                  <option value="4">4 viajantes</option>
+                  <option value="5">5 ou mais viajantes</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="linhaInput" data-i18n="form_line_label">Linha de Interesse</label>
+                <select id="linhaInput">
+                  <option value="Essencial">Linha Essencial (8 dias)</option>
+                  <option value="Premium" selected>Linha Premium (10 dias)</option>
+                  <option value="Exclusivo">Linha Exclusiva (12 dias)</option>
+                </select>
+              </div>
+
+              <div class="form-field full-col">
+                <label for="janelaInput" data-i18n="form_window_label">Janela de Embarque (2027)</label>
+                <select id="janelaInput">
+                  <option value="Janeiro a Março" selected>Janeiro a Março (Neve &amp; Esqui)</option>
+                  <option value="Abril a Junho">Abril a Junho (Primavera nos Alpes)</option>
+                </select>
+              </div>
+
+              <div class="form-field full-col">
+                <label for="mensagemInput" data-i18n="form_msg_label">Mensagem ou Preferências Especiais (Opcional)</label>
+                <textarea id="mensagemInput" rows="3" placeholder="Ex.: Gostaria de incluir um jantar em Zermatt ou viagem em grupo familiar..." data-i18n-placeholder="form_msg_ph"></textarea>
+              </div>
+            </div>
+
+            <!-- Resumo ao vivo do investimento -->
+            <div class="form-live-summary" id="liveSummaryText">
+              <span>2 viajantes · Linha Premium (Janeiro a Março):</span>
+              <strong>R$ 34.800</strong>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" style="width:100%; margin-top:20px; font-size:1.05rem;" data-i18n-html="form_submit_btn">
+              <span>🚀</span> Enviar Roteiro &amp; Falar no WhatsApp →
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+     B2B PARCEIROS (Pill de Ligação com Trabalhe Conosco)
+     ============================================================ -->
+  <section class="footer-partner-strip">
+    <div class="wrap partner-strip-inner">
+      <div class="partner-strip-text">
+        <h3 data-i18n="b2b_strip_title">Sua agência de viagens pode vender roteiros Swiss Horizon</h3>
+        <p data-i18n="b2b_strip_desc">Condições especiais com repasse de comissão por venda, material impresso e suporte comercial dedicado.</p>
+      </div>
+      <a href="trabalhe-conosco.html" class="btn btn-gold" data-i18n="b2b_strip_btn">
+        Conhecer Parceria B2B →
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand-link" style="color:var(--white); margin-bottom:14px;">
+          <img src="logo.png" alt="Logo Swiss Horizon" class="brand-logo-img">
+          <span>Swiss Horizon<span class="brand-dot">.</span></span>
+        </div>
+        <p style="font-size:0.9rem; line-height:1.6; max-width:320px;" data-i18n="footer_bio">
+          Operadora brasileira especializada exclusivamente em turismo de alto padrão pela Suíça.
+          Viagens estruturadas pelo ritmo dos trens e pela grandiosidade dos Alpes.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer_col1_title">Navegação</h4>
+        <ul>
+          <li><a href="#hero" data-i18n="nav_home">Início</a></li>
+          <li><a href="#roteiros" data-i18n="nav_itineraries">Roteiros</a></li>
+          <li><a href="#embarque" data-i18n="nav_dates">Datas &amp; Preços</a></li>
+          <li><a href="#itinerario" data-i18n="nav_timeline">Itinerário Dia a Dia</a></li>
+          <li><a href="#experiencias" data-i18n="nav_experiences">Experiências</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer_col2_title">Roteiros 2027</h4>
+        <ul>
+          <li><a href="#roteiros" data-i18n="footer_route_essencial">Linha Essencial (8 dias)</a></li>
+          <li><a href="#roteiros" data-i18n="footer_route_premium">Linha Premium (10 dias)</a></li>
+          <li><a href="#roteiros" data-i18n="footer_route_exclusivo">Linha Exclusiva (12 dias)</a></li>
+          <li><a href="trabalhe-conosco.html" data-i18n="footer_route_b2b">Área do Parceiro B2B</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer_col3_title">Central de Atendimento</h4>
+        <p style="font-size:0.88rem; margin-bottom:8px;" data-i18n="footer_col3_sub">Atendimento comercial e consultoria:</p>
+        <a href="https://wa.me/5511939056979" target="_blank" rel="noopener" class="footer-phone-badge">
+          <span>💬</span> +55 (11) 93905-6979
+        </a>
+        <p style="font-size:0.8rem; margin-top:12px; color:rgba(255,255,255,0.5);" data-i18n="footer_col3_note">
+          Disponível em todo o território nacional.
+        </p>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p data-i18n="footer_copy">© 2026 Swiss Horizon. Todos os direitos reservados. CNPJ e operação registrados.</p>
+      <p data-i18n="footer_credit">Desenvolvido com excelência técnica e inspiração Swiss Horizon.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAL DE CONFIRMAÇÃO EXCLUSIVO Swiss Horizon
+       ============================================================ -->
+  <div class="Swiss Horizon-modal-overlay" id="Swiss HorizonBookingModal" role="dialog" aria-modal="true" aria-labelledby="Swiss HorizonModalTitle">
+    <div class="Swiss Horizon-modal-dialog">
+      <button class="Swiss Horizon-modal-close" id="closeSwiss HorizonModalBtn" aria-label="Fechar modal">&times;</button>
+
+      <div class="Swiss Horizon-modal-badge">
+        <span class="swiss-cross"></span>
+        <span data-i18n="modal_badge">Swiss Horizon · Suíça 2027</span>
+      </div>
+
+      <div class="Swiss Horizon-modal-icon-wrap">
+        <svg viewBox="0 0 52 52" width="52" height="52" fill="none">
+          <circle cx="26" cy="26" r="25" stroke="#da291c" stroke-width="2.5" fill="#fff5f5"/>
+          <path d="M16 26.5L23 33.5L36 19.5" stroke="#da291c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h3 class="Swiss Horizon-modal-title" id="Swiss HorizonModalTitle" data-i18n="modal_title">Solicitação Registrada com Sucesso!</h3>
+      <p class="Swiss Horizon-modal-lead" id="Swiss HorizonModalLead" data-i18n="modal_lead">
+        Seu plano de viagem para a Suíça foi processado com a pontualidade e rigor dos trens alpinos.
+      </p>
+
+      <div class="Swiss Horizon-modal-summary" id="Swiss HorizonModalSummary"></div>
+
+      <div class="Swiss Horizon-modal-actions">
+        <a href="#" target="_blank" rel="noopener" class="btn btn-primary" id="Swiss HorizonModalWppAction" data-i18n-html="modal_wpp_btn">
+          <span>💬</span> Conectar no WhatsApp (+55 11 93905-6979)
+        </a>
+        <button type="button" class="btn btn-outline-dark" id="Swiss HorizonModalCloseAction" data-i18n="modal_close_btn">
+          Fechar
+        </button>
+      </div>
+
+      <p class="Swiss Horizon-modal-note" data-i18n="modal_note">
+        Abrindo automaticamente o atendimento oficial da Swiss Horizon no WhatsApp.
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast de Notificações Swiss Horizon -->
+  <div class="Swiss Horizon-toast" id="Swiss HorizonToast" role="status" aria-live="polite"></div>
+
+  <!-- Botão Flutuante de WhatsApp -->
+  <a href="https://wa.me/5511939056979" target="_blank" rel="noopener" class="floating-wpp-btn" aria-label="Falar no WhatsApp (+55 11 93905-6979)">
+    <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.165 8.165 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+    </svg>
+  </a>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>

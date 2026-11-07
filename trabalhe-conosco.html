@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabalhe Conosco | Swiss Horizon — Parcerias para Agências</title>
+  <meta name="description" content="Sua agência de viagens pode vender roteiros exclusivos da Swiss Horizon para a Suíça. Comissões atrativas, material promocional pronto e suporte de ponta a ponta.">
+
+  <!-- Favicon / Swiss Cross -->
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <!-- Google Fonts: DM Sans, Playfair Display, Space Grotesk, IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Playfair+Display:ital,wght@0,500..900;1,500..900&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       TOPBAR & NAVEGAÇÃO
+       ============================================================ -->
+  <header class="topbar">
+    <div class="wrap nav-container">
+      <div class="brand-group">
+        <a href="index.html" class="brand-link" aria-label="Swiss Horizon">
+          <img src="logo.png" alt="Logo Swiss Horizon" class="brand-logo-img">
+          <span>Swiss Horizon<span class="brand-dot">.</span></span>
+        </a>
+      </div>
+
+      <nav class="nav-links" id="mainNav">
+        <a href="index.html#hero" data-i18n="nav_back">← Voltar ao Início</a>
+        <a href="index.html#roteiros" data-i18n="nav_itineraries">Roteiros</a>
+        <a href="index.html#embarque" data-i18n="nav_dates">Datas &amp; Preços</a>
+        <a href="#vantagens" data-i18n="nav_advantages">Vantagens</a>
+        <a href="#material" data-i18n="nav_material">Material em PDF</a>
+        <a href="#cadastro" data-i18n="nav_register">Cadastrar Agência</a>
+      </nav>
+
+      <div class="nav-cta-group">
+        <!-- Bandeirinha / Seletor de Idiomas (Português, Inglês, Alemão) -->
+        <div class="lang-selector-dropdown" id="langSelector">
+          <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Selecionar Idioma / Change Language / Sprache wählen">
+            <span class="lang-flag-current" id="currentLangFlag">
+              <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                <rect width="640" height="480" fill="#009c3b" rx="40"/>
+                <polygon points="320,40 590,240 320,440 50,240" fill="#ffdf00"/>
+                <circle cx="320" cy="240" r="120" fill="#002776"/>
+                <path d="M 200,240 A 120,120 0 0,0 440,240 A 130,130 0 0,1 200,240" fill="#ffffff"/>
+              </svg>
+            </span>
+            <span class="lang-code-current" id="currentLangCode">PT</span>
+            <svg class="lang-chevron" viewBox="0 0 12 12" width="10" height="10" fill="currentColor">
+              <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </button>
+
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button type="button" class="lang-option is-active" data-lang="pt" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <rect width="640" height="480" fill="#009c3b" rx="40"/>
+                  <polygon points="320,40 590,240 320,440 50,240" fill="#ffdf00"/>
+                  <circle cx="320" cy="240" r="120" fill="#002776"/>
+                  <path d="M 200,240 A 120,120 0 0,0 440,240 A 130,130 0 0,1 200,240" fill="#ffffff"/>
+                </svg>
+              </span>
+              <span class="lang-option-name">Português</span>
+              <span class="lang-option-badge">BR</span>
+            </button>
+
+            <button type="button" class="lang-option" data-lang="en" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <clipPath id="uk-flag-clip-tc"><rect width="640" height="480" rx="40"/></clipPath>
+                  <g clip-path="url(#uk-flag-clip-tc)">
+                    <rect width="640" height="480" fill="#012169"/>
+                    <path d="M0,0 L640,480 M640,0 L0,480" stroke="#ffffff" stroke-width="64"/>
+                    <path d="M0,0 L640,480 M640,0 L0,480" stroke="#c8102e" stroke-width="24"/>
+                    <path d="M320,0 V480 M0,240 H640" stroke="#ffffff" stroke-width="106"/>
+                    <path d="M320,0 V480 M0,240 H640" stroke="#c8102e" stroke-width="64"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-option-name">English</span>
+              <span class="lang-option-badge">EN</span>
+            </button>
+
+            <button type="button" class="lang-option" data-lang="de" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <clipPath id="de-flag-clip-tc"><rect width="640" height="480" rx="40"/></clipPath>
+                  <g clip-path="url(#de-flag-clip-tc)">
+                    <rect width="640" height="160" y="0" fill="#000000"/>
+                    <rect width="640" height="160" y="160" fill="#dd0000"/>
+                    <rect width="640" height="160" y="320" fill="#ffce00"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-option-name">Deutsch</span>
+              <span class="lang-option-badge">DE</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="#cadastro" class="btn btn-primary" id="navCtaBtn" style="padding:10px 22px; font-size:0.88rem;" data-i18n="nav_cta_partner">
+          Seja Parceiro
+        </a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Abrir Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       KINETIC TICKER
+       ============================================================ -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="gold">✦</span> <span data-i18n="ticker_b2b_prog">PROGRAMA DE PARCEIROS B2B</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_b2b_comm">COMISSÕES POR VENDA FECHADA</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_b2b_mat">MATERIAL GRÁFICO E DIGITAL COMPLETO</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_b2b_train">TREINAMENTO EXCLUSIVO DE PRODUTO</span></span>
+      <span class="ticker-item"><span class="gold">✦</span> <span data-i18n="ticker_b2b_wpp">WHATSAPP PARCEIROS: +55 (11) 93905-6979</span></span>
+      <!-- Repetição -->
+      <span class="ticker-item"><span class="gold">✦</span> <span data-i18n="ticker_b2b_prog">PROGRAMA DE PARCEIROS B2B</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_b2b_comm">COMISSÕES POR VENDA FECHADA</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_b2b_mat">MATERIAL GRÁFICO E DIGITAL COMPLETO</span></span>
+      <span class="ticker-item"><span class="dot">✦</span> <span data-i18n="ticker_b2b_train">TREINAMENTO EXCLUSIVO DE PRODUTO</span></span>
+      <span class="ticker-item"><span class="gold">✦</span> <span data-i18n="ticker_b2b_wpp">WHATSAPP PARCEIROS: +55 (11) 93905-6979</span></span>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ==========================================================
+         HERO SECTION (B2B)
+         ========================================================== -->
+    <section class="hero partner-hero" id="hero">
+      <div class="wrap hero-content">
+        <div class="hero-tagline-badge">
+          <span class="swiss-cross"></span>
+          <span data-i18n="b2b_hero_badge">Para Agências de Viagens &amp; Lojas Físicas</span>
+        </div>
+
+        <h1 data-i18n-html="b2b_hero_h1">
+          Leve a Suíça para<br>
+          dentro da sua <span class="accent-red">loja</span>.
+        </h1>
+
+        <p class="hero-lede" data-i18n="b2b_hero_lede">
+          Sua agência de viagens pode revender os roteiros da Swiss Horizon para a Suíça com excelente comissão,
+          material de divulgação pronto com espaço para o carimbo da sua loja e um consultor dedicado
+          para esclarecer dúvidas junto ao seu cliente.
+        </p>
+
+        <div class="hero-actions">
+          <a href="folder-Swiss Horizon-viagens.pdf" download="folder-Swiss Horizon-viagens.pdf" class="btn btn-gold" data-i18n-html="b2b_hero_btn_pdf">
+            <span>📥</span> Baixar Folder em PDF (A4)
+          </a>
+          <a href="#cadastro" class="btn btn-outline-light" data-i18n="b2b_hero_btn_reg">
+            Cadastrar Minha Agência ➔
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         DIFERENCIAIS DA PARCERIA
+         ========================================================== -->
+    <section class="highlight-bar" aria-label="Diferenciais da Parceria">
+      <div class="wrap highlight-grid">
+        <div class="highlight-col">
+          <div class="highlight-icon">💰</div>
+          <div>
+            <strong data-i18n="b2b_hl1_title">Comissão Atrativa</strong>
+            <span data-i18n="b2b_hl1_desc">Repasse garantido em cada pacote vendido</span>
+          </div>
+        </div>
+        <div class="highlight-col">
+          <div class="highlight-icon">📄</div>
+          <div>
+            <strong data-i18n="b2b_hl2_title">Material de Divulgação</strong>
+            <span data-i18n="b2b_hl2_desc">Folder impresso e artes prontas para redes</span>
+          </div>
+        </div>
+        <div class="highlight-col">
+          <div class="highlight-icon">🎓</div>
+          <div>
+            <strong data-i18n="b2b_hl3_title">Treinamento de Roteiro</strong>
+            <span data-i18n="b2b_hl3_desc">Capacitação sobre trens e atrações suíças</span>
+          </div>
+        </div>
+        <div class="highlight-col">
+          <div class="highlight-icon">🤝</div>
+          <div>
+            <strong data-i18n="b2b_hl4_title">Consultor Dedicado</strong>
+            <span data-i18n="b2b_hl4_desc">Suporte conjunto no fechamento de vendas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         VANTAGENS PARA SUA AGÊNCIA (3D Tilt Cards)
+         ========================================================== -->
+    <section class="section" id="vantagens">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow" data-i18n="b2b_adv_eyebrow">Por que ser parceiro</p>
+          <h2 class="section-title" data-i18n="b2b_adv_title">Vantagens comerciais para sua empresa</h2>
+          <p class="section-lede" data-i18n="b2b_adv_lede">
+            A Swiss Horizon cuida da operação dos trens, hotéis e da logística na Suíça.
+            Sua agência cuida do que faz de melhor: atender e encantar o cliente.
+          </p>
+        </div>
+
+        <div class="packages-grid">
+
+          <article class="package-card" data-tilt>
+            <p class="package-kicker" data-i18n="b2b_card1_kicker">Financeiro</p>
+            <h3 class="package-title" data-i18n="b2b_card1_title">Comissão por Venda</h3>
+            <p class="package-route-text" data-i18n="b2b_card1_desc">Repasse transparente e alinhado ao cronograma do pacote</p>
+            <ul class="package-features-list">
+              <li data-i18n="b2b_card1_li1">Percentual sobre o valor total de cada passageiro fechado</li>
+              <li data-i18n="b2b_card1_li2">Condições e bonificações especiais para grupos familiares ou corporativos</li>
+              <li data-i18n="b2b_card1_li3">Recebimento sincronizado ao parcelamento do cliente</li>
+              <li data-i18n="b2b_card1_li4">Sem metas inalcançáveis ou exigências de exclusividade</li>
+            </ul>
+          </article>
+
+          <article class="package-card featured" data-tilt>
+            <span class="package-badge-popular" data-i18n="b2b_card2_badge">Pronto para Usar</span>
+            <p class="package-kicker" data-i18n="b2b_card2_kicker">Marketing</p>
+            <h3 class="package-title" data-i18n="b2b_card2_title">Material Promocional</h3>
+            <p class="package-route-text" data-i18n="b2b_card2_desc">Folder em PDF para impressão e artes para Instagram/WhatsApp</p>
+            <ul class="package-features-list">
+              <li data-i18n="b2b_card2_li1">Folder de 2 páginas diagramado para impressão A4 com espaço para carimbo</li>
+              <li data-i18n="b2b_card2_li2">Tabela de datas e preços sempre atualizada com as saídas 2027</li>
+              <li data-i18n="b2b_card2_li3">Artes em alta resolução para vitrine física e redes sociais</li>
+              <li data-i18n="b2b_card2_li4">Guia digital com respostas para dúvidas frequentes de passageiros</li>
+            </ul>
+          </article>
+
+          <article class="package-card" data-tilt>
+            <p class="package-kicker" data-i18n="b2b_card3_kicker">Atendimento</p>
+            <h3 class="package-title" data-i18n="b2b_card3_title">Suporte do Consultor</h3>
+            <p class="package-route-text" data-i18n="b2b_card3_desc">Especialista Swiss Horizon disponível para apoiar seu time de vendas</p>
+            <ul class="package-features-list">
+              <li data-i18n="b2b_card3_li1">Linha direta exclusiva por WhatsApp com especialista em Suíça</li>
+              <li data-i18n="b2b_card3_li2">Participação do consultor em reuniões com o passageiro, se desejado</li>
+              <li data-i18n="b2b_card3_li3">Montagem ágil de propostas customizadas ou upgrades de 1ª classe</li>
+              <li data-i18n="b2b_card3_li4">Acompanhamento do embarque até o retorno dos clientes</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         MATERIAL DE APRESENTAÇÃO & DOWNLOAD PDF
+         ========================================================== -->
+    <section class="section section-board" id="material">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow eyebrow-light" data-i18n="b2b_pdf_eyebrow">Material Gráfico</p>
+          <h2 class="section-title section-title-light" data-i18n="b2b_pdf_title">Um folder pronto para o seu balcão</h2>
+          <p class="section-lede section-lede-light" data-i18n="b2b_pdf_lede">
+            Desenvolvemos um material completo com os 3 roteiros, mapa dos trens, valores das duas janelas de embarque
+            e campo reservado para dados e carimbo da sua agência. Basta baixar e imprimir.
+          </p>
+        </div>
+
+        <div class="download-panel-box">
+          <div class="download-panel-left">
+            <div class="pdf-icon-badge">📄</div>
+            <div>
+              <h3 class="download-panel-title" data-i18n="b2b_pdf_box_title">Folder Swiss Horizon — Formato PDF A4</h3>
+              <p class="download-panel-desc" data-i18n="b2b_pdf_box_desc">
+                Material institucional de 2 páginas com roteiros, janela de embarque e condições comerciais para 2027.
+              </p>
+            </div>
+          </div>
+
+          <a href="folder-Swiss Horizon-viagens.pdf" download="folder-Swiss Horizon-viagens.pdf" class="btn btn-gold" data-i18n-html="b2b_pdf_btn">
+            <span>📥</span> Baixar PDF Agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         COMO FUNCIONA A PARCERIA
+         ========================================================== -->
+    <section class="section" id="como-funciona-parceria">
+      <div class="wrap">
+        <div class="section-head-center">
+          <p class="eyebrow" data-i18n="b2b_step_eyebrow">Passo a Passo</p>
+          <h2 class="section-title" data-i18n="b2b_step_title">Do cadastro à primeira venda</h2>
+          <p class="section-lede" style="margin-inline:auto;" data-i18n="b2b_step_lede">
+            O processo de credenciamento é rápido, sem taxas de adesão ou burocracia.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-num-badge">
+              <span>01</span>
+              <span class="step-icon">📝</span>
+            </div>
+            <h3 data-i18n="b2b_step1_title">Cadastre sua Agência</h3>
+            <p data-i18n="b2b_step1_desc">Preencha o formulário abaixo ou envie uma mensagem direta no WhatsApp com os dados da empresa.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num-badge">
+              <span>02</span>
+              <span class="step-icon">📞</span>
+            </div>
+            <h3 data-i18n="b2b_step2_title">Alinhamento Comercial</h3>
+            <p data-i18n="b2b_step2_desc">Nosso consultor apresenta a tabela de comissões, condições de repasse e materiais disponíveis.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num-badge">
+              <span>03</span>
+              <span class="step-icon">🎨</span>
+            </div>
+            <h3 data-i18n="b2b_step3_title">Receba o Kit Promocional</h3>
+            <p data-i18n="b2b_step3_desc">Tenha em mãos o folder para impressão e peças digitais prontas para suas redes sociais.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num-badge">
+              <span>04</span>
+              <span class="step-icon">🚀</span>
+            </div>
+            <h3 data-i18n="b2b_step4_title">Comece a Vender</h3>
+            <p data-i18n="b2b_step4_desc">Ofereça a Suíça aos seus clientes e conte com nosso apoio em cada reserva fechada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         FORMULÁRIO DE CADASTRO B2B
+         ========================================================== -->
+    <section class="section section-contact" id="cadastro">
+      <div class="wrap contact-layout">
+        <div class="contact-info-col">
+          <p class="eyebrow eyebrow-light" data-i18n="b2b_form_eyebrow">Credenciamento de Agências</p>
+          <h2 class="section-title" data-i18n="b2b_form_title">Cadastre sua agência e comece a vender</h2>
+          <p class="section-lede section-lede-light" data-i18n="b2b_form_lede">
+            Junte-se à nossa rede de parceiros em todo o Brasil. Preencha os dados da sua empresa
+            para que nosso coordenador de parcerias entre em contato imediato via WhatsApp.
+          </p>
+
+          <div class="contact-cards-stack">
+            <div class="contact-detail-card">
+              <div class="contact-icon-circle">🏢</div>
+              <div>
+                <strong data-i18n="b2b_form_card1_title">Atendimento a Parceiros</strong>
+                <a href="https://wa.me/5511939056979" target="_blank" rel="noopener">+55 (11) 93905-6979</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-card">
+              <div class="contact-icon-circle">📑</div>
+              <div>
+                <strong data-i18n="b2b_form_card2_title">Sem Taxa de Adesão</strong>
+                <span data-i18n="b2b_form_card2_desc">Credenciamento 100% gratuito</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form B2B -->
+        <div class="contact-form-card">
+          <div class="form-header-note">
+            <h3 data-i18n="b2b_form_head_title">Formulário de Credenciamento</h3>
+            <p data-i18n="b2b_form_head_desc">Dados para cadastro no sistema de parceiros Swiss Horizon.</p>
+          </div>
+
+          <form id="partnerAgencyForm">
+            <div class="form-grid-2">
+              <div class="form-field full-col">
+                <label for="agencyName" data-i18n="b2b_form_label_name">Razão Social ou Nome Fantasia da Agência</label>
+                <input type="text" id="agencyName" required placeholder="Ex.: Alpine Turismo e Viagens" data-i18n-placeholder="b2b_form_ph_name">
+              </div>
+
+              <div class="form-field">
+                <label for="agencyCity" data-i18n="b2b_form_label_city">Cidade / Estado (UF)</label>
+                <input type="text" id="agencyCity" required placeholder="Ex.: São Paulo / SP" data-i18n-placeholder="b2b_form_ph_city">
+              </div>
+
+              <div class="form-field">
+                <label for="agencyContact" data-i18n="b2b_form_label_contact">Nome do Responsável / Agente</label>
+                <input type="text" id="agencyContact" required placeholder="Seu nome completo" data-i18n-placeholder="b2b_form_ph_contact">
+              </div>
+
+              <div class="form-field full-col">
+                <label for="agencyWhatsapp" data-i18n="b2b_form_label_wpp">WhatsApp Comercial da Agência</label>
+                <input type="tel" id="agencyWhatsapp" required placeholder="(11) 99999-9999" data-i18n-placeholder="b2b_form_ph_wpp">
+              </div>
+
+              <div class="form-field full-col">
+                <label for="agencyMsg" data-i18n="b2b_form_label_msg">Perfil da sua clientela ou dúvidas adicionais</label>
+                <textarea id="agencyMsg" rows="3" placeholder="Conte-nos brevemente se sua loja física atende casais, famílias ou grupos..." data-i18n-placeholder="b2b_form_ph_msg"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" style="width:100%; margin-top:20px; font-size:1.05rem;" data-i18n-html="b2b_form_submit">
+              <span>🚀</span> Enviar Cadastro da Agência →
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand-link" style="color:var(--white); margin-bottom:14px;">
+          <img src="logo.png" alt="Logo Swiss Horizon" class="brand-logo-img">
+          <span>Swiss Horizon<span class="brand-dot">.</span></span>
+        </div>
+        <p style="font-size:0.9rem; line-height:1.6; max-width:320px;" data-i18n="b2b_footer_bio">
+          Operadora brasileira especializada exclusivamente em roteiros de alta categoria para a Suíça.
+          Parcerias sólidas com operadoras e agências de turismo.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer_col1_title">Navegação</h4>
+        <ul>
+          <li><a href="index.html#hero" data-i18n="nav_home">Página Inicial</a></li>
+          <li><a href="index.html#roteiros" data-i18n="nav_itineraries">Roteiros e Pacotes</a></li>
+          <li><a href="index.html#embarque" data-i18n="nav_dates">Quadro de Horários</a></li>
+          <li><a href="#material" data-i18n="nav_material">Download do Folder</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="b2b_footer_col2_title">Canal B2B</h4>
+        <ul>
+          <li><a href="#vantagens" data-i18n="nav_advantages">Vantagens Comerciais</a></li>
+          <li><a href="#como-funciona-parceria" data-i18n="b2b_step_eyebrow">Como Credenciar</a></li>
+          <li><a href="#cadastro" data-i18n="b2b_form_head_title">Formulário de Agência</a></li>
+          <li><a href="folder-Swiss Horizon-viagens.pdf" download="folder-Swiss Horizon-viagens.pdf" data-i18n="b2b_pdf_box_desc">Baixar PDF</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="b2b_footer_col3_title">Central de Parceiros</h4>
+        <p style="font-size:0.88rem; margin-bottom:8px;" data-i18n="b2b_footer_col3_sub">Atendimento comercial para agências:</p>
+        <a href="https://wa.me/5511939056979" target="_blank" rel="noopener" class="footer-phone-badge">
+          <span>💬</span> +55 (11) 93905-6979
+        </a>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p data-i18n="footer_copy">© 2026 Swiss Horizon. Todos os direitos reservados. CNPJ e operação registrados.</p>
+      <p data-i18n="footer_credit">Desenvolvido com excelência técnica e inspiração Swiss Horizon.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAL DE CONFIRMAÇÃO EXCLUSIVO Swiss Horizon (B2B)
+       ============================================================ -->
+  <div class="Swiss Horizon-modal-overlay" id="Swiss HorizonBookingModal" role="dialog" aria-modal="true" aria-labelledby="Swiss HorizonModalTitle">
+    <div class="Swiss Horizon-modal-dialog">
+      <button class="Swiss Horizon-modal-close" id="closeSwiss HorizonModalBtn" aria-label="Fechar modal">&times;</button>
+
+      <div class="Swiss Horizon-modal-badge">
+        <span class="swiss-cross"></span>
+        <span data-i18n="b2b_modal_badge">Swiss Horizon · Parcerias B2B</span>
+      </div>
+
+      <div class="Swiss Horizon-modal-icon-wrap">
+        <svg viewBox="0 0 52 52" width="52" height="52" fill="none">
+          <circle cx="26" cy="26" r="25" stroke="#da291c" stroke-width="2.5" fill="#fff5f5"/>
+          <path d="M16 26.5L23 33.5L36 19.5" stroke="#da291c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h3 class="Swiss Horizon-modal-title" id="Swiss HorizonModalTitle" data-i18n="b2b_modal_title">Cadastro Enviado com Sucesso!</h3>
+      <p class="Swiss Horizon-modal-lead" id="Swiss HorizonModalLead" data-i18n="b2b_modal_lead">
+        Os dados da sua agência foram recebidos. Nosso coordenador comercial entrará em contato para liberar os materiais e tabela de repasse.
+      </p>
+
+      <div class="Swiss Horizon-modal-summary" id="Swiss HorizonModalSummary"></div>
+
+      <div class="Swiss Horizon-modal-actions">
+        <a href="#" target="_blank" rel="noopener" class="btn btn-primary" id="Swiss HorizonModalWppAction" data-i18n-html="b2b_modal_wpp_btn">
+          <span>💬</span> Falar com Coordenador no WhatsApp
+        </a>
+        <button type="button" class="btn btn-outline-dark" id="Swiss HorizonModalCloseAction" data-i18n="modal_close_btn">
+          Fechar
+        </button>
+      </div>
+
+      <p class="Swiss Horizon-modal-note" data-i18n="b2b_modal_note">
+        Conectando com nossa gerência de parcerias da Swiss Horizon.
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast de Notificações Swiss Horizon -->
+  <div class="Swiss Horizon-toast" id="Swiss HorizonToast" role="status" aria-live="polite"></div>
+
+  <!-- Botão Flutuante de WhatsApp -->
+  <a href="https://wa.me/5511939056979" target="_blank" rel="noopener" class="floating-wpp-btn" aria-label="Falar no WhatsApp (+55 11 93905-6979)">
+    <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.165 8.165 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+    </svg>
+  </a>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>
