@@ -139,7 +139,7 @@
   }
 
   function setupStaticWhatsAppLinks() {
-    const defaultMsg = "Olá! Gostaria de falar com um consultor da Alpina Viagens sobre os roteiros para a Suíça.";
+    const defaultMsg = "Olá! Gostaria de falar com um consultor da Swiss Horizon sobre os roteiros para a Suíça.";
     const links = document.querySelectorAll("[data-wpp-link]");
     links.forEach((link) => {
       link.setAttribute("href", buildWhatsAppUrl(defaultMsg));
@@ -410,7 +410,7 @@
       let wppText = "";
       if (currentLang === "de") {
         wppText =
-`🇨🇭 *Alpina Reiseplanung — Schweiz 2027*
+`🇨🇭 *Swiss Horizon Reiseplanung — Schweiz 2027*
 
 • *Name:* ${nome}
 • *WhatsApp / Telefon:* ${whatsapp}
@@ -422,7 +422,7 @@
 Hallo! Ich möchte ein detailliertes Angebot erhalten und die Verfügbarkeit für meine Reise prüfen.`;
       } else if (currentLang === "en") {
         wppText =
-`🇨🇭 *Alpina Travel Planning — Switzerland 2027*
+`🇨🇭 *Swiss Horizon Travel Planning — Switzerland 2027*
 
 • *Name:* ${nome}
 • *WhatsApp / Phone:* ${whatsapp}
@@ -434,7 +434,7 @@ Hallo! Ich möchte ein detailliertes Angebot erhalten und die Verfügbarkeit fü
 Hello! I would like to receive the detailed proposal and check availability for my itinerary.`;
       } else {
         wppText =
-`🇨🇭 *Planejamento Alpina Viagens — Suíça 2027*
+`🇨🇭 *Planejamento Swiss Horizon — Suíça 2027*
 
 • *Nome:* ${nome}
 • *WhatsApp:* ${whatsapp}
@@ -502,31 +502,31 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       let wppText = "";
       if (currentLang === "de") {
         wppText =
-`🤝 *Registrierung als Partneragentur — Alpina Reisen*
+`🤝 *Registrierung als Partneragentur — Swiss Horizon*
 
 • *Agentur:* ${agencia}
 • *Stadt / Land:* ${cidade}
 • *Ansprechpartner:* ${resp}
 • *Gewerbliches WhatsApp:* ${wpp}
-• *Nachricht:* ${msg || "Ich möchte die Verkaufsunterlagen von Alpina erhalten."}`;
+• *Nachricht:* ${msg || "Ich möchte die Verkaufsunterlagen von Swiss Horizon erhalten."}`;
       } else if (currentLang === "en") {
         wppText =
-`🤝 *Partner Agency Registration — Alpina Travel*
+`🤝 *Partner Agency Registration — Swiss Horizon*
 
 • *Agency:* ${agencia}
 • *City / Country:* ${cidade}
 • *Contact:* ${resp}
 • *Commercial WhatsApp:* ${wpp}
-• *Message:* ${msg || "I would like to receive the Alpina commercial presentation."}`;
+• *Message:* ${msg || "I would like to receive the Swiss Horizon commercial presentation."}`;
       } else {
         wppText =
-`🤝 *Cadastro de Agência Parceira — Alpina Viagens*
+`🤝 *Cadastro de Agência Parceira — Swiss Horizon*
 
 • *Agência:* ${agencia}
 • *Cidade / UF:* ${cidade}
 • *Responsável:* ${resp}
 • *WhatsApp Comercial:* ${wpp}
-• *Mensagem:* ${msg || "Gostaria de receber a apresentação comercial da Alpina."}`;
+• *Mensagem:* ${msg || "Gostaria de receber a apresentação comercial da Swiss Horizon."}`;
       }
 
       const labels = t.b2b_modal_labels || { agency: "Agência", city: "Cidade / UF", contact: "Responsável", wpp: "WhatsApp Comercial" };
@@ -564,16 +564,20 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
   }
 
   /* ==========================================================================
-     9. MODAL EXCLUSIVO ALPINA VIAGENS & SISTEMA DE TOAST
+     9. MODAL EXCLUSIVO SWISS HORIZON & SISTEMA DE TOAST
      ========================================================================== */
+  function getModalElement(idSuffix) {
+    return document.getElementById("swiss" + idSuffix) || document.getElementById("alpina" + idSuffix);
+  }
+
   function openAlpinaModal(data) {
-    const modal = document.getElementById("alpinaBookingModal");
+    const modal = getModalElement("BookingModal");
     if (!modal) return;
 
-    const titleEl = document.getElementById("alpinaModalTitle");
-    const leadEl = document.getElementById("alpinaModalLead");
-    const summaryEl = document.getElementById("alpinaModalSummary");
-    const wppBtn = document.getElementById("alpinaModalWppAction");
+    const titleEl = getModalElement("ModalTitle");
+    const leadEl = getModalElement("ModalLead");
+    const summaryEl = getModalElement("ModalSummary");
+    const wppBtn = getModalElement("ModalWppAction");
 
     if (titleEl && data.title) titleEl.textContent = data.title;
     if (leadEl && data.lead) leadEl.innerHTML = data.lead;
@@ -585,7 +589,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
   }
 
   function closeAlpinaModal() {
-    const modal = document.getElementById("alpinaBookingModal");
+    const modal = getModalElement("BookingModal");
     if (modal) {
       modal.classList.remove("is-active");
       document.body.style.overflow = "";
@@ -593,11 +597,11 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
   }
 
   function initAlpinaModal() {
-    const modal = document.getElementById("alpinaBookingModal");
+    const modal = getModalElement("BookingModal");
     if (!modal) return;
 
-    const closeBtn = document.getElementById("closeAlpinaModalBtn");
-    const closeAction = document.getElementById("alpinaModalCloseAction");
+    const closeBtn = document.getElementById("closeSwissModalBtn") || document.getElementById("closeAlpinaModalBtn");
+    const closeAction = getModalElement("ModalCloseAction");
 
     if (closeBtn) closeBtn.addEventListener("click", closeAlpinaModal);
     if (closeAction) closeAction.addEventListener("click", closeAlpinaModal);
@@ -616,7 +620,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
   // Toast leve e elegante para notificações na tela
   let toastTimeout = null;
   function showAlpinaToast(message, duration = 4000) {
-    const toast = document.getElementById("alpinaToast");
+    const toast = document.getElementById("swissToast") || document.getElementById("alpinaToast");
     if (!toast) return;
 
     toast.textContent = message;
@@ -626,6 +630,26 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
     toastTimeout = setTimeout(() => {
       toast.classList.remove("is-visible");
     }, duration);
+  }
+
+  /* ==========================================================================
+     10. BOTÃO WHATSAPP FLUTUANTE (Exibição Dinâmica no Mobile)
+     ========================================================================== */
+  function initFloatingWpp() {
+    const wppBtn = document.querySelector(".floating-wpp-btn");
+    if (!wppBtn) return;
+
+    const handleWppVisibility = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > 300) {
+        wppBtn.classList.add("is-visible");
+      } else {
+        wppBtn.classList.remove("is-visible");
+      }
+    };
+
+    window.addEventListener("scroll", handleWppVisibility, { passive: true });
+    handleWppVisibility();
   }
 
   /* ==========================================================================
@@ -757,7 +781,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
     pt: {
       code: "PT",
       toast: "✦ Idioma alterado para Português (Brasil)",
-      page_title: "Alpina Viagens | Roteiros Exclusivos pela Suíça 2027",
+      page_title: "Swiss Horizon | Roteiros Exclusivos pela Suíça 2027",
       page_description: "Viagens exclusivas para a Suíça com a precisão dos trens alpinos. Roteiros Essencial, Premium e Exclusivo em duas janelas de embarque. Atendimento via WhatsApp.",
       sound_on: "🔊 Som Ativado",
       sound_off: "🔇 Som Mudo",
@@ -784,7 +808,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       nav_cta_partner: "Seja Parceiro",
 
       // Kinetic Ticker
-      ticker_brand: "ALPINA VIAGENS",
+      ticker_brand: "SWISS HORIZON",
       ticker_sbb: "SBB CFF FFS PRECISÃO SUÍÇA",
       ticker_trains: "TRENS PANORÂMICOS & GLACIER EXPRESS",
       ticker_zermatt: "ZERMATT & MATTERHORN",
@@ -885,10 +909,10 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       // Itinerário
       itin_eyebrow: "Itinerário Detalhado",
       itin_title: "A jornada suíça, dia após dia",
-      itin_lede: "Conheça os pontos altos do roteiro com fotos reais dos destinos visitados pela Alpina. Use os filtros abaixo para ver os destaques de cada linha.",
+      itin_lede: "Conheça os pontos altos do roteiro com fotos reais dos destinos visitados pela Swiss Horizon. Use os filtros abaixo para ver os destaques de cada linha.",
       itin_filter_all: "Todos os Dias",
-      itin_filter_essencial: "Linha Essencial (Dias 1-3, 7)",
-      itin_filter_premium: "Linha Premium (Dias 1-6, 7)",
+      itin_filter_essencial: "Linha Essencial (Dias 1-3 + Retorno)",
+      itin_filter_premium: "Linha Premium (Dias 1-6 + Retorno)",
       itin_filter_exclusivo: "Linha Exclusiva (Extensão Zermatt)",
       itin_d1_pill: "Dia 01 · Chegada",
       itin_d1_title: "Zurique e o Centro Histórico (Altstadt)",
@@ -932,10 +956,16 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       itin_d7_t1: "Gornergrat 3.089m",
       itin_d7_t2: "Matterhorn",
       itin_d7_t3: "Vila Car-Free",
+      itin_d_last_pill: "Último Dia · Retorno & Embarque",
+      itin_d_last_title: "Retorno a Zurique e Embarque de Volta",
+      itin_d_last_desc: "Despedida dos Alpes com retorno confortável de trem a Zurique. Tempo livre para compras na Bahnhofstrasse e traslado pontual ao aeroporto internacional de Zurique para o voo de volta.",
+      itin_d_last_t1: "Trem Panorâmico",
+      itin_d_last_t2: "Compras Livres",
+      itin_d_last_t3: "Voo de Retorno",
 
       // Experiência
-      exp_eyebrow: "A Experiência Alpina",
-      exp_title: 'Você escolhe o destino.<br>A Alpina cuida do caminho.',
+      exp_eyebrow: "A Experiência Swiss Horizon",
+      exp_title: 'Você escolhe o destino.<br>A Swiss Horizon cuida do caminho.',
       exp_lede: "Nosso papel é traduzir o sonho de viajar em um roteiro pontual, elegante e sem preocupações logísticas, com o rigor e a hospitalidade que a Suíça tem de melhor.",
       exp_feat1_title: "Destinos Selecionados",
       exp_feat1_desc: "Cidades e vilarejos autênticos",
@@ -946,7 +976,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       exp_feat4_title: "Assistência 24 Horas",
       exp_feat4_desc: "Suporte direto em português",
       exp_quote_body: "Organizamos a viagem pelo relógio suíço: cada trecho tem hora certa para sair, para conectar e para maravilhar.",
-      exp_quote_author: "Equipe Alpina Viagens",
+      exp_quote_author: "Equipe Swiss Horizon",
       exp_quote_role: "Especialistas em Turismo Suíço",
 
       // Como Funciona
@@ -988,7 +1018,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       select_janelas: ["Janeiro a Março (Neve & Esqui)", "Abril a Junho (Primavera nos Alpes)"],
 
       // B2B Strip & Rodapé
-      b2b_strip_title: "Sua agência de viagens pode vender roteiros Alpina",
+      b2b_strip_title: "Sua agência de viagens pode vender roteiros Swiss Horizon",
       b2b_strip_desc: "Condições especiais com repasse de comissão por venda, material impresso e suporte comercial dedicado.",
       b2b_strip_btn: "Conhecer Parceria B2B →",
       footer_bio: "Operadora brasileira especializada exclusivamente em turismo de alto padrão pela Suíça. Viagens estruturadas pelo ritmo dos trens e pela grandiosidade dos Alpes.",
@@ -1001,23 +1031,23 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       footer_col3_title: "Central de Atendimento",
       footer_col3_sub: "Atendimento comercial e consultoria:",
       footer_col3_note: "Disponível em todo o território nacional.",
-      footer_copy: "© 2026 Alpina Viagens. Todos os direitos reservados. CNPJ e operação registrados.",
-      footer_credit: "Desenvolvido com excelência técnica e inspiração alpina.",
+      footer_copy: "© 2026 Swiss Horizon. Todos os direitos reservados. CNPJ e operação registrados.",
+      footer_credit: "Desenvolvido com excelência técnica e inspiração Swiss Horizon.",
 
       // Modal
-      modal_badge: "Alpina Viagens · Suíça 2027",
+      modal_badge: "Swiss Horizon · Suíça 2027",
       modal_title: "Solicitação Registrada com Sucesso!",
       modal_lead: "Seu plano de viagem para a Suíça foi processado com a pontualidade e rigor dos trens alpinos.",
       modal_wpp_btn: "<span>💬</span> Conectar no WhatsApp (+55 11 93905-6979)",
       modal_close_btn: "Fechar",
-      modal_note: "Abrindo automaticamente o atendimento oficial da Alpina Viagens no WhatsApp.",
+      modal_note: "Abrindo automaticamente o atendimento oficial da Swiss Horizon no WhatsApp.",
 
       // B2B Trabalhe Conosco
-      b2b_page_title: "Trabalhe Conosco | Alpina Viagens — Parcerias para Agências",
-      b2b_page_desc: "Sua agência de viagens pode vender roteiros exclusivos da Alpina para a Suíça. Comissões atrativas, material promocional pronto e suporte de ponta a ponta.",
+      b2b_page_title: "Trabalhe Conosco | Swiss Horizon — Parcerias para Agências",
+      b2b_page_desc: "Sua agência de viagens pode vender roteiros exclusivos da Swiss Horizon para a Suíça. Comissões atrativas, material promocional pronto e suporte de ponta a ponta.",
       b2b_hero_badge: "Para Agências de Viagens & Lojas Físicas",
       b2b_hero_h1: 'Leve a Suíça para<br>dentro da sua <span class="accent-red">loja</span>.',
-      b2b_hero_lede: "Sua agência de viagens pode revender os roteiros da Alpina para a Suíça com excelente comissão, material de divulgação pronto com espaço para o carimbo da sua loja e um consultor dedicado para esclarecer dúvidas junto ao seu cliente.",
+      b2b_hero_lede: "Sua agência de viagens pode revender os roteiros da Swiss Horizon para a Suíça com excelente comissão, material de divulgação pronto com espaço para o carimbo da sua loja e um consultor dedicado para esclarecer dúvidas junto ao seu cliente.",
       b2b_hero_btn_pdf: "<span>📥</span> Baixar Folder em PDF (A4)",
       b2b_hero_btn_reg: "Cadastrar Minha Agência ➔",
       b2b_hl1_title: "Comissão Atrativa",
@@ -1030,7 +1060,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_hl4_desc: "Suporte conjunto no fechamento de vendas",
       b2b_adv_eyebrow: "Por que ser parceiro",
       b2b_adv_title: "Vantagens comerciais para sua empresa",
-      b2b_adv_lede: "A Alpina cuida da operação dos trens, hotéis e da logística na Suíça. Sua agência cuida do que faz de melhor: atender e encantar o cliente.",
+      b2b_adv_lede: "A Swiss Horizon cuida da operação dos trens, hotéis e da logística na Suíça. Sua agência cuida do que faz de melhor: atender e encantar o cliente.",
       b2b_card1_kicker: "Financeiro",
       b2b_card1_title: "Comissão por Venda",
       b2b_card1_desc: "Repasse transparente e alinhado ao cronograma do pacote",
@@ -1048,7 +1078,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_card2_li4: "Guia digital com respostas para dúvidas frequentes de passageiros",
       b2b_card3_kicker: "Atendimento",
       b2b_card3_title: "Suporte do Consultor",
-      b2b_card3_desc: "Especialista Alpina disponível para apoiar seu time de vendas",
+      b2b_card3_desc: "Especialista Swiss Horizon disponível para apoiar seu time de vendas",
       b2b_card3_li1: "Linha direta exclusiva por WhatsApp com especialista em Suíça",
       b2b_card3_li2: "Participação do consultor em reuniões com o passageiro, se desejado",
       b2b_card3_li3: "Montagem ágil de propostas customizadas ou upgrades de 1ª classe",
@@ -1056,7 +1086,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_pdf_eyebrow: "Material Gráfico",
       b2b_pdf_title: "Um folder pronto para o seu balcão",
       b2b_pdf_lede: "Desenvolvemos um material completo com os 3 roteiros, mapa dos trens, valores das duas janelas de embarque e campo reservado para dados e carimbo da sua agência. Basta baixar e imprimir.",
-      b2b_pdf_box_title: "Folder Alpina Viagens — Formato PDF A4",
+      b2b_pdf_box_title: "Folder Swiss Horizon — Formato PDF A4",
       b2b_pdf_box_desc: "Material institucional de 2 páginas com roteiros, janela de embarque e condições comerciais para 2027.",
       b2b_pdf_btn: "<span>📥</span> Baixar PDF Agora",
       b2b_step_eyebrow: "Passo a Passo",
@@ -1077,7 +1107,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_form_card2_title: "Sem Taxa de Adesão",
       b2b_form_card2_desc: "Credenciamento 100% gratuito",
       b2b_form_head_title: "Formulário de Credenciamento",
-      b2b_form_head_desc: "Dados para cadastro no sistema de parceiros Alpina.",
+      b2b_form_head_desc: "Dados para cadastro no sistema de parceiros Swiss Horizon.",
       b2b_form_label_name: "Razão Social ou Nome Fantasia da Agência",
       b2b_form_ph_name: "Ex.: Alpine Turismo e Viagens",
       b2b_form_label_city: "Cidade / Estado (UF)",
@@ -1093,17 +1123,17 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_footer_col2_title: "Canal B2B",
       b2b_footer_col3_title: "Central de Parceiros",
       b2b_footer_col3_sub: "Atendimento comercial para agências:",
-      b2b_modal_badge: "Alpina Viagens · Parcerias B2B",
+      b2b_modal_badge: "Swiss Horizon · Parcerias B2B",
       b2b_modal_title: "Cadastro Enviado com Sucesso!",
       b2b_modal_lead: "Os dados da sua agência foram recebidos. Nosso coordenador comercial entrará em contato para liberar os materiais e tabela de repasse.",
       b2b_modal_wpp_btn: "<span>💬</span> Falar com Coordenador no WhatsApp",
-      b2b_modal_note: "Conectando com nossa gerência de parcerias da Alpina Viagens."
+      b2b_modal_note: "Conectando com nossa gerência de parcerias da Swiss Horizon."
     },
 
     en: {
       code: "EN",
       toast: "✦ Language switched to English",
-      page_title: "Alpina Travel | Exclusive Switzerland Itineraries 2027",
+      page_title: "Swiss Horizon | Exclusive Switzerland Itineraries 2027",
       page_description: "Exclusive curated journeys through Switzerland aboard panoramic trains. Essential, Premium and Exclusive lines across two departure windows. WhatsApp concierge.",
       sound_on: "🔊 Sound On",
       sound_off: "🔇 Sound Muted",
@@ -1130,7 +1160,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       nav_cta_partner: "Become a Partner",
 
       // Kinetic Ticker
-      ticker_brand: "ALPINA TRAVEL",
+      ticker_brand: "SWISS HORIZON",
       ticker_sbb: "SBB CFF FFS SWISS PRECISION",
       ticker_trains: "PANORAMIC TRAINS & GLACIER EXPRESS",
       ticker_zermatt: "ZERMATT & MATTERHORN",
@@ -1209,7 +1239,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       tab_jan_mar_sub: "Snow & Winter Ski Season",
       tab_abr_jun_label: "April → June",
       tab_abr_jun_sub: "Spring & Alpine Lakes",
-      board_top_left: '<span class="swiss-cross" style="width:14px;height:14px;"></span> SBB CFF FFS SYSTEM · OFFICIAL ALPINA BOARD 2027',
+      board_top_left: '<span class="swiss-cross" style="width:14px;height:14px;"></span> SBB CFF FFS SYSTEM · OFFICIAL SWISS HORIZON BOARD 2027',
       board_top_status: "STATUS: SEATS AVAILABLE",
       board_th_line: "Line / Itinerary",
       board_th_duration: "Duration",
@@ -1231,10 +1261,10 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       // Timeline
       itin_eyebrow: "Detailed Itinerary",
       itin_title: "The Swiss journey, day by day",
-      itin_lede: "Discover itinerary highlights accompanied by authentic photography of destinations visited by Alpina. Use the filters below to browse highlights for each line.",
+      itin_lede: "Discover itinerary highlights accompanied by authentic photography of destinations visited by Swiss Horizon. Use the filters below to browse highlights for each line.",
       itin_filter_all: "All Days",
-      itin_filter_essencial: "Essential Line (Days 1-3, 7)",
-      itin_filter_premium: "Premium Line (Days 1-6, 7)",
+      itin_filter_essencial: "Essential Line (Days 1-3 + Return)",
+      itin_filter_premium: "Premium Line (Days 1-6 + Return)",
       itin_filter_exclusivo: "Exclusive Line (Zermatt Extension)",
       itin_d1_pill: "Day 01 · Arrival",
       itin_d1_title: "Zurich & Historical Old Town (Altstadt)",
@@ -1278,10 +1308,16 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       itin_d7_t1: "Gornergrat 3,089m",
       itin_d7_t2: "Matterhorn",
       itin_d7_t3: "Car-Free Village",
+      itin_d_last_pill: "Final Day · Return & Departure",
+      itin_d_last_title: "Return to Zurich & Homeward Departure",
+      itin_d_last_desc: "Scenic farewell train journey back to Zurich. Free time for last-minute shopping on Bahnhofstrasse and timely transfer to Zurich Airport.",
+      itin_d_last_t1: "Panoramic Train",
+      itin_d_last_t2: "Bahnhofstrasse",
+      itin_d_last_t3: "Return Flight",
 
       // Experience
-      exp_eyebrow: "The Alpina Experience",
-      exp_title: 'You choose the destination.<br>Alpina cares for the journey.',
+      exp_eyebrow: "The Swiss Horizon Experience",
+      exp_title: 'You choose the destination.<br>Swiss Horizon crafts the journey.',
       exp_lede: "Our role is to translate your travel vision into a punctual, elegant and hassle-free itinerary, backed by the finest Swiss precision and hospitality.",
       exp_feat1_title: "Curated Destinations",
       exp_feat1_desc: "Authentic alpine cities & villages",
@@ -1292,7 +1328,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       exp_feat4_title: "24/7 Dedicated Support",
       exp_feat4_desc: "Direct concierge assistance",
       exp_quote_body: "We orchestrate every journey by the Swiss watch: each connection has its exact time to depart, connect and inspire awe.",
-      exp_quote_author: "Alpina Travel Team",
+      exp_quote_author: "Swiss Horizon Team",
       exp_quote_role: "Swiss Luxury Travel Specialists",
 
       // How It Works
@@ -1334,7 +1370,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       select_janelas: ["January to March (Snow & Ski)", "April to June (Alpine Spring)"],
 
       // B2B Strip & Footer
-      b2b_strip_title: "Your travel agency can sell Alpina Swiss itineraries",
+      b2b_strip_title: "Your travel agency can sell Swiss Horizon Swiss itineraries",
       b2b_strip_desc: "Attractive commissions per booking, ready-to-print marketing kits and dedicated B2B trade support.",
       b2b_strip_btn: "Explore B2B Partnership →",
       footer_bio: "Boutique tour operator specializing exclusively in high-end Swiss travel. Journeys shaped by panoramic railway rhythms and alpine grandeur.",
@@ -1347,23 +1383,23 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       footer_col3_title: "Customer Care",
       footer_col3_sub: "Commercial advisory and bookings:",
       footer_col3_note: "Available internationally and nationwide.",
-      footer_copy: "© 2026 Alpina Viagens. All rights reserved. Registered tour operator.",
-      footer_credit: "Crafted with technical excellence and alpine inspiration.",
+      footer_copy: "© 2026 Swiss Horizon. All rights reserved. Registered tour operator.",
+      footer_credit: "Crafted with technical excellence and Swiss Horizon inspiration.",
 
       // Modal
-      modal_badge: "Alpina Travel · Switzerland 2027",
+      modal_badge: "Swiss Horizon · Switzerland 2027",
       modal_title: "Request Successfully Submitted!",
       modal_lead: "Your Swiss travel request has been processed with the precision and punctuality of alpine trains.",
       modal_wpp_btn: "<span>💬</span> Connect on WhatsApp (+55 11 93905-6979)",
       modal_close_btn: "Close",
-      modal_note: "Automatically opening official Alpina Travel WhatsApp concierge.",
+      modal_note: "Automatically opening official Swiss Horizon WhatsApp concierge.",
 
       // B2B Page
-      b2b_page_title: "Partner With Us | Alpina Travel — Agency Partnerships",
-      b2b_page_desc: "Your travel agency can sell Alpina's exclusive Swiss itineraries. Rewarding commissions, print-ready promo kits, and end-to-end sales support.",
+      b2b_page_title: "Partner With Us | Swiss Horizon — Agency Partnerships",
+      b2b_page_desc: "Your travel agency can sell Swiss Horizon's exclusive Swiss itineraries. Rewarding commissions, print-ready promo kits, and end-to-end sales support.",
       b2b_hero_badge: "For Travel Agencies & Retailers",
       b2b_hero_h1: 'Bring Switzerland<br>inside your <span class="accent-red">agency</span>.',
-      b2b_hero_lede: "Your travel agency can resell Alpina's Switzerland itineraries with rewarding commission, branded marketing materials ready for your stamp, and a dedicated specialist to support your sales.",
+      b2b_hero_lede: "Your travel agency can resell Swiss Horizon's Switzerland itineraries with rewarding commission, branded marketing materials ready for your stamp, and a dedicated specialist to support your sales.",
       b2b_hero_btn_pdf: "<span>📥</span> Download PDF Flyer (A4)",
       b2b_hero_btn_reg: "Register My Agency ➔",
       b2b_hl1_title: "Attractive Commission",
@@ -1376,7 +1412,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_hl4_desc: "Co-selling support to close high-value sales",
       b2b_adv_eyebrow: "Why Partner With Us",
       b2b_adv_title: "Commercial benefits for your business",
-      b2b_adv_lede: "Alpina manages Swiss train operations, boutique hotels and alpine logistics. Your agency does what it does best: delighting clients.",
+      b2b_adv_lede: "Swiss Horizon manages Swiss train operations, boutique hotels and alpine logistics. Your agency does what it does best: delighting clients.",
       b2b_card1_kicker: "Financial",
       b2b_card1_title: "Commission per Sale",
       b2b_card1_desc: "Transparent payouts aligned with client payment schedules",
@@ -1394,7 +1430,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_card2_li4: "Digital FAQ guide answering frequent passenger questions",
       b2b_card3_kicker: "Trade Support",
       b2b_card3_title: "Specialist Support",
-      b2b_card3_desc: "Alpina Switzerland specialist ready to assist your sales team",
+      b2b_card3_desc: "Swiss Horizon destination specialist ready to assist your sales team",
       b2b_card3_li1: "Direct WhatsApp hotline with dedicated Swiss destination expert",
       b2b_card3_li2: "Specialist attendance in customer presentations upon request",
       b2b_card3_li3: "Fast turnaround on customized itineraries and 1st-class upgrades",
@@ -1402,7 +1438,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_pdf_eyebrow: "Printed Collateral",
       b2b_pdf_title: "A brochure ready for your reception desk",
       b2b_pdf_lede: "We created a comprehensive presentation including all 3 itineraries, panoramic rail maps, departure calendar and space for your agency stamp.",
-      b2b_pdf_box_title: "Alpina Travel Brochure — A4 PDF Format",
+      b2b_pdf_box_title: "Swiss Horizon Brochure — A4 PDF Format",
       b2b_pdf_box_desc: "Two-page institutional brochure with itineraries, departure windows and commercial conditions for 2027.",
       b2b_pdf_btn: "<span>📥</span> Download PDF Now",
       b2b_step_eyebrow: "Step by Step",
@@ -1423,7 +1459,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_form_card2_title: "No Membership Fee",
       b2b_form_card2_desc: "100% free partner accreditation",
       b2b_form_head_title: "Accreditation Form",
-      b2b_form_head_desc: "Details for registration in the Alpina partner system.",
+      b2b_form_head_desc: "Details for registration in the Swiss Horizon partner system.",
       b2b_form_label_name: "Corporate or Trade Name of Agency",
       b2b_form_ph_name: "E.g.: Alpine Travel & Tours",
       b2b_form_label_city: "City / State / Country",
@@ -1439,17 +1475,17 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_footer_col2_title: "B2B Trade Channel",
       b2b_footer_col3_title: "Partner Desk",
       b2b_footer_col3_sub: "Commercial support for partner agencies:",
-      b2b_modal_badge: "Alpina Travel · B2B Partnerships",
+      b2b_modal_badge: "Swiss Horizon · B2B Partnerships",
       b2b_modal_title: "Registration Submitted Successfully!",
       b2b_modal_lead: "Your agency credentials have been received. Our trade coordinator will connect shortly with full materials and commission sheets.",
       b2b_modal_wpp_btn: "<span>💬</span> Chat with Trade Coordinator on WhatsApp",
-      b2b_modal_note: "Connecting with Alpina Travel partner relations desk."
+      b2b_modal_note: "Connecting with Swiss Horizon partner relations desk."
     },
 
     de: {
       code: "DE",
       toast: "✦ Sprache auf Deutsch geändert",
-      page_title: "Alpina Reisen | Exklusive Reiserouten durch die Schweiz 2027",
+      page_title: "Swiss Horizon | Exklusive Reiserouten durch die Schweiz 2027",
       page_description: "Exklusive Schweizer Erlebnisreisen mit erstklassigen Panoramazügen. Routen Essentiell, Premium und Exklusiv in zwei Abfahrtsfenstern. WhatsApp-Service.",
       sound_on: "🔊 Ton An",
       sound_off: "🔇 Ton Aus",
@@ -1476,7 +1512,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       nav_cta_partner: "Partner Werden",
 
       // Kinetic Ticker
-      ticker_brand: "ALPINA REISEN",
+      ticker_brand: "SWISS HORIZON",
       ticker_sbb: "SBB CFF FFS SCHWEIZER PRÄZISION",
       ticker_trains: "PANORAMAZÜGE & GLACIER EXPRESS",
       ticker_zermatt: "ZERMATT & MATTERHORN",
@@ -1577,10 +1613,10 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       // Reiseplan
       itin_eyebrow: "Detaillierter Reiseplan",
       itin_title: "Die Schweizer Reise, Tag für Tag",
-      itin_lede: "Entdecken Sie die Höhepunkte der Reiseroute mit echten Fotos der von Alpina besuchten Ziele. Nutzen Sie die Filter unten für jede Linie.",
+      itin_lede: "Entdecken Sie die Höhepunkte der Reiseroute mit echten Fotos der von Swiss Horizon besuchten Ziele. Nutzen Sie die Filter unten für jede Linie.",
       itin_filter_all: "Alle Tage",
-      itin_filter_essencial: "Essentiell-Linie (Tage 1-3, 7)",
-      itin_filter_premium: "Premium-Linie (Tage 1-6, 7)",
+      itin_filter_essencial: "Essentiell-Linie (Tage 1-3 + Rückreise)",
+      itin_filter_premium: "Premium-Linie (Tage 1-6 + Rückreise)",
       itin_filter_exclusivo: "Exklusiv-Linie (Zermatt-Erweiterung)",
       itin_d1_pill: "Tag 01 · Ankunft",
       itin_d1_title: "Zürich und die historische Altstadt",
@@ -1624,10 +1660,16 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       itin_d7_t1: "Gornergrat 3.089m",
       itin_d7_t2: "Matterhorn",
       itin_d7_t3: "Autofreies Dorf",
+      itin_d_last_pill: "Letzter Tag · Rückreise & Abflug",
+      itin_d_last_title: "Rückfahrt nach Zürich & Heimreise",
+      itin_d_last_desc: "Abschied von den Alpen auf einer malerischen Zugfahrt zurück nach Zürich. Freie Zeit zum Einkaufen an der Bahnhofstrasse und pünktlicher Transfer zum Flughafen Zürich.",
+      itin_d_last_t1: "Panoramazug",
+      itin_d_last_t2: "Bahnhofstrasse",
+      itin_d_last_t3: "Rückflug",
 
       // Erlebnisse
-      exp_eyebrow: "Das Alpina-Erlebnis",
-      exp_title: 'Sie wählen das Reiseziel.<br>Alpina gestaltet den Weg.',
+      exp_eyebrow: "Das Swiss Horizon-Erlebnis",
+      exp_title: 'Sie wählen das Reiseziel.<br>Swiss Horizon gestaltet den Weg.',
       exp_lede: "Unsere Mission ist es, Ihren Reisetraum in eine pünktliche, elegante und sorgenfreie Route mit erstklassiger Schweizer Gastfreundschaft zu verwandeln.",
       exp_feat1_title: "Erlesene Reiseziele",
       exp_feat1_desc: "Authentische Städte und Bergdörfer",
@@ -1638,7 +1680,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       exp_feat4_title: "24/7 Betreuung",
       exp_feat4_desc: "Persönlicher Concierge-Service",
       exp_quote_body: "Wir takten jede Reise wie ein Schweizer Uhrwerk: Jede Etappe hat ihre genaue Zeit zum Abfahren, Umsteigen und Staunen.",
-      exp_quote_author: "Team Alpina Reisen",
+      exp_quote_author: "Team Swiss Horizon",
       exp_quote_role: "Spezialisten für Schweizer Luxusreisen",
 
       // So Funktioniert's
@@ -1680,7 +1722,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       select_janelas: ["Januar bis März (Schnee & Ski)", "April bis Juni (Alpenfrühling)"],
 
       // B2B Strip & Fußzeile
-      b2b_strip_title: "Ihre Reiseagentur kann Alpina-Routen für die Schweiz anbieten",
+      b2b_strip_title: "Ihre Reiseagentur kann Swiss Horizon-Routen für die Schweiz anbieten",
       b2b_strip_desc: "Attraktive Provisionen pro Buchung, druckfertiges Werbematerial und engagierter B2B-Support.",
       b2b_strip_btn: "B2B-Partnerschaft Entdecken →",
       footer_bio: "Spezialisierter Reiseveranstalter für exklusive Reisen durch die Schweiz. Geprägt von Panoramazügen und alpiner Pracht.",
@@ -1693,23 +1735,23 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       footer_col3_title: "Kundenservice",
       footer_col3_sub: "Kundenberatung und Buchung:",
       footer_col3_note: "Bundesweit und international erreichbar.",
-      footer_copy: "© 2026 Alpina Viagens. Alle Rechte vorbehalten. Registrierter Reiseveranstalter.",
-      footer_credit: "Mit Schweizer Präzision und alpiner Inspiration gestaltet.",
+      footer_copy: "© 2026 Swiss Horizon. Alle Rechte vorbehalten. Registrierter Reiseveranstalter.",
+      footer_credit: "Mit Schweizer Präzision und Swiss Horizon-Inspiration gestaltet.",
 
       // Modal
-      modal_badge: "Alpina Reisen · Schweiz 2027",
+      modal_badge: "Swiss Horizon · Schweiz 2027",
       modal_title: "Anfrage Erfolgreich Übermittelt!",
       modal_lead: "Ihre Reiseanfrage wurde mit der Pünktlichkeit und Sorgfalt der Schweizer Bahnen erfasst.",
       modal_wpp_btn: "<span>💬</span> Auf WhatsApp Kontaktieren (+55 11 93905-6979)",
       modal_close_btn: "Schließen",
-      modal_note: "Öffnet automatisch den offiziellen WhatsApp-Service von Alpina Reisen.",
+      modal_note: "Öffnet automatisch den offiziellen WhatsApp-Service von Swiss Horizon.",
 
       // B2B Seite
-      b2b_page_title: "B2B Partner | Alpina Reisen — Partnerschaften für Reisebüros",
-      b2b_page_desc: "Ihr Reisebüro kann exklusive Alpina-Schweizreisen anbieten. Attraktive Provisionen, fertiges Werbematerial und umfassender B2B-Support.",
+      b2b_page_title: "B2B Partner | Swiss Horizon — Partnerschaften für Reisebüros",
+      b2b_page_desc: "Ihr Reisebüro kann exklusive Swiss Horizon-Schweizreisen anbieten. Attraktive Provisionen, fertiges Werbematerial und umfassender B2B-Support.",
       b2b_hero_badge: "Für Reisebüros & Agenturen",
       b2b_hero_h1: 'Bringen Sie die Schweiz<br>in Ihr <span class="accent-red">Reisebüro</span>.',
-      b2b_hero_lede: "Ihr Reisebüro kann die exklusiven Schweiz-Routen von Alpina mit erstklassiger Provision, druckfertigem Werbematerial mit Stempelfeld und persönlicher Beratung anbieten.",
+      b2b_hero_lede: "Ihr Reisebüro kann die exklusiven Schweiz-Routen von Swiss Horizon mit erstklassiger Provision, druckfertigem Werbematerial mit Stempelfeld und persönlicher Beratung anbieten.",
       b2b_hero_btn_pdf: "<span>📥</span> PDF-Flyer Herunterladen (A4)",
       b2b_hero_btn_reg: "Meine Agentur Anmelden ➔",
       b2b_hl1_title: "Attraktive Provision",
@@ -1722,7 +1764,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_hl4_desc: "Gemeinsamer Vertriebssupport beim Abschluss",
       b2b_adv_eyebrow: "Warum Partner Werden",
       b2b_adv_title: "Geschäftsvorteile für Ihr Unternehmen",
-      b2b_adv_lede: "Alpina kümmert sich um Zugreservierungen, Hotels und Schweizer Logistik. Ihre Agentur konzentriert sich auf beste Kundenbetreuung.",
+      b2b_adv_lede: "Swiss Horizon kümmert sich um Zugreservierungen, Hotels und Schweizer Logistik. Ihre Agentur konzentriert sich auf beste Kundenbetreuung.",
       b2b_card1_kicker: "Finanzen",
       b2b_card1_title: "Provision pro Buchung",
       b2b_card1_desc: "Transparente Vergütung abgestimmt auf Zahlungspläne",
@@ -1740,7 +1782,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_card2_li4: "Digitaler Leitfaden für häufig gestellte Kundenfragen",
       b2b_card3_kicker: "Betreuung",
       b2b_card3_title: "Berater-Support",
-      b2b_card3_desc: "Alpina-Spezialist steht Ihrem Vertriebsteam zur Seite",
+      b2b_card3_desc: "Swiss Horizon-Spezialist steht Ihrem Vertriebsteam zur Seite",
       b2b_card3_li1: "Exklusive WhatsApp-Direktlinie mit Schweizer Reiseexperten",
       b2b_card3_li2: "Teilnahme an Beratungsgesprächen auf Wunsch",
       b2b_card3_li3: "Schnelle Erstellung individueller Angebote und Upgrades",
@@ -1748,7 +1790,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_pdf_eyebrow: "Druckunterlagen",
       b2b_pdf_title: "Ein fertiger Flyer für Ihren Schalter",
       b2b_pdf_lede: "Vollständige Präsentation aller 3 Routen, Bahnkarte, Reisetermine und Platz für Ihren Firmenstempel. Einfach herunterladen und drucken.",
-      b2b_pdf_box_title: "Alpina Reisen Flyer — A4 PDF-Format",
+      b2b_pdf_box_title: "Swiss Horizon Flyer — A4 PDF-Format",
       b2b_pdf_box_desc: "Zweiseitiges Informationsmaterial mit Routen, Abfahrtsfenstern und Konditionen für 2027.",
       b2b_pdf_btn: "<span>📥</span> Jetzt PDF Herunterladen",
       b2b_step_eyebrow: "Schritt für Schritt",
@@ -1769,7 +1811,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_form_card2_title: "Keine Aufnahmegebühr",
       b2b_form_card2_desc: "100% kostenlose Akkreditierung",
       b2b_form_head_title: "Akkreditierungsformular",
-      b2b_form_head_desc: "Angaben zur Aufnahme in das Alpina-Partnersystem.",
+      b2b_form_head_desc: "Angaben zur Aufnahme in das Swiss Horizon-Partnersystem.",
       b2b_form_label_name: "Firmenname oder Name der Reiseagentur",
       b2b_form_ph_name: "Z.B.: Alpine Reisen & Touristik",
       b2b_form_label_city: "Stadt / Bundesland",
@@ -1785,11 +1827,11 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_footer_col2_title: "B2B-Partnerkanal",
       b2b_footer_col3_title: "Partnerzentrale",
       b2b_footer_col3_sub: "Vertriebsbetreuung für Partneragenturen:",
-      b2b_modal_badge: "Alpina Reisen · B2B-Partnerschaften",
+      b2b_modal_badge: "Swiss Horizon · B2B-Partnerschaften",
       b2b_modal_title: "Anmeldung Erfolgreich Versendet!",
       b2b_modal_lead: "Die Daten Ihrer Agentur wurden erfasst. Unser Vertriebskoordinator meldet sich umgehend mit Unterlagen und Provisionsplänen.",
       b2b_modal_wpp_btn: "<span>💬</span> Mit Koordinator auf WhatsApp Sprechen",
-      b2b_modal_note: "Verbindung zur Alpina Reisen Partnerbetreuung."
+      b2b_modal_note: "Verbindung zur Swiss Horizon Partnerbetreuung."
     }
   };
 
@@ -1957,6 +1999,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
     initBookingForm();
     initPartnerForm();
     initAlpinaModal();
+    initFloatingWpp();
     initPhoneMasks();
     initNavigation();
     initLanguageSelector();
