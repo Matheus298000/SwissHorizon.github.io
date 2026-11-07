@@ -627,7 +627,7 @@ input, select, textarea {
     radial-gradient(circle at 75% 30%, rgba(218, 41, 28, 0.15) 0%, transparent 60%),
     radial-gradient(circle at 20% 70%, rgba(18, 35, 58, 0.9) 0%, transparent 80%),
     linear-gradient(180deg, rgba(7, 19, 33, 0.4) 0%, rgba(7, 19, 33, 0.85) 85%, #071321 100%),
-    url('hero-alpes.webp') center right / cover no-repeat;
+    url('image.png') center right / cover no-repeat;
   filter: contrast(1.08) brightness(0.92);
   transform: scale(1.02);
   transition: transform 0.8s ease-out;
@@ -1331,7 +1331,7 @@ input, select, textarea {
 .section-experience {
   background:
     linear-gradient(135deg, rgba(7, 19, 33, 0.95) 0%, rgba(18, 35, 58, 0.92) 100%),
-    url('hero-alpes.webp') center / cover no-repeat;
+    url('image.png') center / cover no-repeat;
   color: var(--white);
   padding: 130px 0;
   position: relative;
@@ -2000,7 +2000,7 @@ input, select, textarea {
 .partner-hero {
   background:
     linear-gradient(135deg, rgba(7, 19, 33, 0.94) 0%, rgba(18, 35, 58, 0.9) 100%),
-    url('equipe-swiss-horizon.webp') center / cover no-repeat;
+    url('image copy.png') center / cover no-repeat;
   padding: 100px 0 140px;
   color: var(--white);
 }
