@@ -280,7 +280,7 @@
      Perspective tilt nos cards com cálculo de vetor do mouse
      ========================================================================== */
   function init3DTilt() {
-    const tiltCards = document.querySelectorAll(".package-card, .experience-quote-card");
+    const tiltCards = document.querySelectorAll(".package-card, .experience-quote-card, .team-card");
 
     tiltCards.forEach((card) => {
       card.addEventListener("mousemove", (e) => {
@@ -304,7 +304,7 @@
   }
 
   /* ==========================================================================
-     6. FILTRAGEM DO ROTEIRO DIA A DIA
+     6. FILTRAGEM DO ROTEIRO DIA A DIA & EQUIPE
      ========================================================================== */
   function initItineraryFilter() {
     const filterBtns = document.querySelectorAll(".itinerary-filter-btn");
@@ -323,6 +323,34 @@
             item.style.animation = "fadeInCard 0.4s ease forwards";
           } else {
             item.style.display = "none";
+          }
+        });
+      });
+    });
+  }
+
+  function initTeamFilter() {
+    const filterBtns = document.querySelectorAll(".team-filter-btn");
+    const teamCards = document.querySelectorAll(".team-card");
+    if (!filterBtns.length) return;
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-selected", "true");
+
+        const target = btn.getAttribute("data-team-filter");
+        teamCards.forEach((card) => {
+          const category = card.getAttribute("data-category") || "";
+          if (target === "all" || category.includes(target)) {
+            card.style.display = "flex";
+            card.style.animation = "fadeInCard 0.35s ease forwards";
+          } else {
+            card.style.display = "none";
           }
         });
       });
@@ -470,6 +498,17 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
         modalLead = `Prezado(a) <strong>${nome}</strong>, seu planejamento para a Suíça foi estruturado com excelência.`;
       }
 
+      // Sincroniza com a Fila de Aprovação do RH no Portal Admin
+      if (window.portalAddPendingLead) {
+        window.portalAddPendingLead({
+          agency: agencia,
+          city: cidade,
+          contact: resp,
+          whatsapp: wpp,
+          msg: msg
+        });
+      }
+
       openAlpinaModal({
         title: modalTitle,
         lead: modalLead,
@@ -549,6 +588,17 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
         modalLead = `Thank you, <strong>${resp}</strong>! The registration for agency <strong>${agencia}</strong> has been logged.`;
       } else {
         modalLead = `Obrigado, <strong>${resp}</strong>! A solicitação da agência <strong>${agencia}</strong> foi registrada.`;
+      }
+
+      // Sincroniza com a Fila de Aprovação do RH no Portal Admin
+      if (window.portalAddPendingLead) {
+        window.portalAddPendingLead({
+          agency: agencia,
+          city: cidade,
+          contact: resp,
+          whatsapp: wpp,
+          msg: msg
+        });
       }
 
       openAlpinaModal({
@@ -803,6 +853,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       nav_back: "← Voltar ao Início",
       nav_advantages: "Vantagens",
       nav_material: "Material em PDF",
+      nav_team: "Colaboradores",
       nav_register: "Cadastrar Agência",
       nav_cta: "Planejar Viagem",
       nav_cta_partner: "Seja Parceiro",
@@ -1127,7 +1178,37 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_modal_title: "Cadastro Enviado com Sucesso!",
       b2b_modal_lead: "Os dados da sua agência foram recebidos. Nosso coordenador comercial entrará em contato para liberar os materiais e tabela de repasse.",
       b2b_modal_wpp_btn: "<span>💬</span> Falar com Coordenador no WhatsApp",
-      b2b_modal_note: "Conectando com nossa gerência de parcerias da Swiss Horizon."
+      b2b_modal_note: "Conectando com nossa gerência de parcerias da Swiss Horizon.",
+
+      // Colaboradores & Equipe
+      b2b_team_badge: "Pessoas & Excelência Operacional",
+      b2b_team_title: "Nossa Equipe de Colaboradores",
+      b2b_team_lede: "Conheça os profissionais que lideram a estratégia, tecnologia, governança e atendimento da Swiss Horizon, assegurando uma operação precisa nos trilhos da Suíça.",
+      team_tab_all: "Todos os Colaboradores",
+      team_tab_exec: "Diretoria & C-Level",
+      team_tab_tech: "Tecnologia & Produto",
+      team_tab_creative: "Design & Marketing",
+      team_rhaf_dept: "Diretoria Executiva",
+      team_rhaf_role: "CEO & Co-fundador",
+      team_rhaf_bio: "Liderança executiva, expansão institucional e representação estratégica da marca. Conduz parcerias com dicção refinada e governança alinhada aos padrões suíços.",
+      team_mich_dept: "Gente & Gestão",
+      team_mich_role: "CHRO — Diretor de Recursos Humanos",
+      team_mich_bio: "Comunicação institucional e oratória de alto impacto, desenvolvimento de lideranças, cultura organizacional e alinhamento do time de atendimento aos parceiros.",
+      team_gust_dept: "Finanças & Controladoria",
+      team_gust_role: "CFO — Diretor Financeiro",
+      team_gust_bio: "Governança contábil, inteligência tributária, estruturação orçamentária dos pacotes internacionais e transparência no repasse comissionado das agências credenciadas.",
+      team_math_dept: "Tecnologia & Inovação",
+      team_math_role: "CIO — Diretor de Tecnologia",
+      team_math_bio: "Liderança técnica, arquitetura de sistemas e infraestrutura em nuvem. Garante a integridade, segurança e alta performance do ecossistema digital da Swiss Horizon.",
+      team_henr_dept: "Marketing & Design",
+      team_henr_role: "CMO & Diretor de Design",
+      team_henr_bio: "Direção visual, identidade da marca e produção de materiais promocionais para balcão e canais digitais, traduzindo a elegância alpina em cada ponto de contato.",
+      team_vito_dept: "Engenharia Web",
+      team_vito_role: "Desenvolvedor Web Pleno",
+      team_vito_bio: "Especialista na plataforma web principal da Swiss Horizon, implementando interfaces responsivas, integrações de formulários e otimizações contínuas de velocidade.",
+      team_cta_title: "Quer fazer parte da nossa equipe?",
+      team_cta_desc: "Estamos sempre em busca de novos talentos apaixonados por turismo de alto padrão, precisão suíça e inovação tecnológica.",
+      team_cta_btn: "Envie seu Perfil ➔"
     },
 
     en: {
@@ -1155,6 +1236,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       nav_back: "← Back to Home",
       nav_advantages: "Advantages",
       nav_material: "PDF Material",
+      nav_team: "Our Team",
       nav_register: "Agency Sign-up",
       nav_cta: "Plan Your Trip",
       nav_cta_partner: "Become a Partner",
@@ -1479,7 +1561,37 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_modal_title: "Registration Submitted Successfully!",
       b2b_modal_lead: "Your agency credentials have been received. Our trade coordinator will connect shortly with full materials and commission sheets.",
       b2b_modal_wpp_btn: "<span>💬</span> Chat with Trade Coordinator on WhatsApp",
-      b2b_modal_note: "Connecting with Swiss Horizon partner relations desk."
+      b2b_modal_note: "Connecting with Swiss Horizon partner relations desk.",
+
+      // Team & Collaborators
+      b2b_team_badge: "People & Operational Excellence",
+      b2b_team_title: "Our Team of Professionals",
+      b2b_team_lede: "Meet the leaders steering Swiss Horizon's strategy, technology, governance, and partner support with authentic Swiss precision.",
+      team_tab_all: "All Team Members",
+      team_tab_exec: "Leadership & C-Level",
+      team_tab_tech: "Technology & Product",
+      team_tab_creative: "Design & Marketing",
+      team_rhaf_dept: "Executive Board",
+      team_rhaf_role: "CEO & Co-founder",
+      team_rhaf_bio: "Executive leadership, strategic expansion, and institutional representation, upholding luxury Swiss travel standards with articulate precision.",
+      team_mich_dept: "People & Culture",
+      team_mich_role: "CHRO — Chief Human Resources Officer",
+      team_mich_bio: "High-impact institutional communication, talent development, organizational culture, and team alignment across all partner touchpoints.",
+      team_gust_dept: "Finance & Controllership",
+      team_gust_role: "CFO — Chief Financial Officer",
+      team_gust_bio: "Accounting governance, tax strategy, international package budgeting, and transparent commission disbursements for accredited agency partners.",
+      team_math_dept: "Technology & Systems",
+      team_math_role: "CIO — Chief Information Officer",
+      team_math_bio: "Technical leadership, cloud architecture, cybersecurity, and platform engineering powering the Swiss Horizon digital ecosystem.",
+      team_henr_dept: "Marketing & Design",
+      team_henr_role: "CMO & Head of Design",
+      team_henr_bio: "Creative brand direction, alpine visual identity, and high-impact marketing assets for agency counters and digital channels.",
+      team_vito_dept: "Web Engineering",
+      team_vito_role: "Mid-Level Web Developer",
+      team_vito_bio: "Core platform specialist focusing on web application performance, responsive UI architecture, and seamless user experiences.",
+      team_cta_title: "Want to join our team?",
+      team_cta_desc: "We are always looking for passionate talents inspired by luxury travel, Swiss punctuality, and cutting-edge technology.",
+      team_cta_btn: "Submit Your Profile ➔"
     },
 
     de: {
@@ -1507,6 +1619,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       nav_back: "← Zurück zur Startseite",
       nav_advantages: "Vorteile",
       nav_material: "PDF-Unterlagen",
+      nav_team: "Unser Team",
       nav_register: "Agentur Anmelden",
       nav_cta: "Reise Planen",
       nav_cta_partner: "Partner Werden",
@@ -1831,7 +1944,37 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       b2b_modal_title: "Anmeldung Erfolgreich Versendet!",
       b2b_modal_lead: "Die Daten Ihrer Agentur wurden erfasst. Unser Vertriebskoordinator meldet sich umgehend mit Unterlagen und Provisionsplänen.",
       b2b_modal_wpp_btn: "<span>💬</span> Mit Koordinator auf WhatsApp Sprechen",
-      b2b_modal_note: "Verbindung zur Swiss Horizon Partnerbetreuung."
+      b2b_modal_note: "Verbindung zur Swiss Horizon Partnerbetreuung.",
+
+      // Mitarbeiter & Team
+      b2b_team_badge: "Menschen & Operative Exzellenz",
+      b2b_team_title: "Unser Mitarbeiter-Team",
+      b2b_team_lede: "Lernen Sie die Führungskräfte kennen, die Strategie, Technologie, Finanzen und Partnerschaften bei Swiss Horizon mit Schweizer Präzision leiten.",
+      team_tab_all: "Alle Mitarbeiter",
+      team_tab_exec: "Geschäftsführung & C-Level",
+      team_tab_tech: "Technologie & Produkt",
+      team_tab_creative: "Design & Marketing",
+      team_rhaf_dept: "Geschäftsleitung",
+      team_rhaf_role: "CEO & Mitgründer",
+      team_rhaf_bio: "Strategische Unternehmensführung, internationale Partnerschaften und institutionelle Repräsentanz mit höchstem Qualitätsanspruch.",
+      team_mich_dept: "Personal & Kultur",
+      team_mich_role: "CHRO — Leiter Personalwesen",
+      team_mich_bio: "Ausdrucksstarke Unternehmenskommunikation, Führungskräfteentwicklung, Unternehmenskultur und Betreuung unserer Partnernetzwerke.",
+      team_gust_dept: "Finanzen & Controlling",
+      team_gust_role: "CFO — Finanzvorstand",
+      team_gust_bio: "Finanz- und Steuer-Governance, Budgetierung internationaler Reisepakete und transparente Provisionsabwicklung für Reisebüros.",
+      team_math_dept: "Technologie & IT",
+      team_math_role: "CIO — IT-Direktor",
+      team_math_bio: "Technische Gesamtleitung, Cloud-Architektur, Cybersicherheit und Entwicklung der digitalen Buchungs- und Betriebsplattformen.",
+      team_henr_dept: "Marketing & Kreation",
+      team_henr_role: "CMO & Design-Direktor",
+      team_henr_bio: "Visuelle Markenführung, alpine Designsprache und Erstellung exklusiver Werbematerialien für Schaufenster und digitale Medien.",
+      team_vito_dept: "Web-Engineering",
+      team_vito_role: "Webentwickler (Mid-Level)",
+      team_vito_bio: "Verantwortlich für die Hauptwebsite von Swiss Horizon, performante responsive Benutzeroberflächen und Systemstabilität.",
+      team_cta_title: "Möchten Sie Teil unseres Teams werden?",
+      team_cta_desc: "Wir suchen stets engagierte Talente mit Leidenschaft für gehobenen Tourismus, Schweizer Zuverlässigkeit und moderne Technologie.",
+      team_cta_btn: "Bewerben ➔"
     }
   };
 
@@ -1996,6 +2139,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
     initDepartureBoard();
     init3DTilt();
     initItineraryFilter();
+    initTeamFilter();
     initBookingForm();
     initPartnerForm();
     initAlpinaModal();
