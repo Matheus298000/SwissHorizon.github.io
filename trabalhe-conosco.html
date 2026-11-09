@@ -32,11 +32,10 @@
 
       <nav class="nav-links" id="mainNav">
         <a href="index.html#hero" data-i18n="nav_back">← Voltar ao Início</a>
-        <a href="index.html#roteiros" data-i18n="nav_itineraries">Roteiros</a>
-        <a href="index.html#embarque" data-i18n="nav_dates">Datas &amp; Preços</a>
         <a href="#vantagens" data-i18n="nav_advantages">Vantagens</a>
-        <a href="#material" data-i18n="nav_material">Material em PDF</a>
+        <a href="#colaboradores" data-i18n="nav_team">Colaboradores</a>
         <a href="#cadastro" data-i18n="nav_register">Cadastrar Agência</a>
+        <a href="portal-login.html" style="color:var(--gold); font-weight:700;">Área do Parceiro 🔒</a>
       </nav>
 
       <div class="nav-cta-group">
@@ -104,8 +103,7 @@
             </button>
           </div>
         </div>
-
-        <a href="#cadastro" class="btn btn-primary" id="navCtaBtn" style="padding:10px 22px; font-size:0.88rem;" data-i18n="nav_cta_partner">
+        <a href="#cadastro" class="btn btn-primary" id="navCtaBtn" style="padding:10px 20px; font-size:0.86rem;" data-i18n="nav_cta_partner">
           Seja Parceiro
         </a>
         <button class="mobile-toggle" id="mobileNavToggle" aria-label="Abrir Menu">
@@ -158,11 +156,11 @@
         </p>
 
         <div class="hero-actions">
-          <a href="folder-swiss-horizon.pdf" download="folder-swiss-horizon.pdf" class="btn btn-gold" data-i18n-html="b2b_hero_btn_pdf">
-            <span>📥</span> Baixar Folder em PDF (A4)
-          </a>
-          <a href="#cadastro" class="btn btn-outline-light" data-i18n="b2b_hero_btn_reg">
+          <a href="#cadastro" class="btn btn-primary" data-i18n="b2b_hero_btn_reg">
             Cadastrar Minha Agência ➔
+          </a>
+          <a href="portal-login.html" class="btn btn-outline-light" data-i18n="b2b_hero_btn_portal">
+            <span>🔒</span> Área do Parceiro (Login)
           </a>
         </div>
       </div>
@@ -262,33 +260,37 @@
     </section>
 
     <!-- ==========================================================
-         MATERIAL DE APRESENTAÇÃO & DOWNLOAD PDF
+         MATERIAL DE APRESENTAÇÃO & PORTAL DO PARCEIRO
          ========================================================== -->
     <section class="section section-board" id="material">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow eyebrow-light" data-i18n="b2b_pdf_eyebrow">Material Gráfico</p>
-          <h2 class="section-title section-title-light" data-i18n="b2b_pdf_title">Um folder pronto para o seu balcão</h2>
+          <p class="eyebrow eyebrow-light" data-i18n="b2b_pdf_eyebrow">Material Exclusivo para Parceiros</p>
+          <h2 class="section-title section-title-light" data-i18n="b2b_pdf_title">Folder oficial diagramado para o seu balcão</h2>
           <p class="section-lede section-lede-light" data-i18n="b2b_pdf_lede">
-            Desenvolvemos um material completo com os 3 roteiros, mapa dos trens, valores das duas janelas de embarque
-            e campo reservado para dados e carimbo da sua agência. Basta baixar e imprimir.
+            Desenvolvemos um material completo em PDF A4 de alta resolução com os 3 roteiros, mapa dos trens panorâmicos, datas de saídas para 2027 e campo reservado para o carimbo da sua agência. Disponível exclusivamente no Portal do Parceiro.
           </p>
         </div>
 
         <div class="download-panel-box">
           <div class="download-panel-left">
-            <div class="pdf-icon-badge">📄</div>
+            <div class="pdf-icon-badge" style="background:rgba(218,41,28,0.2); border-color:var(--red);">🔒</div>
             <div>
-              <h3 class="download-panel-title" data-i18n="b2b_pdf_box_title">Folder Swiss Horizon — Formato PDF A4</h3>
+              <h3 class="download-panel-title" data-i18n="b2b_pdf_box_title">Folder Swiss Horizon A4 &amp; Tabela Confidencial de Repasses</h3>
               <p class="download-panel-desc" data-i18n="b2b_pdf_box_desc">
-                Material institucional de 2 páginas com roteiros, janela de embarque e condições comerciais para 2027.
+                Material restrito para agências credenciadas. Faça login na Área do Parceiro para baixar o PDF oficial com espaço para carimbo e acessar a tabela detalhada de comissões.
               </p>
             </div>
           </div>
 
-          <a href="folder-swiss-horizon.pdf" download="folder-swiss-horizon.pdf" class="btn btn-gold" data-i18n-html="b2b_pdf_btn">
-            <span>📥</span> Baixar PDF Agora
-          </a>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+            <a href="portal-login.html" class="btn btn-primary" style="padding:14px 24px;">
+              <span>🔑</span> Acessar Portal do Parceiro ➔
+            </a>
+            <a href="#cadastro" class="btn btn-outline-light" style="padding:14px 20px;">
+              Solicitar Credencial
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -342,6 +344,182 @@
             <h3 data-i18n="b2b_step4_title">Comece a Vender</h3>
             <p data-i18n="b2b_step4_desc">Ofereça a Suíça aos seus clientes e conte com nosso apoio em cada reserva fechada.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         EQUIPE & COLABORADORES SWISS HORIZON
+         ========================================================== -->
+    <section class="section section-team" id="colaboradores">
+      <div class="wrap">
+        <div class="section-head-center">
+          <div class="hero-tagline-badge" style="margin-inline:auto; margin-bottom:14px;">
+            <span class="swiss-cross"></span>
+            <span data-i18n="b2b_team_badge">Pessoas &amp; Excelência Operacional</span>
+          </div>
+          <h2 class="section-title" data-i18n="b2b_team_title">Nossa Equipe de Colaboradores</h2>
+          <p class="section-lede" style="margin-inline:auto; max-width:680px;" data-i18n="b2b_team_lede">
+            Conheça os profissionais que lideram a estratégia, tecnologia, governança e atendimento da Swiss Horizon, assegurando uma operação precisa nos trilhos da Suíça.
+          </p>
+        </div>
+
+        <!-- Abas / Filtros Interativos de Categoria -->
+        <div class="team-filter-bar" role="tablist" aria-label="Filtrar colaboradores por departamento">
+          <button type="button" class="team-filter-btn is-active" data-team-filter="all" role="tab" aria-selected="true">
+            <span data-i18n="team_tab_all">Todos os Colaboradores</span>
+            <span class="team-filter-count">6</span>
+          </button>
+          <button type="button" class="team-filter-btn" data-team-filter="c-level" role="tab" aria-selected="false">
+            <span data-i18n="team_tab_exec">Diretoria &amp; C-Level</span>
+            <span class="team-filter-count">4</span>
+          </button>
+          <button type="button" class="team-filter-btn" data-team-filter="tech" role="tab" aria-selected="false">
+            <span data-i18n="team_tab_tech">Tecnologia &amp; Produto</span>
+            <span class="team-filter-count">2</span>
+          </button>
+          <button type="button" class="team-filter-btn" data-team-filter="creative" role="tab" aria-selected="false">
+            <span data-i18n="team_tab_creative">Design &amp; Marketing</span>
+            <span class="team-filter-count">1</span>
+          </button>
+        </div>
+
+        <!-- Grid de Colaboradores -->
+        <div class="team-grid">
+          <!-- Card 1: Rhafael -->
+          <article class="team-card" data-category="c-level exec" data-tilt>
+            <div class="team-card-media">
+              <img src="rhafael.png" alt="Rhafael — CEO & Co-fundador" class="team-card-photo" loading="lazy" onerror="this.onerror=null; this.src='nome_da_pessoa.png';">
+              <span class="team-card-dept-badge" data-i18n="team_rhaf_dept">Diretoria Executiva</span>
+            </div>
+            <div class="team-card-body">
+              <div class="team-card-header">
+                <h3 class="team-card-name">Rhafael</h3>
+                <span class="team-card-role" data-i18n="team_rhaf_role">CEO &amp; Co-fundador</span>
+              </div>
+              <p class="team-card-bio" data-i18n="team_rhaf_bio">
+                Liderança executiva, expansão institucional e representação estratégica da marca. Conduz parcerias com dicção refinada e governança alinhada aos padrões suíços.
+              </p>
+              <div class="team-card-footer">
+                <span class="team-tag">Chief Executive Officer</span>
+                <span class="team-status-dot" title="Disponível para parcerias corporativas">Online</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Michel -->
+          <article class="team-card" data-category="c-level people" data-tilt>
+            <div class="team-card-media">
+              <img src="michel.png" alt="Michel — CHRO" class="team-card-photo" loading="lazy" onerror="this.onerror=null; this.src='nome_da_pessoa.png';">
+              <span class="team-card-dept-badge" data-i18n="team_mich_dept">Gente &amp; Gestão</span>
+            </div>
+            <div class="team-card-body">
+              <div class="team-card-header">
+                <h3 class="team-card-name">Michel</h3>
+                <span class="team-card-role" data-i18n="team_mich_role">CHRO — Diretor de Recursos Humanos</span>
+              </div>
+              <p class="team-card-bio" data-i18n="team_mich_bio">
+                Comunicação institucional e oratória de alto impacto, desenvolvimento de lideranças, cultura organizacional e alinhamento do time de atendimento aos parceiros.
+              </p>
+              <div class="team-card-footer">
+                <span class="team-tag">Chief Human Resources</span>
+                <span class="team-status-dot" title="Gestão de Talentos">Online</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Gustavo -->
+          <article class="team-card" data-category="c-level finance" data-tilt>
+            <div class="team-card-media">
+              <img src="gustavo.png" alt="Gustavo — CFO" class="team-card-photo" loading="lazy" onerror="this.onerror=null; this.src='nome_da_pessoa.png';">
+              <span class="team-card-dept-badge" data-i18n="team_gust_dept">Finanças &amp; Controladoria</span>
+            </div>
+            <div class="team-card-body">
+              <div class="team-card-header">
+                <h3 class="team-card-name">Gustavo</h3>
+                <span class="team-card-role" data-i18n="team_gust_role">CFO — Diretor Financeiro</span>
+              </div>
+              <p class="team-card-bio" data-i18n="team_gust_bio">
+                Governança contábil, inteligência tributária, estruturação orçamentária dos pacotes internacionais e transparência no repasse comissionado das agências credenciadas.
+              </p>
+              <div class="team-card-footer">
+                <span class="team-tag">Chief Financial Officer</span>
+                <span class="team-status-dot" title="Controladoria Ativa">Online</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Matheus -->
+          <article class="team-card" data-category="c-level tech" data-tilt>
+            <div class="team-card-media">
+              <img src="matheus.png" alt="Matheus — CIO" class="team-card-photo" loading="lazy" onerror="this.onerror=null; this.src='nome_da_pessoa.png';">
+              <span class="team-card-dept-badge" data-i18n="team_math_dept">Tecnologia &amp; Inovação</span>
+            </div>
+            <div class="team-card-body">
+              <div class="team-card-header">
+                <h3 class="team-card-name">Matheus</h3>
+                <span class="team-card-role" data-i18n="team_math_role">CIO — Diretor de Tecnologia</span>
+              </div>
+              <p class="team-card-bio" data-i18n="team_math_bio">
+                Liderança técnica, arquitetura de sistemas e infraestrutura em nuvem. Garante a integridade, segurança e alta performance do ecossistema digital da Swiss Horizon.
+              </p>
+              <div class="team-card-footer">
+                <span class="team-tag">Chief Information Officer</span>
+                <span class="team-status-dot" title="Infraestrutura 99.9% Uptime">Online</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Henrique -->
+          <article class="team-card" data-category="creative" data-tilt>
+            <div class="team-card-media">
+              <img src="henrique.png" alt="Henrique — CMO" class="team-card-photo" loading="lazy" onerror="this.onerror=null; this.src='nome_da_pessoa.png';">
+              <span class="team-card-dept-badge" data-i18n="team_henr_dept">Marketing &amp; Design</span>
+            </div>
+            <div class="team-card-body">
+              <div class="team-card-header">
+                <h3 class="team-card-name">Henrique</h3>
+                <span class="team-card-role" data-i18n="team_henr_role">CMO &amp; Diretor de Design</span>
+              </div>
+              <p class="team-card-bio" data-i18n="team_henr_bio">
+                Direção visual, identidade da marca e produção de materiais promocionais para balcão e canais digitais, traduzindo a elegância alpina em cada ponto de contato.
+              </p>
+              <div class="team-card-footer">
+                <span class="team-tag">Chief Marketing Officer</span>
+                <span class="team-status-dot" title="Criação Ativa">Online</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6: Vitor -->
+          <article class="team-card" data-category="tech" data-tilt>
+            <div class="team-card-media">
+              <img src="vitor.png" alt="Vitor — Desenvolvedor Web Pleno" class="team-card-photo" loading="lazy" onerror="this.onerror=null; this.src='nome_da_pessoa.png';">
+              <span class="team-card-dept-badge" data-i18n="team_vito_dept">Engenharia Web</span>
+            </div>
+            <div class="team-card-body">
+              <div class="team-card-header">
+                <h3 class="team-card-name">Vitor</h3>
+                <span class="team-card-role" data-i18n="team_vito_role">Desenvolvedor Web Pleno</span>
+              </div>
+              <p class="team-card-bio" data-i18n="team_vito_bio">
+                Especialista na plataforma web principal da Swiss Horizon, implementando interfaces responsivas, integrações de formulários e otimizações contínuas de velocidade.
+              </p>
+              <div class="team-card-footer">
+                <span class="team-tag">Mid-Level Web Engineer</span>
+                <span class="team-status-dot" title="Desenvolvimento Ativo">Online</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Banner de Recrutamento dentro da área -->
+        <div class="team-cta-strip">
+          <div class="team-cta-content">
+            <h4 data-i18n="team_cta_title">Quer fazer parte da nossa equipe?</h4>
+            <p data-i18n="team_cta_desc">Estamos sempre em busca de novos talentos apaixonados por turismo de alto padrão, precisão suíça e inovação tecnológica.</p>
+          </div>
+          <a href="#cadastro" class="btn btn-outline-light" data-i18n="team_cta_btn">Envie seu Perfil ➔</a>
         </div>
       </div>
     </section>
@@ -454,8 +632,9 @@
         <ul>
           <li><a href="#vantagens" data-i18n="nav_advantages">Vantagens Comerciais</a></li>
           <li><a href="#como-funciona-parceria" data-i18n="b2b_step_eyebrow">Como Credenciar</a></li>
-          <li><a href="#cadastro" data-i18n="b2b_form_head_title">Formulário de Agência</a></li>
-          <li><a href="folder-swiss-horizon.pdf" download="folder-swiss-horizon.pdf" data-i18n="b2b_pdf_box_desc">Baixar PDF</a></li>
+          <li><a href="#colaboradores" data-i18n="nav_team">Colaboradores &amp; Equipe</a></li>
+          <li><a href="portal-login.html">Área do Parceiro (Login) 🔒</a></li>
+          <li><a href="portal-login.html">Painel de Gestão &amp; RH</a></li>
         </ul>
       </div>
 
@@ -525,7 +704,8 @@
     </svg>
   </a>
 
-  <!-- Script principal -->
+  <!-- Scripts -->
+  <script src="portal.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
