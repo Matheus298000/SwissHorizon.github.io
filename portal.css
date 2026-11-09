@@ -1,0 +1,888 @@
+/* ==========================================================================
+   SWISS HORIZON — SISTEMA DE PORTAL & GESTÃO B2B
+   Portal do Parceiro & Painel Administrativo / RH
+   Paleta: Vermelho Suíço (#da291c), Azul-Noite Alpino (#071321, #0d1e34),
+           Dourado Alpenglow (#e8b554), Branco Neve (#ffffff)
+   ========================================================================== */
+
+/* Layout Base do Portal */
+.portal-body {
+  background-color: var(--dark-bg, #071321);
+  color: var(--white, #ffffff);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header do Portal */
+.portal-header {
+  background: rgba(7, 19, 33, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 14px 0;
+}
+
+.portal-nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.portal-brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.portal-role-pill {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: var(--radius-full, 9999px);
+  background: rgba(218, 41, 28, 0.16);
+  border: 1px solid var(--red, #da291c);
+  color: #ff6b61;
+}
+
+.portal-role-pill.partner {
+  background: rgba(232, 181, 84, 0.15);
+  border-color: var(--gold, #e8b554);
+  color: var(--gold, #e8b554);
+}
+
+.portal-role-pill.admin {
+  background: rgba(218, 41, 28, 0.2);
+  border-color: var(--red, #da291c);
+  color: #ffffff;
+}
+
+.portal-user-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.portal-user-info {
+  text-align: right;
+}
+
+.portal-user-name {
+  display: block;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--white);
+}
+
+.portal-user-detail {
+  display: block;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-mono, monospace);
+}
+
+.portal-btn-logout {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.portal-btn-logout:hover {
+  background: var(--red, #da291c);
+  border-color: var(--red, #da291c);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   TELA DE LOGIN DO PORTAL (portal-login.html)
+   ========================================================================== */
+.login-hero-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(218, 41, 28, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(232, 181, 84, 0.08) 0%, transparent 45%),
+    #071321;
+  position: relative;
+}
+
+.login-card-container {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(180deg, rgba(28, 52, 84, 0.6) 0%, rgba(13, 30, 52, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-xl, 32px);
+  padding: 44px 38px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(218, 41, 28, 0.15);
+  backdrop-filter: blur(20px);
+  position: relative;
+}
+
+.login-card-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-brand-logo {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px auto;
+  display: block;
+}
+
+.login-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 8px 0;
+}
+
+.login-subtitle {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Tabs do Login */
+.login-tabs-bar {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  margin-bottom: 28px;
+}
+
+.login-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 10px 14px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.login-tab-btn.is-active {
+  background: var(--red, #da291c);
+  color: var(--white);
+  box-shadow: 0 4px 14px var(--glow-red);
+}
+
+/* Formulário de Login */
+.portal-form-group {
+  margin-bottom: 20px;
+}
+
+.portal-form-group label {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.portal-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(7, 19, 33, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md, 16px);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.portal-input:focus {
+  outline: none;
+  border-color: var(--red, #da291c);
+  box-shadow: 0 0 0 3px rgba(218, 41, 28, 0.25);
+  background: rgba(7, 19, 33, 0.95);
+}
+
+.portal-form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  font-size: 0.84rem;
+}
+
+.portal-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.portal-link {
+  color: var(--gold, #e8b554);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.portal-link:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.portal-btn-submit {
+  width: 100%;
+  padding: 15px;
+  background: var(--red, #da291c);
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 20px var(--glow-red);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.portal-btn-submit:hover {
+  background: var(--red2, #a81f17);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--glow-red);
+}
+
+/* Quick Demo Box */
+.login-quick-demo-box {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.login-demo-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.demo-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.btn-demo-account {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm, 8px);
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.btn-demo-account small {
+  font-size: 0.7rem;
+  color: var(--gold);
+  font-family: var(--font-mono);
+}
+
+.btn-demo-account:hover {
+  background: rgba(218, 41, 28, 0.2);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+.login-back-home {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.86rem;
+}
+
+/* ==========================================================================
+   PORTAL DO PARCEIRO (portal-parceiro.html)
+   ========================================================================== */
+.portal-main {
+  flex: 1;
+  padding: 40px 0 80px 0;
+}
+
+.portal-welcome-banner {
+  background: linear-gradient(135deg, rgba(28, 52, 84, 0.7) 0%, rgba(13, 30, 52, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.portal-welcome-banner::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(218, 41, 28, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.portal-welcome-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--white);
+}
+
+.portal-welcome-lede {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+.portal-stat-pill-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.portal-stat-pill {
+  background: rgba(7, 19, 33, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  min-width: 140px;
+}
+
+.portal-stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.2;
+}
+
+.portal-stat-label {
+  font-size: 0.76rem;
+  font-family: var(--font-mono);
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Área Exclusiva do Folder & Kit */
+.partner-folder-hero-box {
+  background: linear-gradient(135deg, rgba(218, 41, 28, 0.15) 0%, rgba(13, 30, 52, 0.9) 100%);
+  border: 2px solid var(--red);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(218, 41, 28, 0.2);
+}
+
+.folder-box-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red);
+  color: var(--white);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.folder-box-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: var(--white);
+}
+
+.folder-box-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.folder-action-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.folder-preview-card {
+  background: rgba(7, 19, 33, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.folder-preview-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+}
+
+.folder-preview-specs {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  text-align: left;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.folder-preview-specs li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+}
+
+.folder-preview-specs strong {
+  color: var(--gold);
+}
+
+/* Tabelas Confidenciais de Comissões */
+.portal-card-panel {
+  background: linear-gradient(180deg, rgba(28, 52, 84, 0.4) 0%, rgba(13, 30, 52, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(12px);
+}
+
+.portal-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.portal-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--white);
+}
+
+.portal-panel-subtitle {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 4px 0 0 0;
+}
+
+/* Tabela de Comissões B2B */
+.portal-table-wrap {
+  overflow-x: auto;
+}
+
+.portal-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.portal-table th {
+  background: rgba(7, 19, 33, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.portal-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+.portal-table tr:hover td {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.badge-route-essencial {
+  color: #3498db;
+  font-weight: 700;
+}
+
+.badge-route-premium {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.badge-route-exclusivo {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.payout-highlight {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #2ecc71;
+  font-size: 1.05rem;
+}
+
+/* Simulador de Ganhos B2B */
+.simulator-box {
+  background: rgba(7, 19, 33, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.simulator-result-card {
+  background: linear-gradient(135deg, rgba(218, 41, 28, 0.2) 0%, rgba(18, 35, 58, 0.9) 100%);
+  border: 1px solid var(--red);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+}
+
+.simulator-result-num {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #2ecc71;
+  margin: 10px 0;
+  display: block;
+}
+
+/* ==========================================================================
+   PAINEL DO ADMINISTRADOR & RH (portal-admin.html)
+   ========================================================================== */
+.admin-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.admin-metric-card {
+  background: linear-gradient(180deg, rgba(28, 52, 84, 0.4) 0%, rgba(13, 30, 52, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.admin-metric-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--red);
+}
+
+.admin-metric-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(218, 41, 28, 0.15);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.admin-metric-val {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.admin-metric-title {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 4px 0 0 0;
+}
+
+/* Abas de Navegação Admin */
+.admin-nav-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+  overflow-x: auto;
+}
+
+.admin-tab-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.admin-tab-btn:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.admin-tab-btn.is-active {
+  background: var(--red);
+  color: var(--white);
+  box-shadow: 0 4px 14px var(--glow-red);
+}
+
+.admin-tab-count {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 7px;
+  border-radius: 12px;
+}
+
+/* Fila de Aprovação do RH */
+.approval-queue-card {
+  background: rgba(7, 19, 33, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: border-color 0.2s ease;
+}
+
+.approval-queue-card:hover {
+  border-color: rgba(232, 181, 84, 0.4);
+}
+
+.approval-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.approval-agency-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 4px 0;
+}
+
+.approval-meta-line {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.approval-status-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(232, 181, 84, 0.15);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.approval-status-badge.approved {
+  background: rgba(46, 204, 113, 0.15);
+  border-color: #2ecc71;
+  color: #2ecc71;
+}
+
+.approval-message-box {
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid var(--gold);
+  padding: 12px 16px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.approval-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
+  flex-wrap: wrap;
+}
+
+.approval-btn-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Formulário de Cadastro Manual Admin */
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.admin-form-grid .full-col {
+  grid-column: span 2;
+}
+
+/* Notificações Toast */
+.portal-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #0d1e34;
+  border: 1px solid var(--red);
+  color: var(--white);
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portal-toast.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Responsividade Geral */
+@media (max-width: 992px) {
+  .admin-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .partner-folder-hero-box {
+    grid-template-columns: 1fr;
+  }
+  .simulator-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-form-grid .full-col {
+    grid-column: span 1;
+  }
+  .portal-welcome-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .portal-stat-pill-group {
+    width: 100%;
+  }
+  .portal-stat-pill {
+    flex: 1;
+  }
+  .demo-buttons-grid {
+    grid-template-columns: 1fr;
+  }
+}

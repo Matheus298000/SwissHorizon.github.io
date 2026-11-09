@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Gestão &amp; RH | Swiss Horizon</title>
+  <meta name="description" content="Painel de controle interno para gestão de parcerias B2B, aprovações de credenciamento do RH e cadastro de agências da Swiss Horizon.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Playfair+Display:ital,wght@0,500..900;1,500..900&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body class="portal-body">
+
+  <!-- ============================================================
+       TOPBAR DO ADMINISTRADOR / RH
+       ============================================================ -->
+  <header class="portal-header">
+    <div class="wrap portal-nav-wrap">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <a href="index.html" class="portal-brand-badge" aria-label="Página Inicial Swiss Horizon">
+          <img src="logo.png" alt="Logo Swiss Horizon" style="width:34px; height:34px;">
+          <span style="font-family:var(--font-display); font-weight:700; font-size:1.15rem;">Swiss Horizon<span style="color:var(--red);">.</span></span>
+        </a>
+        <span class="portal-role-pill admin">Gestão RH &amp; Operações B2B</span>
+      </div>
+
+      <div class="portal-user-meta">
+        <div class="portal-user-info">
+          <span class="portal-user-name" id="adminLoggedName">Michel (CHRO)</span>
+          <span class="portal-user-detail">Acesso Master · Administração Swiss Horizon</span>
+        </div>
+        <button type="button" class="portal-btn-logout" id="portalLogoutBtn" title="Encerrar Sessão">
+          <span>Sair</span> ➔
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL DO ADMINISTRADOR
+       ============================================================ -->
+  <main class="portal-main" id="adminDashboardSection">
+    <div class="wrap">
+
+      <!-- Métricas Resumo -->
+      <section class="admin-metrics-grid">
+        <div class="admin-metric-card">
+          <div class="admin-metric-icon">🏢</div>
+          <div>
+            <h3 class="admin-metric-val" id="metricActivePartners">2</h3>
+            <p class="admin-metric-title">Agências Ativas</p>
+          </div>
+        </div>
+
+        <div class="admin-metric-card" style="border-color:var(--red);">
+          <div class="admin-metric-icon" style="background:rgba(218,41,28,0.2); color:var(--red);">⏳</div>
+          <div>
+            <h3 class="admin-metric-val" id="metricPendingRH" style="color:var(--red);">2</h3>
+            <p class="admin-metric-title">Aguardando Parecer RH</p>
+          </div>
+        </div>
+
+        <div class="admin-metric-card">
+          <div class="admin-metric-icon" style="color:var(--gold); background:rgba(232,181,84,0.15);">📄</div>
+          <div>
+            <h3 class="admin-metric-val" id="metricFolderDownloads" style="color:var(--gold);">22</h3>
+            <p class="admin-metric-title">Downloads do Folder A4</p>
+          </div>
+        </div>
+
+        <div class="admin-metric-card">
+          <div class="admin-metric-icon" style="color:#2ecc71; background:rgba(46,204,113,0.15);">💰</div>
+          <div>
+            <h3 class="admin-metric-val" style="color:#2ecc71;">R$ 48.600</h3>
+            <p class="admin-metric-title">Comissões em Andamento</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Abas do Painel Administrativo -->
+      <div class="admin-nav-tabs" role="tablist">
+        <button type="button" class="admin-tab-btn is-active" data-admin-tab="tabApprovalQueue" role="tab">
+          <span>⏳ Fila de Aprovação do RH</span>
+          <span class="admin-tab-count" id="pendingTabCount">2</span>
+        </button>
+
+        <button type="button" class="admin-tab-btn" data-admin-tab="tabManualRegister" role="tab">
+          <span>➕ Cadastrar Parceiro (Pós-WhatsApp)</span>
+        </button>
+
+        <button type="button" class="admin-tab-btn" data-admin-tab="tabActivePartners" role="tab">
+          <span>🏢 Agências Credenciadas</span>
+        </button>
+
+        <button type="button" class="admin-tab-btn" data-admin-tab="tabSystemLogs" role="tab">
+          <span>📋 Histórico &amp; Logs</span>
+        </button>
+      </div>
+
+      <!-- ============================================================
+           ABA 1: FILA DE APROVAÇÃO DO RH
+           ============================================================ -->
+      <section id="tabApprovalQueue" class="admin-tab-panel">
+        <div class="portal-panel-head">
+          <div>
+            <h2 class="portal-panel-title">Pedidos de Credenciamento Aguardando RH</h2>
+            <p class="portal-panel-subtitle">
+              Solicitações recebidas através do WhatsApp e formulário de Trabalhe Conosco. Avalie e aprove para liberar o acesso ao Folder e às comissões.
+            </p>
+          </div>
+        </div>
+
+        <!-- Lista dinâmica injetada via portal.js -->
+        <div id="rhApprovalQueueList"></div>
+      </section>
+
+      <!-- ============================================================
+           ABA 2: CADASTRO MANUAL DE NOVO PARCEIRO (PÓS-WHATSAPP)
+           ============================================================ -->
+      <section id="tabManualRegister" class="admin-tab-panel" style="display:none;">
+        <div class="portal-card-panel">
+          <div class="portal-panel-head">
+            <div>
+              <h2 class="portal-panel-title">Cadastro Direto de Nova Agência Parceira</h2>
+              <p class="portal-panel-subtitle">
+                Use este formulário quando o alinhamento comercial for concluído pelo WhatsApp ou telefone para criar o acesso imediato da agência.
+              </p>
+            </div>
+            <span class="portal-role-pill admin">Aprovação Direta RH</span>
+          </div>
+
+          <form id="adminManualPartnerForm">
+            <div class="admin-form-grid">
+              <div class="form-field full-col">
+                <label for="manAgencyName" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Razão Social ou Nome Fantasia da Agência</label>
+                <input type="text" id="manAgencyName" class="portal-input" required placeholder="Ex.: Viaje Bem Turismo Ltda">
+              </div>
+
+              <div class="form-field">
+                <label for="manContactName" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Nome do Responsável / Agente</label>
+                <input type="text" id="manContactName" class="portal-input" required placeholder="Ex.: Fernanda Costa">
+              </div>
+
+              <div class="form-field">
+                <label for="manCity" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Cidade / UF</label>
+                <input type="text" id="manCity" class="portal-input" required placeholder="Ex.: Rio de Janeiro / RJ">
+              </div>
+
+              <div class="form-field">
+                <label for="manWpp" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">WhatsApp Comercial da Agência</label>
+                <input type="tel" id="manWpp" class="portal-input" required placeholder="(21) 98888-7777">
+              </div>
+
+              <div class="form-field">
+                <label for="manEmail" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">E-mail de Login do Parceiro</label>
+                <input type="email" id="manEmail" class="portal-input" required placeholder="contato@viajebem.com.br">
+              </div>
+
+              <div class="form-field">
+                <label for="manPassword" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Senha Inicial de Acesso</label>
+                <input type="text" id="manPassword" class="portal-input" value="swiss2027" required placeholder="swiss2027">
+              </div>
+
+              <div class="form-field">
+                <label for="manCommission" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Nível de Comissão Contratada</label>
+                <select id="manCommission" class="portal-input">
+                  <option value="12" selected>12% Padrão (R$ 1.548 a R$ 2.088/pax)</option>
+                  <option value="14">14% Diferenciada (Agências Prime)</option>
+                  <option value="15">15% VIP Exclusiva (Grupos &amp; Parceiros Elite)</option>
+                  <option value="10">10% Inicial</option>
+                </select>
+              </div>
+
+              <div class="form-field full-col" style="margin-top:14px;">
+                <button type="submit" class="btn btn-primary" style="padding:16px 28px; font-size:1.02rem; width:100%;">
+                  <span>🚀</span> Cadastrar Agência &amp; Notificar Acesso no WhatsApp →
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           ABA 3: AGÊNCIAS CREDENCIADAS
+           ============================================================ -->
+      <section id="tabActivePartners" class="admin-tab-panel" style="display:none;">
+        <div class="portal-card-panel">
+          <div class="portal-panel-head">
+            <div>
+              <h2 class="portal-panel-title">Agências Parceiras Ativas na Base</h2>
+              <p class="portal-panel-subtitle">Parceiros com login liberado, acesso ao Folder A4 e comissão habilitada.</p>
+            </div>
+          </div>
+
+          <div class="portal-table-wrap">
+            <table class="portal-table">
+              <thead>
+                <tr>
+                  <th>Agência</th>
+                  <th>Responsável</th>
+                  <th>Cidade / UF</th>
+                  <th>Login (E-mail)</th>
+                  <th>Comissão</th>
+                  <th>Uso do Folder</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="activePartnersTableBody">
+                <!-- Preenchido via portal.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           ABA 4: HISTÓRICO & LOGS
+           ============================================================ -->
+      <section id="tabSystemLogs" class="admin-tab-panel" style="display:none;">
+        <div class="portal-card-panel">
+          <div class="portal-panel-head">
+            <div>
+              <h2 class="portal-panel-title">Registro de Atividades &amp; Auditoria B2B</h2>
+              <p class="portal-panel-subtitle">Histórico de aprovações do RH, downloads de materiais e acessos recentes.</p>
+            </div>
+          </div>
+
+          <div style="background:rgba(7,19,33,0.85); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-md); padding:20px;">
+            <ul style="list-style:none; padding:0; margin:0; font-size:0.88rem; color:rgba(255,255,255,0.8); line-height:2;">
+              <li><strong style="color:var(--gold);">Hoje, 22:45</strong> — Agência Alpine Turismo e Viagens realizou download do Folder Oficial A4</li>
+              <li><strong style="color:var(--gold);">Hoje, 22:15</strong> — Solicitação de Horizonte Brasil Viagens cadastrada via WhatsApp</li>
+              <li><strong style="color:var(--gold);">Hoje, 20:30</strong> — Agência Montanha Dourada gerou proposta para 4 passageiros (Linha Premium)</li>
+              <li><strong style="color:var(--gold);">Ontem, 16:15</strong> — Repasse comissionado aprovado pelo Diretor Financeiro Gustavo (CFO)</li>
+              <li><strong style="color:var(--gold);">07/11/2026</strong> — Atualização da tabela de janelas 2027 pelo Diretor de TI Matheus (CIO)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Script do Portal -->
+  <script src="portal.js"></script>
+</body>
+</html>

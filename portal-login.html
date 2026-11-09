@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Parceiro &amp; Gestão | Swiss Horizon</title>
+  <meta name="description" content="Acesso exclusivo para agências credenciadas Swiss Horizon e painel de gestão de parceiros e aprovações do RH.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Playfair+Display:ital,wght@0,500..900;1,500..900&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body class="portal-body">
+
+  <!-- Header Simplificado -->
+  <header class="portal-header">
+    <div class="wrap portal-nav-wrap">
+      <a href="trabalhe-conosco.html" class="portal-brand-badge" aria-label="Voltar para Trabalhe Conosco">
+        <img src="logo.png" alt="Logo Swiss Horizon" style="width:34px; height:34px;">
+        <span style="font-family:var(--font-display); font-weight:700; font-size:1.15rem;">Swiss Horizon<span style="color:var(--red);">.</span></span>
+      </a>
+
+      <div>
+        <a href="trabalhe-conosco.html" class="portal-btn-logout" style="border-radius:var(--radius-full); text-decoration:none;">
+          ← Voltar para Trabalhe Conosco
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Seção Central de Login -->
+  <main class="login-hero-section">
+    <div class="login-card-container">
+      <div class="login-card-header">
+        <img src="logo.png" alt="Swiss Horizon" class="login-brand-logo">
+        <span class="portal-role-pill partner" style="margin-bottom:12px; display:inline-block;">Portal B2B &amp; Gestão</span>
+        <h1 class="login-title">Área do Parceiro</h1>
+        <p class="login-subtitle">Acesso exclusivo para agências credenciadas e painel de administração &amp; RH da Swiss Horizon.</p>
+      </div>
+
+      <!-- Abas: Entrar vs Solicitar Credenciamento -->
+      <div class="login-tabs-bar" role="tablist">
+        <button type="button" class="login-tab-btn is-active" data-tab="login" role="tab">Entrar no Portal</button>
+        <button type="button" class="login-tab-btn" data-tab="register" role="tab">Solicitar Credencial</button>
+      </div>
+
+      <!-- ABA 1: FORMULÁRIO DE LOGIN -->
+      <div id="loginTabPanel">
+        <div id="loginErrorMsg" style="display:none; background:rgba(218,41,28,0.2); border:1px solid var(--red); color:#ff8e87; padding:12px; border-radius:var(--radius-md); font-size:0.86rem; margin-bottom:20px; text-align:center;"></div>
+
+        <form id="portalLoginForm">
+          <div class="portal-form-group">
+            <label for="loginEmail">E-mail Corporativo ou Usuário</label>
+            <input type="text" id="loginEmail" class="portal-input" required placeholder="ex.: contato@agencia.com.br" autocomplete="username">
+          </div>
+
+          <div class="portal-form-group">
+            <label for="loginPassword">Senha de Acesso</label>
+            <input type="password" id="loginPassword" class="portal-input" required placeholder="Digite sua senha" autocomplete="current-password">
+          </div>
+
+          <div class="portal-form-options">
+            <label class="portal-checkbox-label">
+              <input type="checkbox" id="rememberMe" checked>
+              <span>Lembrar meu acesso</span>
+            </label>
+            <a href="https://wa.me/5511939056979?text=Ol%C3%A1!%20Esqueci%20minha%20senha%20de%20acesso%20ao%20portal%20do%20parceiro%20Swiss%20Horizon." target="_blank" rel="noopener" class="portal-link">Esqueceu a senha?</a>
+          </div>
+
+          <button type="submit" class="portal-btn-submit">
+            <span>Acessar Portal</span>
+            <span>➔</span>
+          </button>
+        </form>
+
+        <!-- Acesso Rápido para Demonstração e Testes -->
+        <div class="login-quick-demo-box">
+          <span class="login-demo-kicker">✦ Contas de Teste Rápido (1 Clique):</span>
+          <div class="demo-buttons-grid">
+            <button type="button" class="btn-demo-account" id="demoBtnAdmin" title="Entrar como Gestor de RH / Administrador">
+              <span>👔 Administrador / RH</span>
+              <small>admin@swisshorizon.com</small>
+            </button>
+            <button type="button" class="btn-demo-account" id="demoBtnPartner" title="Entrar como Agência Parceira Ativa">
+              <span>🏢 Agência Parceira</span>
+              <small>Alpine Turismo B2B</small>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABA 2: SOLICITAÇÃO DE CREDENCIAMENTO -->
+      <div id="registerTabPanel" style="display:none;">
+        <div id="registerSuccessNotice" style="display:none; background:rgba(46,204,113,0.18); border:1px solid #2ecc71; color:#2ecc71; padding:14px; border-radius:var(--radius-md); font-size:0.88rem; margin-bottom:20px; text-align:center;">
+          ✅ Solicitação enviada! Nossa equipe de RH analisará seu cadastro e liberará o acesso via WhatsApp.
+        </div>
+
+        <form id="quickRegisterForm">
+          <div class="portal-form-group">
+            <label for="regAgencyName">Nome da Agência / Razão Social</label>
+            <input type="text" id="regAgencyName" class="portal-input" required placeholder="Ex.: Alpine Turismo e Viagens">
+          </div>
+
+          <div class="portal-form-group">
+            <label for="regAgencyCity">Cidade / Estado (UF)</label>
+            <input type="text" id="regAgencyCity" class="portal-input" required placeholder="Ex.: São Paulo / SP">
+          </div>
+
+          <div class="portal-form-group">
+            <label for="regAgencyContact">Nome do Responsável Comercial</label>
+            <input type="text" id="regAgencyContact" class="portal-input" required placeholder="Seu nome completo">
+          </div>
+
+          <div class="portal-form-group">
+            <label for="regAgencyWpp">WhatsApp Comercial</label>
+            <input type="tel" id="regAgencyWpp" class="portal-input" required placeholder="(11) 99999-9999">
+          </div>
+
+          <div class="portal-form-group">
+            <label for="regAgencyEmail">E-mail para Acesso ao Portal</label>
+            <input type="email" id="regAgencyEmail" class="portal-input" required placeholder="contato@suaagencia.com.br">
+          </div>
+
+          <div class="portal-form-group">
+            <label for="regAgencyMsg">Perfil da agência ou observação para o RH</label>
+            <textarea id="regAgencyMsg" class="portal-input" rows="2" placeholder="Conte brevemente sobre o perfil dos seus passageiros..."></textarea>
+          </div>
+
+          <button type="submit" class="portal-btn-submit" style="background:var(--red);">
+            <span>🚀 Enviar Pedido para o RH</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="login-back-home">
+        <a href="index.html" class="portal-link" style="color:rgba(255,255,255,0.65);">← Voltar para a Página Inicial da Swiss Horizon</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Script do Portal -->
+  <script src="portal.js"></script>
+</body>
+</html>

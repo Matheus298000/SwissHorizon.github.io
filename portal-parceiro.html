@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Parceiro B2B | Swiss Horizon</title>
+  <meta name="description" content="Área restrita para agências credenciadas da Swiss Horizon. Download do Folder oficial A4, tabela de comissões e simulador de vendas.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Playfair+Display:ital,wght@0,500..900;1,500..900&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body class="portal-body">
+
+  <!-- ============================================================
+       TOPBAR DO PARCEIRO
+       ============================================================ -->
+  <header class="portal-header">
+    <div class="wrap portal-nav-wrap">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <a href="index.html" class="portal-brand-badge" aria-label="Página Inicial Swiss Horizon">
+          <img src="logo.png" alt="Logo Swiss Horizon" style="width:34px; height:34px;">
+          <span style="font-family:var(--font-display); font-weight:700; font-size:1.15rem;">Swiss Horizon<span style="color:var(--red);">.</span></span>
+        </a>
+        <span class="portal-role-pill partner">Área Exclusiva B2B</span>
+      </div>
+
+      <div class="portal-user-meta">
+        <div class="portal-user-info">
+          <span class="portal-user-name" data-partner-agency>Alpine Turismo</span>
+          <span class="portal-user-detail">Comissão: <strong style="color:var(--gold);" data-partner-commission>12%</strong> · Saídas 2027</span>
+        </div>
+        <button type="button" class="portal-btn-logout" id="portalLogoutBtn" title="Encerrar Sessão">
+          <span>Sair</span> ➔
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL DO PARCEIRO
+       ============================================================ -->
+  <main class="portal-main" id="partnerDashboardSection">
+    <div class="wrap">
+
+      <!-- Banner de Boas-Vindas Personalizado -->
+      <div class="portal-welcome-banner">
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:8px; margin-bottom:12px;">
+            <span class="swiss-cross"></span>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--gold);">Credenciamento Ativo</span>
+          </div>
+          <h1 class="portal-welcome-title">Bem-vindo(a), <span data-partner-agency>Sua Agência</span>!</h1>
+          <p class="portal-welcome-lede">
+            Aqui está seu canal reservado para download do folder diagramado em A4, tabelas confidenciais de comissionamento, materiais de treinamento e ferramentas exclusivas de vendas para a Suíça.
+          </p>
+        </div>
+
+        <div class="portal-stat-pill-group">
+          <div class="portal-stat-pill">
+            <span class="portal-stat-num" data-partner-commission>12%</span>
+            <span class="portal-stat-label">Comissão Líquida</span>
+          </div>
+          <div class="portal-stat-pill">
+            <span class="portal-stat-num" id="partnerDownloadCount">14</span>
+            <span class="portal-stat-label">Downloads do Folder</span>
+          </div>
+          <div class="portal-stat-pill">
+            <span class="portal-stat-num" style="color:#2ecc71;">Ativo</span>
+            <span class="portal-stat-label">Status no RH</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           DESTAQUE PRINCIPAL: FOLDER OFICIAL SWISS HORIZON A4
+           ============================================================ -->
+      <section class="partner-folder-hero-box" id="folderOficialSection">
+        <div>
+          <span class="folder-box-badge">
+            <span>📄</span> Material Confidencial para Balcão
+          </span>
+          <h2 class="folder-box-title">Folder Oficial Swiss Horizon (Formato PDF A4)</h2>
+          <p class="folder-box-desc">
+            Diagramado em padrão gráfico suíço com resolução máxima de impressão (300 DPI), o folder apresenta os 3 roteiros completos (Essencial, Premium e Exclusivo), mapa das ferrovias panorâmicas SBB e tabela de datas para 2027.
+            <br><br>
+            <strong>Espaço para Carimbo:</strong> No rodapé da segunda página, há uma área em branco reservada especificamente para o carimbo físico ou inserção da logomarca e WhatsApp da sua agência.
+          </p>
+
+          <div class="folder-action-buttons">
+            <a href="folder-swiss-horizon.pdf" download="folder-swiss-horizon.pdf" class="btn btn-primary" id="btnDownloadOfficialFolder" style="padding:14px 26px; font-size:1.02rem;">
+              <span>📥</span> Baixar Folder Oficial A4 (PDF)
+            </a>
+            <a href="folder-swiss-horizon.pdf" target="_blank" rel="noopener" class="btn btn-outline-light" style="padding:14px 22px; font-size:1.02rem;">
+              <span>👁️</span> Visualizar no Navegador ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="folder-preview-card">
+          <div class="folder-preview-icon">📑</div>
+          <h3 style="font-family:var(--font-display); font-size:1.15rem; margin:0 0 6px 0; color:var(--white);">Especificações Técnicas</h3>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.6); margin:0;">Arquivo pronto para gráfica rápida ou impressora de balcão.</p>
+
+          <ul class="folder-preview-specs">
+            <li><span>Formato:</span> <strong>PDF A4 (2 Páginas)</strong></li>
+            <li><span>Resolução:</span> <strong>Alta Definição (Gráfica)</strong></li>
+            <li><span>Espaço Carimbo:</span> <strong>6 x 4 cm reservado</strong></li>
+            <li><span>Janelas Inclusas:</span> <strong>Jan-Mar &amp; Abr-Jun 2027</strong></li>
+            <li><span>Versão Atual:</span> <strong>v2.4 Oficial Swiss Horizon</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           TABELA CONFIDENCIAL DE COMISSÕES E REPASSES
+           ============================================================ -->
+      <section class="portal-card-panel">
+        <div class="portal-panel-head">
+          <div>
+            <h2 class="portal-panel-title">Tabela de Comissionamento &amp; Repasses Comerciais</h2>
+            <p class="portal-panel-subtitle">Valores por passageiro e condições de liquidação para a temporada 2027.</p>
+          </div>
+          <span class="portal-role-pill partner">Valores Oficiais B2B</span>
+        </div>
+
+        <div class="portal-table-wrap">
+          <table class="portal-table">
+            <thead>
+              <tr>
+                <th>Roteiro &amp; Duração</th>
+                <th>Janela 1 (Jan-Mar)</th>
+                <th>Janela 2 (Abr-Jun)</th>
+                <th>Comissão Contratada</th>
+                <th>Repasse por Passageiro</th>
+                <th>Repasse para Casal (2 pax)</th>
+                <th>Bonificação para Grupos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong class="badge-route-essencial">Linha Essencial</strong><br>
+                  <small style="color:rgba(255,255,255,0.6);">8 dias / 7 noites (Zurique, Lucerna, Interlaken)</small>
+                </td>
+                <td>R$ 12.900</td>
+                <td>R$ 13.900</td>
+                <td><strong style="color:var(--gold);">12%</strong></td>
+                <td><span class="payout-highlight">R$ 1.548</span></td>
+                <td><span class="payout-highlight">R$ 3.096</span></td>
+                <td>+2% acima de 6 pax</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong class="badge-route-premium">Linha Premium</strong> <span style="background:var(--red); font-size:0.68rem; padding:2px 6px; border-radius:4px; margin-left:4px;">Mais Vendida</span><br>
+                  <small style="color:rgba(255,255,255,0.6);">10 dias / 9 noites (+ Zermatt &amp; Matterhorn)</small>
+                </td>
+                <td>R$ 17.400</td>
+                <td>R$ 18.600</td>
+                <td><strong style="color:var(--gold);">12%</strong></td>
+                <td><span class="payout-highlight">R$ 2.088</span></td>
+                <td><span class="payout-highlight">R$ 4.176</span></td>
+                <td>+3% acima de 6 pax</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong class="badge-route-exclusivo">Linha Exclusiva</strong><br>
+                  <small style="color:rgba(255,255,255,0.6);">12 dias / 11 noites (+ Glacier Express &amp; St. Moritz)</small>
+                </td>
+                <td>R$ 23.900</td>
+                <td>R$ 25.400</td>
+                <td><strong style="color:var(--red);">15% VIP</strong></td>
+                <td><span class="payout-highlight">R$ 3.585</span></td>
+                <td><span class="payout-highlight">R$ 7.170</span></td>
+                <td>+3% acima de 4 pax</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:20px; font-size:0.86rem; color:rgba(255,255,255,0.65); line-height:1.6; border-top:1px solid rgba(255,255,255,0.08); padding-top:16px;">
+          ✦ <strong>Regra de Pagamento:</strong> O repasse comissionado é creditado na conta da agência em até 5 dias úteis após a confirmação da reserva do passageiro, ou pago mensalmente de forma proporcional ao parcelamento em 12x, conforme opção da agência.
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SIMULADOR DE FATURAMENTO DA AGÊNCIA
+           ============================================================ -->
+      <section class="portal-card-panel">
+        <div class="portal-panel-head">
+          <div>
+            <h2 class="portal-panel-title">Simulador de Ganhos por Venda</h2>
+            <p class="portal-panel-subtitle">Calcule em tempo real o retorno líquido para a sua agência.</p>
+          </div>
+        </div>
+
+        <div class="simulator-box">
+          <div>
+            <div class="portal-form-group">
+              <label for="simRouteSelect">Escolha o Pacote:</label>
+              <select id="simRouteSelect" class="portal-input">
+                <option value="12900">Linha Essencial (R$ 12.900/pax)</option>
+                <option value="17400" selected>Linha Premium (R$ 17.400/pax)</option>
+                <option value="23900">Linha Exclusiva (R$ 23.900/pax)</option>
+              </select>
+            </div>
+
+            <div class="portal-form-group">
+              <label for="simPaxInput">Número de Passageiros:</label>
+              <input type="number" id="simPaxInput" class="portal-input" value="2" min="1" max="30">
+            </div>
+
+            <p style="font-size:0.82rem; color:rgba(255,255,255,0.6); margin:0;">
+              * Cálculo baseado na sua taxa contratada de <strong style="color:var(--gold);" id="simRateLabel">12%</strong>.
+            </p>
+          </div>
+
+          <div class="simulator-result-card">
+            <span style="font-size:0.84rem; font-family:var(--font-mono); color:rgba(255,255,255,0.7); text-transform:uppercase;">Comissão Líquida da Agência</span>
+            <span class="simulator-result-num" id="simCommissionOutput">R$ 4.176,00</span>
+            <span style="font-size:0.88rem; color:rgba(255,255,255,0.8);">
+              Valor Total Fechado com Passageiro: <strong id="simTotalOutput" style="color:var(--white);">R$ 34.800,00</strong>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           GERADOR RÁPIDO DE PROPOSTAS COM CABEÇALHO DA AGÊNCIA
+           ============================================================ -->
+      <section class="portal-card-panel">
+        <div class="portal-panel-head">
+          <div>
+            <h2 class="portal-panel-title">Gerador Rápido de Propostas para Clientes</h2>
+            <p class="portal-panel-subtitle">Crie textos formatados para enviar ao cliente no WhatsApp com o nome da sua agência.</p>
+          </div>
+        </div>
+
+        <form id="quickProposalForm" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:18px; margin-bottom:20px;">
+          <div>
+            <label style="font-size:0.84rem; display:block; margin-bottom:6px;">Nome do Cliente:</label>
+            <input type="text" id="propClientName" class="portal-input" required placeholder="Ex.: Dr. Renato e Família">
+          </div>
+
+          <div>
+            <label style="font-size:0.84rem; display:block; margin-bottom:6px;">Roteiro Escolhido:</label>
+            <select id="propRoute" class="portal-input">
+              <option value="Essencial">Linha Essencial (8 dias — Zurique, Lucerna e Interlaken)</option>
+              <option value="Premium" selected>Linha Premium (10 dias — Inclui Zermatt &amp; Matterhorn)</option>
+              <option value="Exclusivo">Linha Exclusiva (12 dias — Glacier Express Completo)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size:0.84rem; display:block; margin-bottom:6px;">Janela de Embarque:</label>
+            <select id="propWindow" class="portal-input">
+              <option value="01 Jan a 31 Mar de 2027 (Neve e Alpes Alvos)">Janela 1 (Jan a Mar 2027 — Temporada de Inverno)</option>
+              <option value="01 Abr a 30 Jun de 2027 (Primavera e Flores Alpinas)">Janela 2 (Abr a Jun 2027 — Temporada Primavera)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size:0.84rem; display:block; margin-bottom:6px;">Viajantes:</label>
+            <input type="number" id="propPax" class="portal-input" value="2" min="1" max="20">
+          </div>
+
+          <div style="display:flex; align-items:flex-end;">
+            <button type="submit" class="btn btn-primary" style="width:100%; padding:14px;">
+              <span>⚡</span> Gerar Proposta Formatada
+            </button>
+          </div>
+        </form>
+
+        <div id="proposalResultBox" style="display:none; background:rgba(7,19,33,0.9); border:1px solid rgba(255,255,255,0.18); border-radius:var(--radius-md); padding:20px;">
+          <label style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:8px; color:var(--gold);">
+            Texto Pronto para Enviar no WhatsApp do Passageiro:
+          </label>
+          <textarea id="proposalTextOutput" class="portal-input" rows="8" readonly style="font-family:var(--font-mono); font-size:0.86rem; line-height:1.5;"></textarea>
+          <div style="margin-top:14px; display:flex; gap:12px;">
+            <button type="button" class="btn btn-gold" id="btnCopyProposal" style="padding:10px 20px;">
+              <span>📋</span> Copiar Texto da Proposta
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SUPORTE B2B DEDICADO
+           ============================================================ -->
+      <section class="portal-card-panel" style="background:linear-gradient(135deg, rgba(18,35,58,0.7) 0%, rgba(7,19,33,0.95) 100%);">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:1.35rem; margin:0 0 6px 0; color:var(--white);">Precisa de suporte em uma cotação especial?</h3>
+            <p style="font-size:0.92rem; color:rgba(255,255,255,0.75); margin:0;">
+              Nosso consultor de atendimento a parceiros pode montar propostas customizadas para grupos ou participar com você de reuniões com clientes.
+            </p>
+          </div>
+          <a href="https://wa.me/5511939056979?text=Ol%C3%A1!%20Sou%20parceiro%20credenciado%20da%20Swiss%20Horizon%20e%20gostaria%20de%20apoio%20em%20uma%20venda." target="_blank" rel="noopener" class="btn btn-primary" style="padding:12px 24px;">
+            <span>💬</span> WhatsApp B2B (+55 11 93905-6979)
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Script do Portal -->
+  <script src="portal.js"></script>
+</body>
+</html>
