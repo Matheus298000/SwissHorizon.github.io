@@ -111,6 +111,107 @@
   color: var(--white);
 }
 
+/* Seletor de Idiomas no Header do Portal (PT, EN, ES) */
+.portal-header .lang-selector-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.portal-header .lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.2s);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.portal-header .lang-btn:hover,
+.portal-header .lang-selector-dropdown.is-open .lang-btn {
+  background: rgba(218, 41, 28, 0.2);
+  border-color: var(--red, #da291c);
+  color: var(--white);
+}
+
+.portal-header .lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 175px;
+  background: #0d1e34;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 200;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.96);
+  pointer-events: none;
+  transform-origin: top right;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portal-header .lang-selector-dropdown.is-open .lang-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.portal-header .lang-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+
+.portal-header .lang-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.portal-header .lang-option.is-active {
+  background: rgba(218, 41, 28, 0.2);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.portal-header .lang-option-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.portal-header .lang-option.is-active .lang-option-badge {
+  background: var(--red, #da291c);
+  color: var(--white);
+}
+
 /* ==========================================================================
    TELA DE LOGIN DO PORTAL (portal-login.html)
    ========================================================================== */
