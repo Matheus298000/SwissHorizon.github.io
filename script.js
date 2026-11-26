@@ -829,7 +829,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
 
   const TRANSLATIONS = {
     pt: {
-      code: "PT",
+      code: "BR",
       toast: "✦ Idioma alterado para Português (Brasil)",
       page_title: "Swiss Horizon | Roteiros Exclusivos pela Suíça 2027",
       page_description: "Viagens exclusivas para a Suíça com a precisão dos trens alpinos. Roteiros Essencial, Premium e Exclusivo em duas janelas de embarque. Atendimento via WhatsApp.",
@@ -1078,6 +1078,8 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       footer_route_essencial: "Linha Essencial (8 dias)",
       footer_route_premium: "Linha Premium (10 dias)",
       footer_route_exclusivo: "Linha Exclusiva (12 dias)",
+      nav_team: "Colaboradores & Equipe",
+      parceiro_portal: "Portal do Parceiro (Login)",
       footer_route_b2b: "Área do Parceiro B2B",
       footer_col3_title: "Central de Atendimento",
       footer_col3_sub: "Atendimento comercial e consultoria:",
@@ -1208,7 +1210,10 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       team_vito_bio: "Especialista na plataforma web principal da Swiss Horizon, implementando interfaces responsivas, integrações de formulários e otimizações contínuas de velocidade.",
       team_cta_title: "Quer fazer parte da nossa equipe?",
       team_cta_desc: "Estamos sempre em busca de novos talentos apaixonados por turismo de alto padrão, precisão suíça e inovação tecnológica.",
-      team_cta_btn: "Envie seu Perfil ➔"
+      team_cta_btn: "Envie seu Perfil ➔",
+
+      //Portal Login
+      work_junto: "← Voltar para Trabalhe Cunoz"
     },
 
     en: {
@@ -1462,6 +1467,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       footer_route_premium: "Premium Line (10 days)",
       footer_route_exclusivo: "Exclusive Line (12 days)",
       footer_route_b2b: "B2B Partner Area",
+      parceiro_portal: "Partner Portal (Login)",
       footer_col3_title: "Customer Care",
       footer_col3_sub: "Commercial advisory and bookings:",
       footer_col3_note: "Available internationally and nationwide.",
@@ -1845,6 +1851,7 @@ Olá! Gostaria de receber a cotação detalhada e verificar disponibilidade para
       footer_route_premium: "Premium-Linie (10 Tage)",
       footer_route_exclusivo: "Exklusiv-Linie (12 Tage)",
       footer_route_b2b: "B2B Partnerbereich",
+      parceiro_portal: "Partnerportal (Login)",
       footer_col3_title: "Kundenservice",
       footer_col3_sub: "Kundenberatung und Buchung:",
       footer_col3_note: "Bundesweit und international erreichbar.",
