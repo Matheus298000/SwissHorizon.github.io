@@ -19,7 +19,7 @@
 </head>
 <body class="portal-body">
 
-  <!-- Header Simplificado -->
+  <!-- Header do Portal com Seletor de Idiomas (PT, EN, ES) -->
   <header class="portal-header">
     <div class="wrap portal-nav-wrap">
       <a href="trabalhe-conosco.html" class="portal-brand-badge" aria-label="Voltar para Trabalhe Conosco">
@@ -27,8 +27,73 @@
         <span style="font-family:var(--font-display); font-weight:700; font-size:1.15rem;">Swiss Horizon<span style="color:var(--red);">.</span></span>
       </a>
 
-      <div>
-        <a href="trabalhe-conosco.html" class="portal-btn-logout" style="border-radius:var(--radius-full); text-decoration:none;">
+      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+        <!-- Seletor de Idiomas (Português, Inglês, Espanhol) -->
+        <div class="lang-selector-dropdown" id="langSelector">
+          <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Selecionar Idioma / Change Language / Seleccionar Idioma">
+            <span class="lang-flag-current" id="currentLangFlag">
+              <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                <rect width="640" height="480" fill="#009c3b" rx="40"/>
+                <polygon points="320,40 590,240 320,440 50,240" fill="#ffdf00"/>
+                <circle cx="320" cy="240" r="120" fill="#002776"/>
+                <path d="M 200,240 A 120,120 0 0,0 440,240 A 130,130 0 0,1 200,240" fill="#ffffff"/>
+              </svg>
+            </span>
+            <span class="lang-code-current" id="currentLangCode">PT</span>
+            <svg class="lang-chevron" viewBox="0 0 12 12" width="10" height="10" fill="currentColor">
+              <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </button>
+
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button type="button" class="lang-option is-active" data-lang="pt" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <rect width="640" height="480" fill="#009c3b" rx="40"/>
+                  <polygon points="320,40 590,240 320,440 50,240" fill="#ffdf00"/>
+                  <circle cx="320" cy="240" r="120" fill="#002776"/>
+                  <path d="M 200,240 A 120,120 0 0,0 440,240 A 130,130 0 0,1 200,240" fill="#ffffff"/>
+                </svg>
+              </span>
+              <span class="lang-option-name">Português</span>
+              <span class="lang-option-badge">PT</span>
+            </button>
+
+            <button type="button" class="lang-option" data-lang="en" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <clipPath id="uk-flag-clip-portal-login"><rect width="640" height="480" rx="40"/></clipPath>
+                  <g clip-path="url(#uk-flag-clip-portal-login)">
+                    <rect width="640" height="480" fill="#012169"/>
+                    <path d="M0,0 L640,480 M640,0 L0,480" stroke="#ffffff" stroke-width="64"/>
+                    <path d="M0,0 L640,480 M640,0 L0,480" stroke="#c8102e" stroke-width="24"/>
+                    <path d="M320,0 V480 M0,240 H640" stroke="#ffffff" stroke-width="106"/>
+                    <path d="M320,0 V480 M0,240 H640" stroke="#c8102e" stroke-width="64"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-option-name">English</span>
+              <span class="lang-option-badge">EN</span>
+            </button>
+
+            <button type="button" class="lang-option" data-lang="de" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <clipPath id="de-flag-clip-opt"><rect width="640" height="480" rx="40"/></clipPath>
+                  <g clip-path="url(#de-flag-clip-opt)">
+                    <rect width="640" height="160" y="0" fill="#000000"/>
+                    <rect width="640" height="160" y="160" fill="#dd0000"/>
+                    <rect width="640" height="160" y="320" fill="#ffce00"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-option-name">Deutsch</span>
+              <span class="lang-option-badge">DE</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="trabalhe-conosco.html" class="portal-btn-logout" style="border-radius:var(--radius-full); text-decoration:none;" data-i18n="nav_back_work">
           ← Voltar para Trabalhe Conosco
         </a>
       </div>
@@ -40,15 +105,15 @@
     <div class="login-card-container">
       <div class="login-card-header">
         <img src="logo.png" alt="Swiss Horizon" class="login-brand-logo">
-        <span class="portal-role-pill partner" style="margin-bottom:12px; display:inline-block;">Portal B2B &amp; Gestão</span>
-        <h1 class="login-title">Área do Parceiro</h1>
-        <p class="login-subtitle">Acesso exclusivo para agências credenciadas e painel de administração &amp; RH da Swiss Horizon.</p>
+        <span class="portal-role-pill partner" style="margin-bottom:12px; display:inline-block;" data-i18n="role_pill_login">Portal B2B &amp; Gestão</span>
+        <h1 class="login-title" data-i18n="login_title">Área do Parceiro</h1>
+        <p class="login-subtitle" data-i18n="login_subtitle">Acesso exclusivo para agências credenciadas e painel de administração &amp; RH da Swiss Horizon.</p>
       </div>
 
       <!-- Abas: Entrar vs Solicitar Credenciamento -->
       <div class="login-tabs-bar" role="tablist">
-        <button type="button" class="login-tab-btn is-active" data-tab="login" role="tab">Entrar no Portal</button>
-        <button type="button" class="login-tab-btn" data-tab="register" role="tab">Solicitar Credencial</button>
+        <button type="button" class="login-tab-btn is-active" data-tab="login" role="tab" data-i18n="tab_login">Entrar no Portal</button>
+        <button type="button" class="login-tab-btn" data-tab="register" role="tab" data-i18n="tab_register">Solicitar Credencial</button>
       </div>
 
       <!-- ABA 1: FORMULÁRIO DE LOGIN -->
@@ -57,39 +122,39 @@
 
         <form id="portalLoginForm">
           <div class="portal-form-group">
-            <label for="loginEmail">E-mail Corporativo ou Usuário</label>
-            <input type="text" id="loginEmail" class="portal-input" required placeholder="ex.: contato@agencia.com.br" autocomplete="username">
+            <label for="loginEmail" data-i18n="lbl_email">E-mail Corporativo ou Usuário</label>
+            <input type="text" id="loginEmail" class="portal-input" required placeholder="ex.: contato@agencia.com.br" autocomplete="username" data-i18n-placeholder="ph_email">
           </div>
 
           <div class="portal-form-group">
-            <label for="loginPassword">Senha de Acesso</label>
-            <input type="password" id="loginPassword" class="portal-input" required placeholder="Digite sua senha" autocomplete="current-password">
+            <label for="loginPassword" data-i18n="lbl_pass">Senha de Acesso</label>
+            <input type="password" id="loginPassword" class="portal-input" required placeholder="Digite sua senha" autocomplete="current-password" data-i18n-placeholder="ph_pass">
           </div>
 
           <div class="portal-form-options">
             <label class="portal-checkbox-label">
               <input type="checkbox" id="rememberMe" checked>
-              <span>Lembrar meu acesso</span>
+              <span data-i18n="lbl_remember">Lembrar meu acesso</span>
             </label>
-            <a href="https://wa.me/5511939056979?text=Ol%C3%A1!%20Esqueci%20minha%20senha%20de%20acesso%20ao%20portal%20do%20parceiro%20Swiss%20Horizon." target="_blank" rel="noopener" class="portal-link">Esqueceu a senha?</a>
+            <a href="https://wa.me/5511939056979?text=Ol%C3%A1!%20Esqueci%20minha%20senha%20de%20acesso%20ao%20portal%20do%20parceiro%20Swiss%20Horizon." target="_blank" rel="noopener" class="portal-link" data-i18n="link_forgot">Esqueceu a senha?</a>
           </div>
 
           <button type="submit" class="portal-btn-submit">
-            <span>Acessar Portal</span>
+            <span data-i18n="btn_login">Acessar Portal</span>
             <span>➔</span>
           </button>
         </form>
 
         <!-- Acesso Rápido para Demonstração e Testes -->
         <div class="login-quick-demo-box">
-          <span class="login-demo-kicker">✦ Contas de Teste Rápido (1 Clique):</span>
+          <span class="login-demo-kicker" data-i18n="kicker_demo">✦ Contas de Teste Rápido (1 Clique):</span>
           <div class="demo-buttons-grid">
             <button type="button" class="btn-demo-account" id="demoBtnAdmin" title="Entrar como Gestor de RH / Administrador">
-              <span>👔 Administrador / RH</span>
+              <span data-i18n="btn_demo_admin">👔 Administrador / RH</span>
               <small>admin@swisshorizon.com</small>
             </button>
             <button type="button" class="btn-demo-account" id="demoBtnPartner" title="Entrar como Agência Parceira Ativa">
-              <span>🏢 Agência Parceira</span>
+              <span data-i18n="btn_demo_partner">🏢 Agência Parceira</span>
               <small>Alpine Turismo B2B</small>
             </button>
           </div>
@@ -98,52 +163,56 @@
 
       <!-- ABA 2: SOLICITAÇÃO DE CREDENCIAMENTO -->
       <div id="registerTabPanel" style="display:none;">
-        <div id="registerSuccessNotice" style="display:none; background:rgba(46,204,113,0.18); border:1px solid #2ecc71; color:#2ecc71; padding:14px; border-radius:var(--radius-md); font-size:0.88rem; margin-bottom:20px; text-align:center;">
+        <div id="registerSuccessNotice" style="display:none; background:rgba(46,204,113,0.18); border:1px solid #2ecc71; color:#2ecc71; padding:14px; border-radius:var(--radius-md); font-size:0.88rem; margin-bottom:20px; text-align:center;" data-i18n="reg_success">
           ✅ Solicitação enviada! Nossa equipe de RH analisará seu cadastro e liberará o acesso via WhatsApp.
         </div>
 
         <form id="quickRegisterForm">
           <div class="portal-form-group">
-            <label for="regAgencyName">Nome da Agência / Razão Social</label>
-            <input type="text" id="regAgencyName" class="portal-input" required placeholder="Ex.: Alpine Turismo e Viagens">
+            <label for="regAgencyName" data-i18n="lbl_reg_agency">Nome da Agência / Razão Social</label>
+            <input type="text" id="regAgencyName" class="portal-input" required placeholder="Ex.: Alpine Turismo e Viagens" data-i18n-placeholder="ph_reg_agency">
           </div>
 
           <div class="portal-form-group">
-            <label for="regAgencyCity">Cidade / Estado (UF)</label>
-            <input type="text" id="regAgencyCity" class="portal-input" required placeholder="Ex.: São Paulo / SP">
+            <label for="regAgencyCity" data-i18n="lbl_reg_city">Cidade / Estado (UF)</label>
+            <input type="text" id="regAgencyCity" class="portal-input" required placeholder="Ex.: São Paulo / SP" data-i18n-placeholder="ph_reg_city">
           </div>
 
           <div class="portal-form-group">
-            <label for="regAgencyContact">Nome do Responsável Comercial</label>
-            <input type="text" id="regAgencyContact" class="portal-input" required placeholder="Seu nome completo">
+            <label for="regAgencyContact" data-i18n="lbl_reg_contact">Nome do Responsável Comercial</label>
+            <input type="text" id="regAgencyContact" class="portal-input" required placeholder="Seu nome completo" data-i18n-placeholder="ph_reg_contact">
           </div>
 
           <div class="portal-form-group">
-            <label for="regAgencyWpp">WhatsApp Comercial</label>
-            <input type="tel" id="regAgencyWpp" class="portal-input" required placeholder="(11) 99999-9999">
+            <label for="regAgencyWpp" data-i18n="lbl_reg_wpp">WhatsApp Comercial</label>
+            <input type="tel" id="regAgencyWpp" class="portal-input" required placeholder="(11) 99999-9999" data-i18n-placeholder="ph_reg_wpp">
           </div>
 
           <div class="portal-form-group">
-            <label for="regAgencyEmail">E-mail para Acesso ao Portal</label>
-            <input type="email" id="regAgencyEmail" class="portal-input" required placeholder="contato@suaagencia.com.br">
+            <label for="regAgencyEmail" data-i18n="lbl_reg_email">E-mail para Acesso ao Portal</label>
+            <input type="email" id="regAgencyEmail" class="portal-input" required placeholder="contato@suaagencia.com.br" data-i18n-placeholder="ph_reg_email">
           </div>
 
           <div class="portal-form-group">
-            <label for="regAgencyMsg">Perfil da agência ou observação para o RH</label>
-            <textarea id="regAgencyMsg" class="portal-input" rows="2" placeholder="Conte brevemente sobre o perfil dos seus passageiros..."></textarea>
+            <label for="regAgencyMsg" data-i18n="lbl_reg_msg">Perfil da agência ou observação para o RH</label>
+            <textarea id="regAgencyMsg" class="portal-input" rows="2" placeholder="Conte brevemente sobre o perfil dos seus passageiros..." data-i18n-placeholder="ph_reg_msg"></textarea>
           </div>
 
           <button type="submit" class="portal-btn-submit" style="background:var(--red);">
-            <span>🚀 Enviar Pedido para o RH</span>
+            <span data-i18n="btn_reg_submit">🚀 Enviar Pedido para o RH</span>
           </button>
         </form>
       </div>
 
       <div class="login-back-home">
-        <a href="index.html" class="portal-link" style="color:rgba(255,255,255,0.65);">← Voltar para a Página Inicial da Swiss Horizon</a>
+        <a href="index.html" class="portal-link" style="color:rgba(255,255,255,0.65);" data-i18n="back_home">← Voltar para a Página Inicial da Swiss Horizon</a>
       </div>
     </div>
   </main>
+
+  <!-- Firebase SDK compatível (habilita sincronização de logins e leads em nuvem no GitHub Pages) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
   <!-- Script do Portal -->
   <script src="portal.js"></script>
