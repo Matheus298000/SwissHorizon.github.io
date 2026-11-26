@@ -29,16 +29,81 @@
           <img src="logo.png" alt="Logo Swiss Horizon" style="width:34px; height:34px;">
           <span style="font-family:var(--font-display); font-weight:700; font-size:1.15rem;">Swiss Horizon<span style="color:var(--red);">.</span></span>
         </a>
-        <span class="portal-role-pill admin">Gestão RH &amp; Operações B2B</span>
+        <span class="portal-role-pill admin" data-i18n="role_pill_admin">Gestão RH &amp; Operações B2B</span>
       </div>
 
       <div class="portal-user-meta">
+        <!-- Seletor de Idiomas (Português, Inglês, Espanhol) -->
+        <div class="lang-selector-dropdown" id="langSelector">
+          <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Selecionar Idioma / Change Language / Seleccionar Idioma">
+            <span class="lang-flag-current" id="currentLangFlag">
+              <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                <rect width="640" height="480" fill="#009c3b" rx="40"/>
+                <polygon points="320,40 590,240 320,440 50,240" fill="#ffdf00"/>
+                <circle cx="320" cy="240" r="120" fill="#002776"/>
+                <path d="M 200,240 A 120,120 0 0,0 440,240 A 130,130 0 0,1 200,240" fill="#ffffff"/>
+              </svg>
+            </span>
+            <span class="lang-code-current" id="currentLangCode">PT</span>
+            <svg class="lang-chevron" viewBox="0 0 12 12" width="10" height="10" fill="currentColor">
+              <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </button>
+
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button type="button" class="lang-option is-active" data-lang="pt" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <rect width="640" height="480" fill="#009c3b" rx="40"/>
+                  <polygon points="320,40 590,240 320,440 50,240" fill="#ffdf00"/>
+                  <circle cx="320" cy="240" r="120" fill="#002776"/>
+                  <path d="M 200,240 A 120,120 0 0,0 440,240 A 130,130 0 0,1 200,240" fill="#ffffff"/>
+                </svg>
+              </span>
+              <span class="lang-option-name">Português</span>
+              <span class="lang-option-badge">PT</span>
+            </button>
+
+            <button type="button" class="lang-option" data-lang="en" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <clipPath id="uk-flag-clip-portal-admin"><rect width="640" height="480" rx="40"/></clipPath>
+                  <g clip-path="url(#uk-flag-clip-portal-admin)">
+                    <rect width="640" height="480" fill="#012169"/>
+                    <path d="M0,0 L640,480 M640,0 L0,480" stroke="#ffffff" stroke-width="64"/>
+                    <path d="M0,0 L640,480 M640,0 L0,480" stroke="#c8102e" stroke-width="24"/>
+                    <path d="M320,0 V480 M0,240 H640" stroke="#ffffff" stroke-width="106"/>
+                    <path d="M320,0 V480 M0,240 H640" stroke="#c8102e" stroke-width="64"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-option-name">English</span>
+              <span class="lang-option-badge">EN</span>
+            </button>
+
+            <button type="button" class="lang-option" data-lang="de" role="menuitem">
+              <span class="lang-option-flag">
+                <svg class="lang-flag-svg" viewBox="0 0 640 480" width="20" height="15" aria-hidden="true">
+                  <clipPath id="de-flag-clip-opt"><rect width="640" height="480" rx="40"/></clipPath>
+                  <g clip-path="url(#de-flag-clip-opt)">
+                    <rect width="640" height="160" y="0" fill="#000000"/>
+                    <rect width="640" height="160" y="160" fill="#dd0000"/>
+                    <rect width="640" height="160" y="320" fill="#ffce00"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="lang-option-name">Deutsch</span>
+              <span class="lang-option-badge">DE</span>
+            </button>
+          </div>
+        </div>
+
         <div class="portal-user-info">
           <span class="portal-user-name" id="adminLoggedName">Michel (CHRO)</span>
-          <span class="portal-user-detail">Acesso Master · Administração Swiss Horizon</span>
+          <span class="portal-user-detail" data-i18n="admin_master_detail">Acesso Master · Administração Swiss Horizon</span>
         </div>
         <button type="button" class="portal-btn-logout" id="portalLogoutBtn" title="Encerrar Sessão">
-          <span>Sair</span> ➔
+          <span data-i18n="nav_logout">Sair</span> ➔
         </button>
       </div>
     </div>
@@ -56,7 +121,7 @@
           <div class="admin-metric-icon">🏢</div>
           <div>
             <h3 class="admin-metric-val" id="metricActivePartners">2</h3>
-            <p class="admin-metric-title">Agências Ativas</p>
+            <p class="admin-metric-title" data-i18n="adm_metric_active">Agências Ativas</p>
           </div>
         </div>
 
@@ -64,7 +129,7 @@
           <div class="admin-metric-icon" style="background:rgba(218,41,28,0.2); color:var(--red);">⏳</div>
           <div>
             <h3 class="admin-metric-val" id="metricPendingRH" style="color:var(--red);">2</h3>
-            <p class="admin-metric-title">Aguardando Parecer RH</p>
+            <p class="admin-metric-title" data-i18n="adm_metric_pending">Aguardando Parecer RH</p>
           </div>
         </div>
 
@@ -72,7 +137,7 @@
           <div class="admin-metric-icon" style="color:var(--gold); background:rgba(232,181,84,0.15);">📄</div>
           <div>
             <h3 class="admin-metric-val" id="metricFolderDownloads" style="color:var(--gold);">22</h3>
-            <p class="admin-metric-title">Downloads do Folder A4</p>
+            <p class="admin-metric-title" data-i18n="adm_metric_downloads">Downloads do Folder A4</p>
           </div>
         </div>
 
@@ -80,7 +145,7 @@
           <div class="admin-metric-icon" style="color:#2ecc71; background:rgba(46,204,113,0.15);">💰</div>
           <div>
             <h3 class="admin-metric-val" style="color:#2ecc71;">R$ 48.600</h3>
-            <p class="admin-metric-title">Comissões em Andamento</p>
+            <p class="admin-metric-title" data-i18n="adm_metric_comm">Comissões em Andamento</p>
           </div>
         </div>
       </section>
@@ -88,20 +153,20 @@
       <!-- Abas do Painel Administrativo -->
       <div class="admin-nav-tabs" role="tablist">
         <button type="button" class="admin-tab-btn is-active" data-admin-tab="tabApprovalQueue" role="tab">
-          <span>⏳ Fila de Aprovação do RH</span>
+          <span>⏳ <span data-i18n="tab_adm_queue">Fila de Aprovação do RH</span></span>
           <span class="admin-tab-count" id="pendingTabCount">2</span>
         </button>
 
         <button type="button" class="admin-tab-btn" data-admin-tab="tabManualRegister" role="tab">
-          <span>➕ Cadastrar Parceiro (Pós-WhatsApp)</span>
+          <span>➕ <span data-i18n="tab_adm_manual">Cadastrar Parceiro (Pós-WhatsApp)</span></span>
         </button>
 
         <button type="button" class="admin-tab-btn" data-admin-tab="tabActivePartners" role="tab">
-          <span>🏢 Agências Credenciadas</span>
+          <span>🏢 <span data-i18n="tab_adm_partners">Agências Credenciadas</span></span>
         </button>
 
         <button type="button" class="admin-tab-btn" data-admin-tab="tabSystemLogs" role="tab">
-          <span>📋 Histórico &amp; Logs</span>
+          <span>📋 <span data-i18n="tab_adm_logs">Histórico &amp; Logs</span></span>
         </button>
       </div>
 
@@ -111,8 +176,8 @@
       <section id="tabApprovalQueue" class="admin-tab-panel">
         <div class="portal-panel-head">
           <div>
-            <h2 class="portal-panel-title">Pedidos de Credenciamento Aguardando RH</h2>
-            <p class="portal-panel-subtitle">
+            <h2 class="portal-panel-title" data-i18n="adm_queue_title">Pedidos de Credenciamento Aguardando RH</h2>
+            <p class="portal-panel-subtitle" data-i18n="adm_queue_sub">
               Solicitações recebidas através do WhatsApp e formulário de Trabalhe Conosco. Avalie e aprove para liberar o acesso ao Folder e às comissões.
             </p>
           </div>
@@ -129,48 +194,48 @@
         <div class="portal-card-panel">
           <div class="portal-panel-head">
             <div>
-              <h2 class="portal-panel-title">Cadastro Direto de Nova Agência Parceira</h2>
-              <p class="portal-panel-subtitle">
+              <h2 class="portal-panel-title" data-i18n="adm_manual_title">Cadastro Direto de Nova Agência Parceira</h2>
+              <p class="portal-panel-subtitle" data-i18n="adm_manual_sub">
                 Use este formulário quando o alinhamento comercial for concluído pelo WhatsApp ou telefone para criar o acesso imediato da agência.
               </p>
             </div>
-            <span class="portal-role-pill admin">Aprovação Direta RH</span>
+            <span class="portal-role-pill admin" data-i18n="badge_hr_direct">Aprovação Direta RH</span>
           </div>
 
           <form id="adminManualPartnerForm">
             <div class="admin-form-grid">
               <div class="form-field full-col">
-                <label for="manAgencyName" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Razão Social ou Nome Fantasia da Agência</label>
-                <input type="text" id="manAgencyName" class="portal-input" required placeholder="Ex.: Viaje Bem Turismo Ltda">
+                <label for="manAgencyName" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;" data-i18n="lbl_adm_agency">Razão Social ou Nome Fantasia da Agência</label>
+                <input type="text" id="manAgencyName" class="portal-input" required placeholder="Ex.: Viaje Bem Turismo Ltda" data-i18n-placeholder="ph_adm_agency">
               </div>
 
               <div class="form-field">
-                <label for="manContactName" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Nome do Responsável / Agente</label>
-                <input type="text" id="manContactName" class="portal-input" required placeholder="Ex.: Fernanda Costa">
+                <label for="manContactName" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;" data-i18n="lbl_adm_contact">Nome do Responsável / Agente</label>
+                <input type="text" id="manContactName" class="portal-input" required placeholder="Ex.: Fernanda Costa" data-i18n-placeholder="ph_adm_contact">
               </div>
 
               <div class="form-field">
-                <label for="manCity" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Cidade / UF</label>
-                <input type="text" id="manCity" class="portal-input" required placeholder="Ex.: Rio de Janeiro / RJ">
+                <label for="manCity" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;" data-i18n="lbl_adm_city">Cidade / UF</label>
+                <input type="text" id="manCity" class="portal-input" required placeholder="Ex.: Rio de Janeiro / RJ" data-i18n-placeholder="ph_adm_city">
               </div>
 
               <div class="form-field">
-                <label for="manWpp" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">WhatsApp Comercial da Agência</label>
-                <input type="tel" id="manWpp" class="portal-input" required placeholder="(21) 98888-7777">
+                <label for="manWpp" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;" data-i18n="lbl_adm_wpp">WhatsApp Comercial da Agência</label>
+                <input type="tel" id="manWpp" class="portal-input" required placeholder="(21) 98888-7777" data-i18n-placeholder="ph_adm_wpp">
               </div>
 
               <div class="form-field">
-                <label for="manEmail" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">E-mail de Login do Parceiro</label>
-                <input type="email" id="manEmail" class="portal-input" required placeholder="contato@viajebem.com.br">
+                <label for="manEmail" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;" data-i18n="lbl_adm_email">E-mail de Login do Parceiro</label>
+                <input type="email" id="manEmail" class="portal-input" required placeholder="contato@viajebem.com.br" data-i18n-placeholder="ph_adm_email">
               </div>
 
               <div class="form-field">
-                <label for="manPassword" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Senha Inicial de Acesso</label>
+                <label for="manPassword" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;" data-i18n="lbl_adm_pass">Senha Inicial de Acesso</label>
                 <input type="text" id="manPassword" class="portal-input" value="swiss2027" required placeholder="swiss2027">
               </div>
 
               <div class="form-field">
-                <label for="manCommission" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;">Nível de Comissão Contratada</label>
+                <label for="manCommission" style="font-size:0.86rem; font-weight:600; margin-bottom:6px; display:block;" data-i18n="lbl_adm_comm">Nível de Comissão Contratada</label>
                 <select id="manCommission" class="portal-input">
                   <option value="12" selected>12% Padrão (R$ 1.548 a R$ 2.088/pax)</option>
                   <option value="14">14% Diferenciada (Agências Prime)</option>
@@ -181,7 +246,7 @@
 
               <div class="form-field full-col" style="margin-top:14px;">
                 <button type="submit" class="btn btn-primary" style="padding:16px 28px; font-size:1.02rem; width:100%;">
-                  <span>🚀</span> Cadastrar Agência &amp; Notificar Acesso no WhatsApp →
+                  <span>🚀</span> <span data-i18n="btn_manual_submit">Cadastrar Agência &amp; Notificar Acesso no WhatsApp →</span>
                 </button>
               </div>
             </div>
@@ -196,8 +261,8 @@
         <div class="portal-card-panel">
           <div class="portal-panel-head">
             <div>
-              <h2 class="portal-panel-title">Agências Parceiras Ativas na Base</h2>
-              <p class="portal-panel-subtitle">Parceiros com login liberado, acesso ao Folder A4 e comissão habilitada.</p>
+              <h2 class="portal-panel-title" data-i18n="adm_partners_title">Agências Parceiras Ativas na Base</h2>
+              <p class="portal-panel-subtitle" data-i18n="adm_partners_sub">Parceiros com login liberado, acesso ao Folder A4 e comissão habilitada.</p>
             </div>
           </div>
 
@@ -205,13 +270,13 @@
             <table class="portal-table">
               <thead>
                 <tr>
-                  <th>Agência</th>
-                  <th>Responsável</th>
-                  <th>Cidade / UF</th>
-                  <th>Login (E-mail)</th>
-                  <th>Comissão</th>
-                  <th>Uso do Folder</th>
-                  <th>Ações</th>
+                  <th data-i18n="th_adm_agency">Agência</th>
+                  <th data-i18n="th_adm_contact">Responsável</th>
+                  <th data-i18n="th_adm_city">Cidade / UF</th>
+                  <th data-i18n="th_adm_email">Login (E-mail)</th>
+                  <th data-i18n="th_adm_comm">Comissão</th>
+                  <th data-i18n="th_adm_use">Uso do Folder</th>
+                  <th data-i18n="th_adm_actions">Ações</th>
                 </tr>
               </thead>
               <tbody id="activePartnersTableBody">
@@ -229,8 +294,8 @@
         <div class="portal-card-panel">
           <div class="portal-panel-head">
             <div>
-              <h2 class="portal-panel-title">Registro de Atividades &amp; Auditoria B2B</h2>
-              <p class="portal-panel-subtitle">Histórico de aprovações do RH, downloads de materiais e acessos recentes.</p>
+              <h2 class="portal-panel-title" data-i18n="adm_logs_title">Registro de Atividades &amp; Auditoria B2B</h2>
+              <p class="portal-panel-subtitle" data-i18n="adm_logs_sub">Histórico de aprovações do RH, downloads de materiais e acessos recentes.</p>
             </div>
           </div>
 
@@ -248,6 +313,10 @@
 
     </div>
   </main>
+
+  <!-- Firebase SDK compatível (habilita sincronização de logins e leads em nuvem no GitHub Pages) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
   <!-- Script do Portal -->
   <script src="portal.js"></script>
